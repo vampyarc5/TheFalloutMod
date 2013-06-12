@@ -1,4 +1,4 @@
-package blfngl.fallout.render;
+package blfngl.fallout.gun.render;
 
 import net.minecraftforge.client.IItemRenderer.ItemRenderType;
 

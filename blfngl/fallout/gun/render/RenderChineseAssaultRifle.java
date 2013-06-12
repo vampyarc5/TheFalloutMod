@@ -1,4 +1,4 @@
-package blfngl.fallout.render;
+package blfngl.fallout.gun.render;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;
@@ -11,14 +11,11 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import blfngl.fallout.gun.model.ModelRevolver;
+import blfngl.fallout.gun.model.ModelChineseAssaultRifle;
 
-
-import cpw.mods.fml.client.TextureHelper;
-
-public class RenderPistolScoped implements IItemRenderer
+public class RenderChineseAssaultRifle implements IItemRenderer
 {
-    protected ModelRevolver model = new ModelRevolver();
+    protected ModelChineseAssaultRifle model = new ModelChineseAssaultRifle();
 
     public boolean handleRenderType(ItemStack var1, ItemRenderType var2)
     {
@@ -43,7 +40,7 @@ public class RenderPistolScoped implements IItemRenderer
         {
             case 1:
                 GL11.glPushMatrix();
-                Minecraft.getMinecraft().renderEngine.bindTexture("/blfngl/fallout/textures/ADV1_1.png");
+                Minecraft.getMinecraft().renderEngine.bindTexture("/blfngl/fallout/textures/ChineseAssaultRifle.png");
                 boolean var4 = false;
 
                 if (var3[1] != null && var3[1] instanceof EntityPlayer)
@@ -54,11 +51,11 @@ public class RenderPistolScoped implements IItemRenderer
                     {
                         var4 = true;
                         var5 = 0.7F;
-                        GL11.glTranslatef(1.0F, 1.02F, -0.72F);
+                        GL11.glTranslatef(1.0F, 0.7F, 0.6F);
                         GL11.glScalef(var5, var5, var5);
                         GL11.glRotatef(205.0F, 0.0F, 0.0F, 1.0F);
-                        GL11.glRotatef(95.0F, 0.0F, 1.0F, 0.0F);
-                        GL11.glRotatef(0.0F, 1.0F, 0.0F, 0.0F);
+                        GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);
+                        GL11.glRotatef(-5.0F, 1.0F, 0.0F, 0.0F);
                     }
                     else
                     {

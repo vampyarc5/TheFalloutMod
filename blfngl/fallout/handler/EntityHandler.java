@@ -10,6 +10,7 @@ import blfngl.fallout.entity.EntityFGhoul;
 import blfngl.fallout.entity.EntityGecko;
 import blfngl.fallout.entity.EntityGiantAnt;
 import blfngl.fallout.entity.EntityGlowingOne;
+import blfngl.fallout.entity.EntityMrHandy;
 import blfngl.fallout.entity.EntityNightStalker;
 import blfngl.fallout.entity.EntityRadroach;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -28,7 +29,7 @@ public class EntityHandler
 		EntityRegistry.addSpawn(EntityGlowingOne.class, 5, 1, 2, EnumCreatureType.creature, Fallout.Wasteland);
 
 		EntityRegistry.registerGlobalEntityID(EntityNightStalker.class, "Nightstalker", ModLoader.getUniqueEntityId(), 230, 78);
-		ModLoader.addLocalization("entity.NightStalker.name", "en_US", "Nightstalker");
+		LanguageRegistry.instance().addStringLocalization("entity.NightStalker.name", "en_US", "Nightstalker");
 		EntityRegistry.addSpawn(EntityNightStalker.class, 5, 1, 2, EnumCreatureType.creature, Fallout.Wasteland);
 
 		EntityRegistry.registerGlobalEntityID(EntityBrahmin.class, "Brahmin", ModLoader.getUniqueEntityId(), 230, 78);
@@ -53,5 +54,9 @@ public class EntityHandler
 
 		EntityRegistry.registerGlobalEntityID(EntityBullet.class, "Bullet", ModLoader.getUniqueEntityId());
 		LanguageRegistry.instance().addStringLocalization("entity.Bullet.name", "en_US", "Bullet");
+
+		EntityRegistry.registerGlobalEntityID(EntityMrHandy.class, "MrHandy", ModLoader.getUniqueEntityId(), 230, 78);
+		LanguageRegistry.instance().addStringLocalization("entity.MrHandy.name", "en_US", "Mr. Handy");
+		EntityRegistry.addSpawn(EntityMrHandy.class, 5, 1, 2, EnumCreatureType.creature, Fallout.Wasteland);
 	}
 }

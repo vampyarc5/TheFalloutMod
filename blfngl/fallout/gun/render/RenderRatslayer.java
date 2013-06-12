@@ -1,4 +1,4 @@
-package blfngl.fallout.render;
+package blfngl.fallout.gun.render;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;
@@ -11,14 +11,13 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import blfngl.fallout.gun.model.ModelBozar;
-
+import blfngl.fallout.gun.model.ModelRatslayer;
 
 import cpw.mods.fml.client.TextureHelper;
 
-public class RenderBozarScope implements IItemRenderer
+public class RenderRatslayer implements IItemRenderer
 {
-    protected ModelBozar model = new ModelBozar();
+    protected ModelRatslayer model = new ModelRatslayer();
 
     public boolean handleRenderType(ItemStack var1, ItemRenderType var2)
     {
@@ -54,11 +53,11 @@ public class RenderBozarScope implements IItemRenderer
                     {
                         var4 = true;
                         var5 = 0.7F;
-                        GL11.glTranslatef(1.0F, 1.02F, -0.72F);
+                        GL11.glTranslatef(1.0F, 0.7F, 0.6F);
                         GL11.glScalef(var5, var5, var5);
                         GL11.glRotatef(205.0F, 0.0F, 0.0F, 1.0F);
-                        GL11.glRotatef(95.0F, 0.0F, 1.0F, 0.0F);
-                        GL11.glRotatef(0.0F, 1.0F, 0.0F, 0.0F);
+                        GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);
+                        GL11.glRotatef(-5.0F, 1.0F, 0.0F, 0.0F);
                     }
                     else
                     {

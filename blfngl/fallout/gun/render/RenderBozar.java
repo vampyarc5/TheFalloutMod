@@ -1,4 +1,4 @@
-package blfngl.fallout.render;
+package blfngl.fallout.gun.render;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;

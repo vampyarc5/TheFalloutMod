@@ -136,6 +136,10 @@ public class SoundHandler
 			event.manager.soundPoolSounds.addSound("blfngl/InfiltratorFire.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/InfiltratorFire.ogg"));
 			event.manager.soundPoolSounds.addSound("blfngl/InfiltratorReload.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/InfiltratorReload.ogg"));
 
+			event.manager.soundPoolSounds.addSound("blfngl/MrHandyTalk.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/MrHandyTalk.ogg"));
+			//event.manager.soundPoolSounds.addSound("blfngl/InfiltratorReload.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/InfiltratorReload.ogg"));
+			//event.manager.soundPoolSounds.addSound("blfngl/InfiltratorReload.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/InfiltratorReload.ogg"));
+
 		}
 
 		catch (Exception e)

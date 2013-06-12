@@ -1,4 +1,4 @@
-package blfngl.fallout.render;
+package blfngl.fallout.gun.render;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;
@@ -11,14 +11,14 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import blfngl.fallout.gun.model.ModelRatslayer;
+import blfngl.fallout.gun.model.ModelChineseAssaultRifle;
 
 
 import cpw.mods.fml.client.TextureHelper;
 
-public class RenderRatslayerScoped implements IItemRenderer
+public class RenderChineseAssaultRifleScoped implements IItemRenderer
 {
-    protected ModelRatslayer model = new ModelRatslayer();
+    protected ModelChineseAssaultRifle model = new ModelChineseAssaultRifle();
 
     public boolean handleRenderType(ItemStack var1, ItemRenderType var2)
     {

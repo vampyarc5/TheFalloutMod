@@ -1,4 +1,4 @@
-package blfngl.fallout.render;
+package blfngl.fallout.gun.render;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;
@@ -11,11 +11,13 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import blfngl.fallout.gun.model.ModelChineseAssaultRifle;
+import blfngl.fallout.gun.model.ModelRevolver;
 
-public class RenderChineseAssaultRifle implements IItemRenderer
+import cpw.mods.fml.client.TextureHelper;
+
+public class RenderPistol implements IItemRenderer
 {
-    protected ModelChineseAssaultRifle model = new ModelChineseAssaultRifle();
+    protected ModelRevolver model = new ModelRevolver();
 
     public boolean handleRenderType(ItemStack var1, ItemRenderType var2)
     {
@@ -40,7 +42,7 @@ public class RenderChineseAssaultRifle implements IItemRenderer
         {
             case 1:
                 GL11.glPushMatrix();
-                Minecraft.getMinecraft().renderEngine.bindTexture("/blfngl/fallout/textures/ChineseAssaultRifle.png");
+                Minecraft.getMinecraft().renderEngine.bindTexture("/blfngl/fallout/textures/Gun.png");
                 boolean var4 = false;
 
                 if (var3[1] != null && var3[1] instanceof EntityPlayer)
