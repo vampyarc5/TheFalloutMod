@@ -97,5 +97,6 @@ public class FoodHandler extends Fallout
 		LanguageRegistry.addName(fiendStew, "Cook Cook's Fiend Stew");
 		GameRegistry.addShapelessRecipe(new ItemStack(fiendStew), new Object [] {beer, beer, Item.potato, BrahminMeat, bJalapeno});
 
+		System.out.println("Fallout: Food system loaded. Omnomnomnomnom.");
 	}
 }

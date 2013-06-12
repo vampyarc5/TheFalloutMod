@@ -64,5 +64,7 @@ public class RecordHandler
 //		Track25 = (new ItemFalloutRecord(Track25ID, "Land Of Confusion").setUnlocalizedName("Land Of Confusion");
 //		Track26 = (new ItemFalloutRecord(Track26ID, "Little Talks").setUnlocalizedName("Little Talks");
 //		Track27 = (new ItemFalloutRecord(Track27ID, "Sweet Dreams").setUnlocalizedName("Sweet Dreams");
+		
+		System.out.println("Fallout: Records loaded. 'I've got spurs...'");
 	}
 }

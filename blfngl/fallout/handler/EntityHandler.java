@@ -58,5 +58,7 @@ public class EntityHandler
 		EntityRegistry.registerGlobalEntityID(EntityMrHandy.class, "MrHandy", ModLoader.getUniqueEntityId(), 230, 78);
 		LanguageRegistry.instance().addStringLocalization("entity.MrHandy.name", "en_US", "Mr. Handy");
 		EntityRegistry.addSpawn(EntityMrHandy.class, 5, 1, 2, EnumCreatureType.creature, Fallout.Wasteland);
+		
+		System.out.println("Fallout: Entity system loaded. Cap that feral ghoul!");
 	}
 }

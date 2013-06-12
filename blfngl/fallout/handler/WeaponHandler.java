@@ -63,5 +63,6 @@ public class WeaponHandler extends Fallout
 
 		LanguageRegistry.addName(shiskebabFlaming, "Shishkebab (Flaming)");
 
+		System.out.println("Fallout: Melee/unarmed handler loaded. Bonk.");
 	}
 }

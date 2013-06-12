@@ -24,5 +24,7 @@ public class WorldHandler
 		GameRegistry.registerWorldGenerator(new WorldGenSiliconDeposit());
 		GameRegistry.registerWorldGenerator(new WorldGenAsbestosDeposit());
 		GameRegistry.registerWorldGenerator(new WorldGenCarbonDeposit());
+		
+		System.out.println("Fallout: World generation loaded. Welcome to the wasteland.");
 	}
 }

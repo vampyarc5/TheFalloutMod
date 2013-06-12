@@ -59,5 +59,6 @@ public class ArmorHandler
 		LanguageRegistry.addName(Fallout.WinterBoots, "Winterized T-51b Boots");
 		//GameRegistry.addRecipe(new ItemStack(FalloutMain.WinterBoots), new Object [] {});
 
+		System.out.println("Fallout: Armor system loaded. Kapwing.");
 	}
 }

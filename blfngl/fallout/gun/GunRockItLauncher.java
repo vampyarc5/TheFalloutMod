@@ -16,7 +16,7 @@ import org.lwjgl.input.Keyboard;
 import blfngl.fallout.Fallout;
 import blfngl.fallout.entity.EntityBullet;
 
-public class ItemGun extends Item
+public class GunRockItLauncher extends Item
 {
 	private int damage;
 	private double reloadtick;
@@ -43,7 +43,7 @@ public class ItemGun extends Item
 		return true;
 	}
 
-	public ItemGun(int var1, int var2, int var3, double var4, double var5, String var6, String var7, Item var8, int var9)
+	public GunRockItLauncher(int var1, int var2, int var3, double var4, double var5, String var6, String var7, Item var8, int var9)
 	{
 		super(var1);
 		damage = var2;
@@ -62,7 +62,7 @@ public class ItemGun extends Item
 		cnd = var9;
 	}
 
-	public ItemGun(int var1, int var2, int var3, int var4, int var5, String var6, String var7, Item var9, int var10, int var11, int var12)
+	public GunRockItLauncher(int var1, int var2, int var3, int var4, int var5, String var6, String var7, Item var9, int var10, int var11, int var12)
 	{
 		super(var1);
 		damage = var2;
@@ -100,16 +100,6 @@ public class ItemGun extends Item
 				var1.damageItem(1, var3);
 
 				if (!var3.capabilities.isCreativeMode){rounds-=1;}
-
-				if (ammoType.itemID == Fallout.a10mm.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case10mm));}
-				if (ammoType.itemID == Fallout.a22LR.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case22LR));}
-				if (ammoType.itemID == Fallout.a9mm.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case9mm));}
-				if (ammoType.itemID == Fallout.a357.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case357));}
-				if (ammoType.itemID == Fallout.a44.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case44));}
-				if (ammoType.itemID == Fallout.a45Auto.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case45Auto));}
-				if (ammoType.itemID == Fallout.a50MG.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case50MG));}
-				if (ammoType.itemID == Fallout.aGovt.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.caseGovt));}
-				if (ammoType.itemID == Fallout.a308.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case308));}
 
 				firetick = 0;
 			}
@@ -164,7 +154,103 @@ public class ItemGun extends Item
 		EntityPlayer var3 = (EntityPlayer)par3Entity;
 		//gunHealth = par1ItemStack.getItemDamage()/par1ItemStack.getMaxDamage();
 
-		if (!var2.isRemote && var3.inventory.hasItem(ammoType.itemID) && rounds<clipSize && Keyboard.isKeyDown(Keyboard.KEY_R) && !reloading)
+		if (!var2.isRemote && var3.inventory.hasItem(Fallout.tinCan.itemID) && rounds<clipSize && Keyboard.isKeyDown(Keyboard.KEY_R) && !reloading)
+		{
+			reloading=true;
+
+			if (reloadtick >= reloadmax)
+			{
+				reloadtick = 0;
+				count = 0;
+				var2.playSoundAtEntity(var3, reloadsound, 1.0F, 1.0F);
+
+				while (rounds<clipSize && var3.inventory.hasItem(ammoType.itemID))
+				{
+					var3.inventory.consumeInventoryItem(ammoType.itemID);
+					rounds += 1;
+				}
+
+			}
+			else
+			{
+				++reloadtick;
+			}
+			reloading=false;
+		}
+		
+		else if (!var2.isRemote && var3.inventory.hasItem(Fallout.scrapMetal.itemID) && rounds<clipSize && Keyboard.isKeyDown(Keyboard.KEY_R) && !reloading)
+		{
+			reloading=true;
+
+			if (reloadtick >= reloadmax)
+			{
+				reloadtick = 0;
+				count = 0;
+				var2.playSoundAtEntity(var3, reloadsound, 1.0F, 1.0F);
+
+				while (rounds<clipSize && var3.inventory.hasItem(ammoType.itemID))
+				{
+					var3.inventory.consumeInventoryItem(ammoType.itemID);
+					rounds += 1;
+				}
+
+			}
+			else
+			{
+				++reloadtick;
+			}
+			reloading=false;
+		}
+		
+		else if (!var2.isRemote && var3.inventory.hasItem(Fallout.lead.itemID) && rounds<clipSize && Keyboard.isKeyDown(Keyboard.KEY_R) && !reloading)
+		{
+			reloading=true;
+
+			if (reloadtick >= reloadmax)
+			{
+				reloadtick = 0;
+				count = 0;
+				var2.playSoundAtEntity(var3, reloadsound, 1.0F, 1.0F);
+
+				while (rounds<clipSize && var3.inventory.hasItem(ammoType.itemID))
+				{
+					var3.inventory.consumeInventoryItem(ammoType.itemID);
+					rounds += 1;
+				}
+
+			}
+			else
+			{
+				++reloadtick;
+			}
+			reloading=false;
+		}
+		
+		else if (!var2.isRemote && var3.inventory.hasItem(Item.glassBottle.itemID) && rounds<clipSize && Keyboard.isKeyDown(Keyboard.KEY_R) && !reloading)
+		{
+			reloading=true;
+
+			if (reloadtick >= reloadmax)
+			{
+				reloadtick = 0;
+				count = 0;
+				var2.playSoundAtEntity(var3, reloadsound, 1.0F, 1.0F);
+
+				while (rounds<clipSize && var3.inventory.hasItem(ammoType.itemID))
+				{
+					var3.inventory.consumeInventoryItem(ammoType.itemID);
+					rounds += 1;
+				}
+
+			}
+			else
+			{
+				++reloadtick;
+			}
+			reloading=false;
+		}
+		
+		else if (!var2.isRemote && var3.inventory.hasItem(Fallout.chunkTungsten.itemID) && rounds<clipSize && Keyboard.isKeyDown(Keyboard.KEY_R) && !reloading)
 		{
 			reloading=true;
 

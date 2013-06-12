@@ -13,13 +13,13 @@ public class ItemHandler extends Fallout
 	public static void init()
 	{
 		LanguageRegistry.addName(a22LR, ".22 Ammo");
-		GameRegistry.addShapelessRecipe(new ItemStack(a22LR, 12), new Object [] {powderPistol, powderPistol, powderPistol, primerPistol});
+		GameRegistry.addShapelessRecipe(new ItemStack(a22LR, 12), new Object [] {powderPistol, primerPistolS, case22LR});
 		LanguageRegistry.addName(a357, ".357 Ammo");
-		GameRegistry.addShapelessRecipe(new ItemStack(a357, 3), new Object [] {powderPistol, powderPistol, powderPistol, powderPistol, powderPistol, powderPistol, powderPistol, primerPistol});
+		GameRegistry.addShapelessRecipe(new ItemStack(a357, 3), new Object [] {case357, primerPistolS, powderPistol, powderPistol, lead, lead, lead});
 		LanguageRegistry.addName(a44, ".44 Ammo");
-		GameRegistry.addShapelessRecipe(new ItemStack(a44, 3), new Object [] {powderPistol, powderPistol, powderPistol, powderPistol, powderPistol, powderPistol, powderPistol, powderPistol, primerPistol});
+		GameRegistry.addShapelessRecipe(new ItemStack(a44, 3), new Object [] {case44, primerPistolL, powderPistol, powderPistol, lead, lead, lead, powderPistol});
 		LanguageRegistry.addName(a308, ".308 Ammo");
-		GameRegistry.addShapelessRecipe(new ItemStack(a308, 2), new Object [] {powderRifle, primerRifle, powderRifle, powderRifle, powderRifle, powderRifle, lead, lead});
+		GameRegistry.addShapelessRecipe(new ItemStack(a308, 2), new Object [] {case308, primerRifleL, powderRifle, powderRifle, lead, lead, lead});
 		LanguageRegistry.addName(homemadeFuel, "Flamer Fuel");
 		GameRegistry.addShapelessRecipe(new ItemStack(homemadeFuel), new Object [] {abraxo, Item.sugar, Item.wheat});
 		LanguageRegistry.addName(chunkTungsten, "Tungsten Rod");
@@ -142,14 +142,16 @@ public class ItemHandler extends Fallout
 		GameRegistry.addRecipe(new ItemStack(magRail), new Object [] {"XXX", 'X', crystalArray});
 		LanguageRegistry.addName(powderRifle, "Powder - Rifle");
 		GameRegistry.addShapelessRecipe(new ItemStack(powderRifle, 5), new Object [] {Item.gunpowder, Item.gunpowder});
-		LanguageRegistry.addName(primerRifle, "Primer - Rifle");
-		GameRegistry.addShapelessRecipe(new ItemStack(primerRifle, 3), new Object [] {powderRifle, powderRifle, ingotTungsten});
+		LanguageRegistry.addName(primerRifleL, "Primer - Rifle(Large)");
+		GameRegistry.addShapelessRecipe(new ItemStack(primerRifleL, 3), new Object [] {powderRifle, powderRifle, ingotTungsten});
 		LanguageRegistry.addName(lead, "Lead");
 		GameRegistry.addShapelessRecipe(new ItemStack(lead, 2), new Object [] {scrapMetal, ingotTungsten});
 		LanguageRegistry.addName(powderPistol, "Powder - Pistol");
-		GameRegistry.addShapelessRecipe(new ItemStack(primerRifle, 3), new Object [] {powderRifle, powderRifle, ingotTungsten});
-		LanguageRegistry.addName(primerPistol, "Primer - Pistol");
-		GameRegistry.addShapelessRecipe(new ItemStack(primerPistol, 3), new Object [] {powderPistol, powderPistol, ingotTungsten});
+		GameRegistry.addShapelessRecipe(new ItemStack(powderPistol, 3), new Object [] {Item.gunpowder});
+		LanguageRegistry.addName(primerPistolS, "Primer - Pistol (Small)");
+		GameRegistry.addShapelessRecipe(new ItemStack(primerPistolS, 3), new Object [] {powderPistol, powderPistol, ingotTungsten});
+		LanguageRegistry.addName(primerPistolL, "Primer - Pistol (Large)");
+		GameRegistry.addShapelessRecipe(new ItemStack(primerPistolL, 3), new Object [] {powderPistol, powderPistol, ingotTungsten, powderPistol, ingotTungsten});
 
 		//TODO 1.7.3
 		LanguageRegistry.addName(mod357LongBarrel, ".357 Long Barrel");
@@ -215,5 +217,29 @@ public class ItemHandler extends Fallout
 		GameRegistry.addRecipe(new ItemStack(minigunBarrel), new Object [] {"XX*", "XX ", "XX*", 'X', barrel, '*', RAP});
 		LanguageRegistry.addName(minigunFiringMechanism, "Minigun Firing Mechanism");
 		GameRegistry.addRecipe(new ItemStack(minigunFiringMechanism), new Object [] {"X*&", 'X', gear, '*', cylinder, '&', Block.lever});
+
+		LanguageRegistry.addName(aRocket, "Rocket");
+		LanguageRegistry.addName(aMissile, "Missile");
+		LanguageRegistry.addName(a127, "12.7mm Rounds");
+		LanguageRegistry.addName(a556, "5.56mm Rounds");
+		LanguageRegistry.addName(a5mm, "5mm Rounds");
+		LanguageRegistry.addName(a9mm, "9mm Rounds");
+		LanguageRegistry.addName(aAlien, "Alien Power Cells");
+		LanguageRegistry.addName(a45Auto, ".45 Auto Rounds");
+		GameRegistry.addShapelessRecipe(new ItemStack(a45Auto), new Object [] {case45Auto, primerPistolL, powderPistol, powderPistol, lead, lead, lead});
+		LanguageRegistry.addName(aBB, "BBs");
+		LanguageRegistry.addName(aGovt, ".40-.70 Govt. Rounds");
+		GameRegistry.addShapelessRecipe(new ItemStack(aGovt), new Object [] {caseGovt, primerPistolL, powderRifle, powderRifle, powderRifle, lead, lead, lead, lead});
+		LanguageRegistry.addName(stockMetal, "Metal Stock");
+		GameRegistry.addRecipe(new ItemStack(stockMetal), new Object [] {"XXX", " XX", 'X', ingotTungsten});
+		LanguageRegistry.addName(a50MG, ".50MG");
+		GameRegistry.addShapelessRecipe(new ItemStack(aGovt), new Object [] {case50MG, primer50MG, powderRifle, powderRifle, powderRifle, lead, lead, lead, lead});
+		LanguageRegistry.addName(aNail, "Nails");
+		GameRegistry.addShapelessRecipe(new ItemStack(aNail, 8), new Object [] {railwaySpikes});
+		LanguageRegistry.addName(a10mm, "10mm Rounds");
+		LanguageRegistry.addName(aGauge12, "12 Gauge Shotgun Shells");
+		LanguageRegistry.addName(primer50MG, "Primer - .50MG");
+
+		System.out.println("Fallout: Item system loaded.");
 	}
 }

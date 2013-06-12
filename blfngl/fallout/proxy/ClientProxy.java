@@ -30,6 +30,7 @@ import blfngl.fallout.gun.render.RenderAntiMaterielRifle;
 import blfngl.fallout.gun.render.RenderAssaultCarbine;
 import blfngl.fallout.gun.render.RenderBozar;
 import blfngl.fallout.gun.render.RenderChineseAssaultRifle;
+import blfngl.fallout.gun.render.RenderDoubleBarrelShotgun;
 import blfngl.fallout.gun.render.RenderRatslayer;
 import blfngl.fallout.handler.ScopeHandler;
 import blfngl.fallout.handler.SoundHandler;
@@ -56,7 +57,6 @@ public class ClientProxy extends CommonProxy
 		RenderingRegistry.registerEntityRenderingHandler(EntityBOSPaladin.class, new RenderBOSPaladin(new ModelBiped(), 0.5F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityRadroach.class, new RenderRadroach(new ModelSilverfish(), 0.5F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGecko.class, new RenderGecko(new ModelGecko(), 0.5F));
-		//RenderingRegistry.registerEntityRenderingHandler(EntityFragGrenade.class, new RenderFragGrenade(new ModelBiped(), 0.5F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityMrHandy.class, new RenderMrHandy(new ModelMrHandy(), 0.5F));
 
 		MinecraftForgeClient.registerItemRenderer(Fallout.rifleBozar.itemID, (IItemRenderer)new RenderBozar());
@@ -65,6 +65,7 @@ public class ClientProxy extends CommonProxy
 		MinecraftForgeClient.registerItemRenderer(Fallout.pistol9mm.itemID, (IItemRenderer)new Render9mmPistol());
 		MinecraftForgeClient.registerItemRenderer(Fallout.rifleChineseAssault.itemID, (IItemRenderer)new RenderChineseAssaultRifle());
 		MinecraftForgeClient.registerItemRenderer(Fallout.rifleAntiMateriel.itemID, (IItemRenderer)new RenderAntiMaterielRifle());
+		MinecraftForgeClient.registerItemRenderer(Fallout.shotgunDoubleBarrel.itemID, (IItemRenderer)new RenderDoubleBarrelShotgun());
 
 		KeyBinding[] var1 = new KeyBinding[] {new KeyBinding("Scope", 33)};
 		boolean[] var2 = new boolean[] {false};

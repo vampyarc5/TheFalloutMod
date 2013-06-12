@@ -15,5 +15,6 @@ public class ThrowingHandler extends Fallout
 		LanguageRegistry.addName(grenadeFrag, "Frag Grenade");
 		GameRegistry.addRecipe(new ItemStack(grenadeFrag), new Object [] {" * ", "X&X", "XXX", '*', chunkSilicon, 'X', ingotTungsten, '&', Block.tnt});
 
+		System.out.println("Fallout: Throwing weapons loaded. HEAVE.");
 	}
 }

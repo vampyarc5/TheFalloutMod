@@ -16,6 +16,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
+import net.minecraftforge.common.MinecraftForge;
 import blfngl.fallout.armor.ArmorBaseEnclave;
 import blfngl.fallout.armor.ArmorBaseGecko1;
 import blfngl.fallout.armor.ArmorBaseHellfire;
@@ -67,6 +68,7 @@ import blfngl.fallout.handler.GunHandler;
 import blfngl.fallout.handler.ItemHandler;
 import blfngl.fallout.handler.RecordHandler;
 import blfngl.fallout.handler.ThrowingHandler;
+import blfngl.fallout.handler.VanillaDropHandler;
 import blfngl.fallout.handler.WeaponHandler;
 import blfngl.fallout.handler.WorldHandler;
 import blfngl.fallout.item.BaseDrink;
@@ -407,10 +409,10 @@ public class Fallout
 	public static final Item shotgunCombat = new ItemGun(581, 7, 12, 2, 2, "blfngl.ShotgunFire", "blfngl.ShotgunReload", aGauge12, 145).setUnlocalizedName("CombatShotgun").setCreativeTab(TabFalloutShotgun);
 	public static final Item shotgunRiot = new ItemGun(582, 7, 12, 2, 1, "blfngl.HuntingShotgunFire", "blfngl.ShotgunReload", aGauge12, 870).setUnlocalizedName("RiotShotgun").setCreativeTab(TabFalloutShotgun);
 	public static final Item powderRifle = new BaseItem(584).setUnlocalizedName("PowderRifle").setCreativeTab(TabFalloutMisc);
-	public static final Item primerRifle = new BaseItem(585).setUnlocalizedName("PrimerRifle").setCreativeTab(TabFalloutMisc);
+	public static final Item primerRifleL = new BaseItem(585).setUnlocalizedName("PrimerRifle").setCreativeTab(TabFalloutMisc);
 	public static final Item lead = new BaseItem(586).setUnlocalizedName("Lead").setCreativeTab(TabFalloutMisc);
 	public static final Item powderPistol = new BaseItem(587).setUnlocalizedName("PowderPistol").setCreativeTab(TabFalloutMisc);
-	public static final Item primerPistol = new BaseItem(588).setUnlocalizedName("PrimerPistol").setCreativeTab(TabFalloutMisc);
+	public static final Item primerPistolS = new BaseItem(588).setUnlocalizedName("PrimerPistol").setCreativeTab(TabFalloutMisc);
 
 	public static final Item rifleTriBeam = new ItemGun(589, 10, 24, 2, 4, "blfngl.TriBeamFire", "Blfngl.TriBeamReload", cellMF, 245).setUnlocalizedName("TriBeamRifle").setCreativeTab(TabFalloutEnergy);
 	public static final Item rifleMultiplas = new ItemGun(590, 13, 30, 3, 4, "blfngl.MultiplasFire", "Blfngl.PlasmaRifleReload", cellMF, 245).setUnlocalizedName("MultiplasRifle").setCreativeTab(TabFalloutEnergy);
@@ -487,8 +489,8 @@ public class Fallout
 	public static final Item shotgunCaravan = new ItemGun(668, 5, 2, 1.5, 1, "blfngl.CaravanShotgunFire", "Blfngl.CaravanShotgunReload", aGauge20, 695).setUnlocalizedName("CaravanShotgun").setCreativeTab(TabFalloutShotgun);
 	public static final Item shotgunSturdyCaravan = new ItemGun(669, 7, 2, 1.5, 1, "blfngl.CaravanShotgunFire", "Blfngl.CaravanShotgunReload", aGauge20, 1495).setUnlocalizedName("SturdyCaravanShotgun").setCreativeTab(TabFalloutShotgun);
 	public static final Item shotgunLever = new ItemGun(670, 6, 5, 2.5, 2, "blfngl.LeverShotgunFire", "Blfngl.LeverShotgunReload", aGauge20, 495).setUnlocalizedName("LeverActionShotgun").setCreativeTab(TabFalloutShotgun);
-	public static final Item shotgunSawed = new ItemGun(671, 8, 1, 3.1, 2, "blfngl.HuntingShotgunFire", "Blfngl.LeverShotgunReload", aGauge12, 395).setUnlocalizedName("SawedOffShotgun").setCreativeTab(TabFalloutShotgun);
-	public static final Item shotgunBigBoomer = new ItemGun(672, 10, 1, 3.1, 2, "blfngl.HuntingShotgunFire", "Blfngl.LeverShotgunReload", aGauge12, 395).setUnlocalizedName("BigBoomer").setCreativeTab(TabFalloutShotgun);
+	public static final Item shotgunSawed = new ItemGun(671, 8, 2, 3.1, 0.1, "blfngl.SawedOffFire", "Blfngl.LeverShotgunReload", aGauge12, 395).setUnlocalizedName("SawedOffShotgun").setCreativeTab(TabFalloutShotgun);
+	public static final Item shotgunBigBoomer = new ItemGun(672, 10, 2, 3.1, 0.1, "blfngl.SawedOffFire", "Blfngl.LeverShotgunReload", aGauge12, 395).setUnlocalizedName("BigBoomer").setCreativeTab(TabFalloutShotgun);
 	public static final Item shotgunSingle = new ItemGun(673, 4, 1, 2, 2, "blfngl.LeverShotgunFire", "Blfngl.LeverShotgunReload", aGauge20, 995).setUnlocalizedName("SingleShotgun").setCreativeTab(TabFalloutShotgun);
 
 	public static final Item rifleChineseAssault = new ItemGun(675, 4, 24, 2.2, 0.5, "blfngl.ChineseAssaultFire", "Blfngl.ChineseAssaultReload", a556, 1212).setUnlocalizedName("ChineseAssaultRifle").setCreativeTab(TabFalloutRifle);
@@ -571,8 +573,26 @@ public class Fallout
 	public static final Item riflePerforator = new ItemGun(745, 6, 24, 2, 0.5, "blfngl.InfiltratorFire", "Blfngl.InfiltratorReload", a556, 1000).setUnlocalizedName("Perforator").setCreativeTab(TabFalloutRifle);
 
 	public static final Item minigunBarrel = new BaseItem(746).setUnlocalizedName("MinigunBarrel").setCreativeTab(TabFalloutMisc);
-	public static final Item minigunFiringMechanism = new BaseItem(747).setUnlocalizedName("MiningunMechanism").setCreativeTab(TabFalloutMisc);
+	public static final Item minigunFiringMechanism = new BaseItem(747).setUnlocalizedName("MiningunFiringMechanism").setCreativeTab(TabFalloutMisc);
 	public static final Item dogBrain = new BaseItem(748).setUnlocalizedName("DogBrain").setCreativeTab(TabFalloutMisc);
+
+	public static final Item shotgunKneecapper = new ItemGun(749, 12, 2, 3.1, 0.1, "blfngl.SawedOffFire", "Blfngl.LeverShotgunReload", aGauge12, 111).setUnlocalizedName("Kneecapper").setCreativeTab(TabFalloutShotgun);
+
+	public static final Item case45Auto = new BaseItem(750).setUnlocalizedName("45AutoCase").setCreativeTab(TabFalloutMisc);
+	public static final Item case9mm = new BaseItem(751).setUnlocalizedName("9mmCase").setCreativeTab(TabFalloutMisc);
+	public static final Item case10mm = new BaseItem(752).setUnlocalizedName("10mmCase").setCreativeTab(TabFalloutMisc);
+	public static final Item case357 = new BaseItem(753).setUnlocalizedName("357Case").setCreativeTab(TabFalloutMisc);
+	public static final Item case44 = new BaseItem(754).setUnlocalizedName("44Case").setCreativeTab(TabFalloutMisc);
+	public static final Item case308 = new BaseItem(755).setUnlocalizedName("308Case").setCreativeTab(TabFalloutMisc);
+	public static final Item caseGovt = new BaseItem(756).setUnlocalizedName("GovtCase").setCreativeTab(TabFalloutMisc);
+	public static final Item case50MG = new BaseItem(757).setUnlocalizedName("50MGCase").setCreativeTab(TabFalloutMisc);
+	public static final Item case22LR = new BaseItem(758).setUnlocalizedName("22LRCase").setCreativeTab(TabFalloutMisc);
+	public static final Item primerPistolL = new BaseItem(759).setUnlocalizedName("PistolPrimerL").setCreativeTab(TabFalloutMisc);
+
+	public static final Item shotgunDoubleBarrel = new ItemGun(760, 15, 2, 2, 0.1, "blfngl.DoubleBarrelFire", "Blfngl.DoubleBarrelReload", aGauge12, 118).setUnlocalizedName("DoubleBarrelShotgun").setCreativeTab(TabFalloutShotgun);
+	public static final Item smgUltra10mm = new ItemGun(761, 6, 30, 2.7, 0.5, "blfngl.10mmFire", "Blfngl.10mmReload", a10mm, 2495).setUnlocalizedName("Ultra10mmSub").setCreativeTab(TabFalloutSMG);
+
+	public static final Item primer50MG = new BaseItem(759).setUnlocalizedName("50MGPrimer").setCreativeTab(TabFalloutMisc);
 
 	//Work on achievements?
 	//static final Achievement getTungsten = new Achievement(2001, "getTungsten", 1, -2, ingotTungsten, null).registerAchievement();
@@ -604,24 +624,16 @@ public class Fallout
 	public void init(FMLInitializationEvent event)
 	{
 		RecordHandler.init();
-
 		BlockHandler.init();
-
 		WorldHandler.init();
-
 		GunHandler.init();
-
 		ItemHandler.init();
-
 		WeaponHandler.init();
-
 		FoodHandler.init();
-
 		ArmorHandler.init();
-
 		ThrowingHandler.init();
-
 		EntityHandler.init();
+		MinecraftForge.EVENT_BUS.register(new VanillaDropHandler());
 
 		LanguageRegistry.addName(RecordHandler.Track1, "Blue Moon");
 		LanguageRegistry.addName(RecordHandler.Track2, "Hallo Mr X");

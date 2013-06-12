@@ -50,5 +50,7 @@ public class BlockHandler extends Fallout
 		GameRegistry.registerBlock(BuffaloGourd);
 		LanguageRegistry.addName(Jalapeno, "Jalapeno Plant");
 		GameRegistry.registerBlock(Jalapeno);
+		
+		System.out.println("Fallout: Block system loaded. So blocky so nice.");
 	}
 }

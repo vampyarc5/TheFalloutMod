@@ -137,14 +137,16 @@ public class SoundHandler
 			event.manager.soundPoolSounds.addSound("blfngl/InfiltratorReload.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/InfiltratorReload.ogg"));
 
 			event.manager.soundPoolSounds.addSound("blfngl/MrHandyTalk.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/MrHandyTalk.ogg"));
-			//event.manager.soundPoolSounds.addSound("blfngl/InfiltratorReload.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/InfiltratorReload.ogg"));
-			//event.manager.soundPoolSounds.addSound("blfngl/InfiltratorReload.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/InfiltratorReload.ogg"));
+			event.manager.soundPoolSounds.addSound("blfngl/SawedOffFire.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/SawedOffFire.ogg"));
+			event.manager.soundPoolSounds.addSound("blfngl/DoubleBarrelFire.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/DoubleBarrelFire.ogg"));
+			event.manager.soundPoolSounds.addSound("blfngl/DoubleBarrelReload.ogg", Fallout.class.getResource("/blfngl/fallout/sounds/DoubleBarrelReload.ogg"));
 
+			System.out.println("Fallout: Sound system loaded. BANG BANG B*TCH.");
 		}
 
 		catch (Exception e)
 		{
-			System.err.println("Failed to register one or more sounds.");
+			System.err.println("Fallout: Failed to register one or more sounds.");
 		}
 	}
 }

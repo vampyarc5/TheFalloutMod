@@ -57,18 +57,11 @@ public class GunHandler extends Fallout
 		LanguageRegistry.addName(teslaCannon, "Tesla Cannon");
 		LanguageRegistry.addName(rifleRecharger, "Recharger Rifle");
 		LanguageRegistry.addName(pistolRecharger, "Recharger Pistol");
-		LanguageRegistry.addName(aRocket, "Rocket");
-		LanguageRegistry.addName(aMissile, "Missile");
-		LanguageRegistry.addName(a127, "12.7mm Rounds");
-		LanguageRegistry.addName(a556, "5.56mm Rounds");
-		LanguageRegistry.addName(a5mm, "5mm Rounds");
 		LanguageRegistry.addName(shotgunHunting, "Hunting Shotgun");
 		LanguageRegistry.addName(shotgunDinnerBell, "Dinner Bell");
 		LanguageRegistry.addName(pistol9mm, "9mm Pistol");
 		LanguageRegistry.addName(pistolAlienBlaster, "Alien Blaster");
 		LanguageRegistry.addName(rifleHunting, "Hunting Rifle");
-		LanguageRegistry.addName(a9mm, "9mm Rounds");
-		LanguageRegistry.addName(aAlien, "Alien Power Cells");
 		LanguageRegistry.addName(pistolLucky, "Lucky");
 		LanguageRegistry.addName(pistol45Auto, ".45 Auto Pistol");
 		LanguageRegistry.addName(pistolLightDarkness, "A Light in Shining Darkness");
@@ -87,13 +80,8 @@ public class GunHandler extends Fallout
 		LanguageRegistry.addName(rifleLongueCarabine, "La Longue Carabine");
 		LanguageRegistry.addName(riflePaciencia, "Paciencia");
 		LanguageRegistry.addName(rocketCanister, "Rocket Canister");
-		LanguageRegistry.addName(a45Auto, ".45 Auto Rounds");
-		LanguageRegistry.addName(aBB, "BBs");
-		LanguageRegistry.addName(aGovt, ".40-.70 Govt. Rounds");
-		LanguageRegistry.addName(stockMetal, "Metal Stock");
 
 		LanguageRegistry.addName(rifleAntiMateriel, "Anti-Materiel Rifle");
-		LanguageRegistry.addName(a50MG, ".50MG");
 		LanguageRegistry.addName(rifleAssaultCarbine, "Assault Carbine");
 		LanguageRegistry.addName(rifleLMG, "Light Machine Gun");
 		LanguageRegistry.addName(rifleBozar, "Bozar");
@@ -114,17 +102,14 @@ public class GunHandler extends Fallout
 		LanguageRegistry.addName(smg127, "12.7mm Submachine Gun");
 		LanguageRegistry.addName(smgNailGun, "H&H Tools Nail Gun");
 		LanguageRegistry.addName(smg22, "Silenced .22 SMG");
-		LanguageRegistry.addName(aNail, "Nails");
 		LanguageRegistry.addName(CZ57, "CZ57 Avenger");
 		LanguageRegistry.addName(pistolWeathered10mm, "Weathered 10mm Pistol");
 
 		LanguageRegistry.addName(riflePlasma, "Plasma Rifle");
 		LanguageRegistry.addName(pistol10mm, "10mm Pistol");
-		LanguageRegistry.addName(a10mm, "10mm Rounds");
 		LanguageRegistry.addName(rifleGauss, "Gauss Rifle");
 		LanguageRegistry.addName(shotgunCombat, "Combat Shotgun");
 		LanguageRegistry.addName(shotgunRiot, "Riot Shotgun");
-		LanguageRegistry.addName(aGauge12, "12 Gauge Rounds");
 
 		LanguageRegistry.addName(rifleYCS186, "YCS/186");
 		LanguageRegistry.addName(rifleAdvancedLAER, "Elijah's Advanced LAER");
@@ -162,6 +147,12 @@ public class GunHandler extends Fallout
 		LanguageRegistry.addName(rifleRailway, "Railway Rifle");
 		LanguageRegistry.addName(rifleInfiltrator, "Infiltrator");
 		LanguageRegistry.addName(riflePerforator, "Perforator");
-		LanguageRegistry.addName(rifleXuanlong, "Xuanlong Chinese Assault Rifle");
+		LanguageRegistry.addName(rifleXuanlong, "Xuanlong Assault Rifle");
+		
+		LanguageRegistry.addName(shotgunKneecapper, "The Kneecapper");
+		LanguageRegistry.addName(shotgunDoubleBarrel, "Double-Barrel Shotgun");
+		LanguageRegistry.addName(smgUltra10mm, "Sydney's 10mm 'Ultra' SMG");
+		
+		System.out.println("Fallout: Gun system loaded. 'Say hello to my little friend.'");
 	}
 }
