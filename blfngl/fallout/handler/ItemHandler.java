@@ -45,7 +45,8 @@ public class ItemHandler extends Fallout
 		LanguageRegistry.addName(RAP, "Reinforced Alloy Plate");
 		GameRegistry.addRecipe(new ItemStack(RAP, 2), new Object [] {"X*", "*X", 'X', tungstenPlate, '*', technetiumPlate});
 		LanguageRegistry.addName(cellMF, "Microfusion Cell");
-		GameRegistry.addRecipe(new ItemStack(cellMF, 6), new Object [] {" * ", "*&*", " * ", '&', ingotUranium, '*', tungstenPlate});
+		GameRegistry.addRecipe(new ItemStack(cellMF, 5), new Object [] {" * ", "*&*", " * ", '&', ingotUranium, '*', tungstenPlate});
+		GameRegistry.addShapelessRecipe(new ItemStack(cellMF), new Object [] {cellMFD, cellMFD, cellMFD, cellMFD});
 		LanguageRegistry.addName(MFPack, "MicroFusion Pack");
 		GameRegistry.addRecipe(new ItemStack(MFPack),new Object [] {" X ", "&&&", " X ", 'X', RAP, '&', cellMF});
 		LanguageRegistry.addName(carbon, "Carbon");
@@ -120,9 +121,11 @@ public class ItemHandler extends Fallout
 		LanguageRegistry.addName(leatherBelt, "Leather Belt");
 		GameRegistry.addRecipe(new ItemStack(leatherBelt), new Object [] {"X*X", 'X', Item.leather, '*', Item.ingotIron});
 		LanguageRegistry.addName(cellElectron, "Electron Charge Pack");
-		GameRegistry.addRecipe(new ItemStack(cellElectron), new Object [] {"XX", "**", "XX", 'X', tungstenPlate, '*', ingotUranium});
+		GameRegistry.addRecipe(new ItemStack(cellElectron, 5), new Object [] {"XX", "**", "XX", 'X', tungstenPlate, '*', ingotUranium});
+		GameRegistry.addShapelessRecipe(new ItemStack(cellElectron), new Object [] {cellECPD, cellECPD, cellECPD, cellECPD});
 		LanguageRegistry.addName(cellEnergy, "Energy Cell");
-		GameRegistry.addRecipe(new ItemStack(cellEnergy), new Object [] {"X*", "*X", '*', ingotUranium, 'X', ingotTechnetium});
+		GameRegistry.addRecipe(new ItemStack(cellEnergy, 10), new Object [] {"X*", "*X", '*', ingotUranium, 'X', ingotTechnetium});
+		GameRegistry.addShapelessRecipe(new ItemStack(cellEnergy), new Object [] {cellED, cellED, cellED, cellED});
 
 		//TODO Version 1.7
 		LanguageRegistry.addName(grip, "Gun Grip");

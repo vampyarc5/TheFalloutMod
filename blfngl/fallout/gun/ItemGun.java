@@ -116,17 +116,17 @@ public class ItemGun extends Item
 					if (ammoType.itemID == Fallout.aGauge20.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.hull20));}
 					if (ammoType.itemID == Fallout.aGauge12.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.hull12));}
 
-					if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(4) > 0)
+					if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(4) + 1 > 3)
 					{
 						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellMFD));
 					}
 
-					if (ammoType.itemID == Fallout.cellElectron.itemID && rand.nextInt(4) > 0)
+					if (ammoType.itemID == Fallout.cellElectron.itemID && rand.nextInt(4) + 1 > 3)
 					{
 						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellECPD));
 					}
 
-					if (ammoType.itemID == Fallout.cellEnergy.itemID && rand.nextInt(4) > 0)
+					if (ammoType.itemID == Fallout.cellEnergy.itemID && rand.nextInt(4) + 1 > 3)
 					{
 						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));
 					}
