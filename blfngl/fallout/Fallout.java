@@ -195,7 +195,7 @@ public class Fallout
 	public static final Item aDart = new BaseItem(731).setUnlocalizedName("Dart").setCreativeTab(TabFalloutAmmo);
 
 	public static final Item incinerator = new GunIncinerator(509).setUnlocalizedName("Incinerator").setCreativeTab(TabFalloutHeavy);
-	public static final Item rifleLaserRCW = new ItemGun(510, 3, 60, 2, (int) 0.2, "blfngl.LaserFire", "blfngl.RCWReload", cellMF, 1995).setUnlocalizedName("LaserRCW").setCreativeTab(TabFalloutEnergy);
+	public static final Item rifleLaserRCW = new ItemGun(510, 3, 60, 2, 0.3, "blfngl.LaserFire", "blfngl.RCWReload", cellMF, 1995).setUnlocalizedName("LaserRCW").setCreativeTab(TabFalloutEnergy);
 	public static final Item pistolCompliance = new ItemGun(511, 2, 30, 2, 1, "blfngl.LaserPistolFire", "blfngl.ComplianceReload", cellEnergy, 995).setUnlocalizedName("Compliance").setCreativeTab(TabFalloutEnergy);
 	public static final Item rifleLaser = new ItemGun(512, 6, 24, 3, 1, "blfngl.LaserFire", "blfngl.LaserReload", cellMF, 995).setUnlocalizedName("LaserRifle").setCreativeTab(TabFalloutEnergy);
 	public static final Item pistol44 = new ItemGun(513, 5, 6, 3, 3, "blfngl.44Fire", "blfngl.44Reload", a44, 1245).setUnlocalizedName("Pistol44").setCreativeTab(TabFalloutPistol);
