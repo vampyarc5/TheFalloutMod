@@ -8,10 +8,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.src.ModLoader;
 import net.minecraft.world.World;
 
 import org.lwjgl.input.Keyboard;
 
+import blfngl.fallout.Fallout;
 import blfngl.fallout.entity.EntityBullet;
 
 public class ItemGun extends Item
@@ -153,7 +155,7 @@ public class ItemGun extends Item
 	public void onUpdate(ItemStack par1ItemStack, World var2, Entity par3Entity, int par4, boolean par5) 
 	{
 		EntityPlayer var3 = (EntityPlayer)par3Entity;
-		gunHealth = par1ItemStack.getItemDamage()/par1ItemStack.getMaxDamage();
+		//gunHealth = par1ItemStack.getItemDamage()/par1ItemStack.getMaxDamage();
 
 		if (!var2.isRemote && var3.inventory.hasItem(ammoType.itemID) && rounds<clipSize && Keyboard.isKeyDown(Keyboard.KEY_R) && !reloading)
 		{

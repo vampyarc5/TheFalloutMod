@@ -11,11 +11,11 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import blfngl.fallout.gun.model.ModelAssaultCarbine;
+import blfngl.fallout.gun.model.ModelAntiMaterielRifle;
 
-public class RenderAssaultCarbine implements IItemRenderer
+public class RenderAntiMaterielRifle implements IItemRenderer
 {
-	protected ModelAssaultCarbine model = new ModelAssaultCarbine();
+	protected ModelAntiMaterielRifle model = new ModelAntiMaterielRifle();
 
 	public boolean handleRenderType(ItemStack var1, ItemRenderType var2)
 	{
@@ -40,7 +40,7 @@ public class RenderAssaultCarbine implements IItemRenderer
 		{
 		case 1:
 			GL11.glPushMatrix();
-			Minecraft.getMinecraft().renderEngine.bindTexture("/blfngl/fallout/textures/AssaultCarbine.png");
+			Minecraft.getMinecraft().renderEngine.bindTexture("/blfngl/fallout/textures/AntiMaterielRifle.png");
 			boolean var4 = false;
 
 			if (var3[1] != null && var3[1] instanceof EntityPlayer)
@@ -50,18 +50,16 @@ public class RenderAssaultCarbine implements IItemRenderer
 				if ((EntityPlayer)var3[1] == Minecraft.getMinecraft().renderViewEntity && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 && (!(Minecraft.getMinecraft().currentScreen instanceof GuiInventory) && !(Minecraft.getMinecraft().currentScreen instanceof GuiContainerCreative) || RenderManager.instance.playerViewY != 180.0F))
 				{
 					var4 = true;
-					var5 = 0.7F;
-					GL11.glTranslatef(0.5F, 0.5F, -0.25F);
-					GL11.glScalef(var5, var5, var5);
+					GL11.glTranslatef(0.7F, 0.5F, -0.25F);
 					GL11.glRotatef(205.0F, 0.0F, 0.0F, 1.0F);
 				}
-				
+
 				else
 				{
-					var5 = 0.6F;
-					GL11.glTranslatef(0.5F, 0.5F, 0.1F);
+					var5 = 0.3F;
+					GL11.glTranslatef(0.7F, 0.5F, -0.2F);
 					GL11.glScalef(var5, var5, var5);
-					GL11.glRotatef(205.0F, 0.0F, 0.0F, 1.0F);
+					GL11.glRotatef(295.0F, 0.0F, 0.0F, 1.0F);
 				}
 			}
 

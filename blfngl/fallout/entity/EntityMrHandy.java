@@ -20,7 +20,7 @@ public class EntityMrHandy extends EntityMob
 	public EntityMrHandy(World par1World)
 	{
 		super(par1World);
-		this.texture = "/blfngl/fallout/textures/Brahmin.png";
+		this.texture = "/blfngl/fallout/textures/MrHandy.png";
 		this.setSize(0.9F, 1.3F);
 		this.getNavigator().setAvoidsWater(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
