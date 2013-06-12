@@ -210,5 +210,10 @@ public class ItemHandler extends Fallout
 		GameRegistry.addShapelessRecipe(new ItemStack(aDart, 8), new Object [] {Item.arrow, Item.flint});
 		LanguageRegistry.addName(railwaySpikes, "Railway Spikes");
 		GameRegistry.addShapelessRecipe(new ItemStack(railwaySpikes, 8), new Object [] {Block.railPowered, Item.ingotIron});
+
+		LanguageRegistry.addName(minigunBarrel, "Minigun Barrel");
+		GameRegistry.addRecipe(new ItemStack(minigunBarrel), new Object [] {"XX*", "XX ", "XX*", 'X', barrel, '*', RAP});
+		LanguageRegistry.addName(minigunFiringMechanism, "Minigun Firing Mechanism");
+		GameRegistry.addRecipe(new ItemStack(minigunFiringMechanism), new Object [] {"X*&", 'X', gear, '*', cylinder, '&', Block.lever});
 	}
 }

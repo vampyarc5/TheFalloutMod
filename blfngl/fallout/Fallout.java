@@ -601,6 +601,10 @@ public class Fallout
 	public static final Item rifleInfiltrator = new ItemGun(744, 4, 24, 2, 0.5, "blfngl.InfiltratorFire", "Blfngl.InfiltratorReload", a556, 1429).setUnlocalizedName("Infiltrator").setCreativeTab(TabFalloutRifle);
 	public static final Item riflePerforator = new ItemGun(745, 6, 24, 2, 0.5, "blfngl.InfiltratorFire", "Blfngl.InfiltratorReload", a556, 1000).setUnlocalizedName("Perforator").setCreativeTab(TabFalloutRifle);
 
+	public static final Item minigunBarrel = new BaseItem(746).setUnlocalizedName("MinigunBarrel").setCreativeTab(TabFalloutMisc);
+	public static final Item minigunFiringMechanism = new BaseItem(747).setUnlocalizedName("MiningunMechanism").setCreativeTab(TabFalloutMisc);
+	public static final Item dogBrain = new BaseItem(748).setUnlocalizedName("DogBrain").setCreativeTab(TabFalloutMisc);
+
 	//Work on achievements?
 	//static final Achievement getTungsten = new Achievement(2001, "getTungsten", 1, -2, ingotTungsten, null).registerAchievement();
 	//public static AchievementPage page1 = new AchievementPage("Fallout Achievements", ach1, ach2, ach3, ach4);
