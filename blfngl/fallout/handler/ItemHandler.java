@@ -205,6 +205,7 @@ public class ItemHandler extends Fallout
 		GameRegistry.addRecipe(new ItemStack(cylinder), new Object [] {"XXX", "X*X", 'X', Item.ingotIron, '*', ingotTungsten});
 
 		LanguageRegistry.addName(aGauge20, "20 Gauge Shotgun Shells");
+		GameRegistry.addShapelessRecipe(new ItemStack(aGauge20), new Object [] {hull20, primerShotgun, powderPistol, lead, lead, lead});
 		LanguageRegistry.addName(itemPortalActivator, "Portal Activator");
 		LanguageRegistry.addName(pipboy, "Pipboy 3000 (WIP)");
 		LanguageRegistry.addName(a32, ".32 Caliber Rounds");
@@ -221,9 +222,13 @@ public class ItemHandler extends Fallout
 		LanguageRegistry.addName(aRocket, "Rocket");
 		LanguageRegistry.addName(aMissile, "Missile");
 		LanguageRegistry.addName(a127, "12.7mm Rounds");
+		GameRegistry.addShapelessRecipe(new ItemStack(a127), new Object [] {case127, primerPistolL, powderPistol, powderPistol, lead, lead, lead, lead});
 		LanguageRegistry.addName(a556, "5.56mm Rounds");
+		GameRegistry.addShapelessRecipe(new ItemStack(a556), new Object [] {case556, primerRifleS, powderRifle, lead, lead});
 		LanguageRegistry.addName(a5mm, "5mm Rounds");
+		GameRegistry.addShapelessRecipe(new ItemStack(a5mm), new Object [] {case5mm, primerRifleS, powderRifle, lead, lead});
 		LanguageRegistry.addName(a9mm, "9mm Rounds");
+		GameRegistry.addShapelessRecipe(new ItemStack(a9mm), new Object [] {case9mm, primerPistolS, powderPistol, lead});
 		LanguageRegistry.addName(aAlien, "Alien Power Cells");
 		LanguageRegistry.addName(a45Auto, ".45 Auto Rounds");
 		GameRegistry.addShapelessRecipe(new ItemStack(a45Auto), new Object [] {case45Auto, primerPistolL, powderPistol, powderPistol, lead, lead, lead});
@@ -237,8 +242,17 @@ public class ItemHandler extends Fallout
 		LanguageRegistry.addName(aNail, "Nails");
 		GameRegistry.addShapelessRecipe(new ItemStack(aNail, 8), new Object [] {railwaySpikes});
 		LanguageRegistry.addName(a10mm, "10mm Rounds");
+		GameRegistry.addShapelessRecipe(new ItemStack(a10mm), new Object [] {case10mm, primerPistolL, powderPistol, lead, lead});
 		LanguageRegistry.addName(aGauge12, "12 Gauge Shotgun Shells");
+		GameRegistry.addShapelessRecipe(new ItemStack(aGauge12), new Object [] {hull20, primerShotgun, powderPistol, powderPistol, lead, lead, lead, lead});
 		LanguageRegistry.addName(primer50MG, "Primer - .50MG");
+		LanguageRegistry.addName(primerRifleS, "Primer - Rifle(Small)");
+		LanguageRegistry.addName(primerShotgun, "Primer - Shotgun");
+		GameRegistry.addShapelessRecipe(new ItemStack(primerShotgun), new Object [] {ingotTechnetium, Item.gunpowder, Item.gunpowder, Item.gunpowder});
+
+		LanguageRegistry.addName(cellMFD, "Drained Microfusion Cell");
+		LanguageRegistry.addName(cellECPD, "Drained Electron Charge Pack");
+		LanguageRegistry.addName(cellED, "Drained Energy Cell");
 
 		System.out.println("Fallout: Item system loaded.");
 	}

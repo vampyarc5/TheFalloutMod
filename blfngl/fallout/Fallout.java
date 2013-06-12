@@ -592,7 +592,17 @@ public class Fallout
 	public static final Item shotgunDoubleBarrel = new ItemGun(760, 15, 2, 2, 0.1, "blfngl.DoubleBarrelFire", "Blfngl.DoubleBarrelReload", aGauge12, 118).setUnlocalizedName("DoubleBarrelShotgun").setCreativeTab(TabFalloutShotgun);
 	public static final Item smgUltra10mm = new ItemGun(761, 6, 30, 2.7, 0.5, "blfngl.10mmFire", "Blfngl.10mmReload", a10mm, 2495).setUnlocalizedName("Ultra10mmSub").setCreativeTab(TabFalloutSMG);
 
-	public static final Item primer50MG = new BaseItem(759).setUnlocalizedName("50MGPrimer").setCreativeTab(TabFalloutMisc);
+	public static final Item primer50MG = new BaseItem(762).setUnlocalizedName("50MGPrimer").setCreativeTab(TabFalloutMisc);
+	public static final Item case5mm = new BaseItem(763).setUnlocalizedName("5mmCase").setCreativeTab(TabFalloutMisc);
+	public static final Item primerRifleS = new BaseItem(764).setUnlocalizedName("RiflePrimerS").setCreativeTab(TabFalloutMisc);
+	public static final Item case556 = new BaseItem(765).setUnlocalizedName("556Case").setCreativeTab(TabFalloutMisc);
+	public static final Item case127 = new BaseItem(766).setUnlocalizedName("127Case").setCreativeTab(TabFalloutMisc);
+	public static final Item hull12 = new BaseItem(767).setUnlocalizedName("12Hull").setCreativeTab(TabFalloutMisc);
+	public static final Item hull20 = new BaseItem(768).setUnlocalizedName("20Hull").setCreativeTab(TabFalloutMisc);
+	public static final Item primerShotgun = new BaseItem(769).setUnlocalizedName("ShotgunPrimer").setCreativeTab(TabFalloutMisc);
+	public static final Item cellMFD = new BaseItem(770).setUnlocalizedName("DrainedMF").setCreativeTab(TabFalloutMisc);
+	public static final Item cellECPD = new BaseItem(771).setUnlocalizedName("DrainedECP").setCreativeTab(TabFalloutMisc);
+	public static final Item cellED = new BaseItem(772).setUnlocalizedName("DrainedE").setCreativeTab(TabFalloutMisc);
 
 	//Work on achievements?
 	//static final Achievement getTungsten = new Achievement(2001, "getTungsten", 1, -2, ingotTungsten, null).registerAchievement();

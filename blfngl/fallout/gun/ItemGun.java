@@ -99,18 +99,39 @@ public class ItemGun extends Item
 				var2.playSoundAtEntity(var3, firesound, 1.0F, 1.0F);
 				var1.damageItem(1, var3);
 
-				if (!var3.capabilities.isCreativeMode){rounds-=1;}
+				if (!var3.capabilities.isCreativeMode)
+				{
+					rounds-=1;
+					if (ammoType.itemID == Fallout.a10mm.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case10mm));}
+					if (ammoType.itemID == Fallout.a22LR.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case22LR));}
+					if (ammoType.itemID == Fallout.a9mm.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case9mm));}
+					if (ammoType.itemID == Fallout.a357.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case357));}
+					if (ammoType.itemID == Fallout.a44.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case44));}
+					if (ammoType.itemID == Fallout.a45Auto.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case45Auto));}
+					if (ammoType.itemID == Fallout.a50MG.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case50MG));}
+					if (ammoType.itemID == Fallout.aGovt.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.caseGovt));}
+					if (ammoType.itemID == Fallout.a556.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case556));}
+					if (ammoType.itemID == Fallout.a5mm.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case5mm));}
+					if (ammoType.itemID == Fallout.a127.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case127));}
+					if (ammoType.itemID == Fallout.aGauge20.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.hull20));}
+					if (ammoType.itemID == Fallout.aGauge12.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.hull12));}
 
-				if (ammoType.itemID == Fallout.a10mm.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case10mm));}
-				if (ammoType.itemID == Fallout.a22LR.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case22LR));}
-				if (ammoType.itemID == Fallout.a9mm.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case9mm));}
-				if (ammoType.itemID == Fallout.a357.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case357));}
-				if (ammoType.itemID == Fallout.a44.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case44));}
-				if (ammoType.itemID == Fallout.a45Auto.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case45Auto));}
-				if (ammoType.itemID == Fallout.a50MG.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case50MG));}
-				if (ammoType.itemID == Fallout.aGovt.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.caseGovt));}
-				if (ammoType.itemID == Fallout.a308.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.case308));}
+					if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(4) > 0)
+					{
+						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellMFD));
+					}
 
+					if (ammoType.itemID == Fallout.cellElectron.itemID && rand.nextInt(4) > 0)
+					{
+						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellECPD));
+					}
+
+					if (ammoType.itemID == Fallout.cellEnergy.itemID && rand.nextInt(4) > 0)
+					{
+						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));
+					}
+				}
+				
 				firetick = 0;
 			}
 
@@ -146,15 +167,8 @@ public class ItemGun extends Item
 		var3.add("\u00A72Ammo type: " + ammoType.getItemDisplayName(new ItemStack(ammoType)));
 		var3.add("\u00A76CND: " + (cnd - gunHealth));
 
-		if(name !=null)
-		{
-			var3.add("\u00A7eCrafted by: " + name);
-		}
-
-		else
-		{
-			var3.add("\u00A7eNo Owner.");
-		}
+		if(name !=null){var3.add("\u00A7eCrafted by: " + name);}
+		else{var3.add("\u00A7eNo Owner.");}
 	}
 
 	boolean reloading = false;
@@ -181,21 +195,16 @@ public class ItemGun extends Item
 				}
 
 			}
+
 			else
 			{
 				++reloadtick;
 			}
+
 			reloading=false;
 		}
 
-		if(reloadtick<reloadmax)
-		{
-			reloadtick+=1;
-		}
-
-		if(firetick<firemax)
-		{
-			firetick+=1;
-		}
+		if(reloadtick<reloadmax){reloadtick+=1;}
+		if(firetick<firemax){firetick+=1;}
 	}
 }
