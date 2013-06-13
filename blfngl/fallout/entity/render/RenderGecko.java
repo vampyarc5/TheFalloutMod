@@ -1,7 +1,7 @@
 package blfngl.fallout.entity.render;
 
 import blfngl.fallout.entity.EntityGecko;
-import blfngl.fallout.model.ModelGecko;
+import blfngl.fallout.entity.model.ModelGecko;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;

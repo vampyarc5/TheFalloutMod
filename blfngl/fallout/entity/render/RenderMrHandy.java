@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import blfngl.fallout.entity.EntityMrHandy;
-import blfngl.fallout.model.ModelMrHandy;
+import blfngl.fallout.entity.model.ModelMrHandy;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

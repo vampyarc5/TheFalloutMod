@@ -16,7 +16,7 @@ import blfngl.fallout.gun.model.ModelBozar;
 
 import cpw.mods.fml.client.TextureHelper;
 
-public class RenderBozarScope implements IItemRenderer
+public class RenderBozarScoped implements IItemRenderer
 {
     protected ModelBozar model = new ModelBozar();
 

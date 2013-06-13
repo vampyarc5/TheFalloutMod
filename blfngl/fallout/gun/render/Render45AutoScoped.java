@@ -11,11 +11,11 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import blfngl.fallout.gun.model.ModelChineseAssaultRifle;
+import blfngl.fallout.gun.model.Model45Auto;
 
-public class RenderChineseAssaultRifle implements IItemRenderer
+public class Render45AutoScoped implements IItemRenderer
 {
-	protected ModelChineseAssaultRifle model = new ModelChineseAssaultRifle();
+	protected Model45Auto model = new Model45Auto();
 
 	public boolean handleRenderType(ItemStack var1, ItemRenderType var2)
 	{
@@ -51,20 +51,22 @@ public class RenderChineseAssaultRifle implements IItemRenderer
 				{
 					var4 = true;
 					var5 = 0.8F;
-					GL11.glTranslatef(2.75F, 1.5F, 1.5F);
+					GL11.glTranslatef(0.6F, 1.05F, -1.0F);
 					GL11.glScalef(var5, var5, var5);
-					GL11.glRotatef(205.0F, 0.0F, 0.0F, 1.0F);
-					GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);
-					GL11.glRotatef(-5.0F, 1.0F, 0.0F, 0.0F);
+					GL11.glRotatef(30.0F, 0.0F, 0.0F, 1.0F);
+					GL11.glRotatef(-90.0F, 0.0F, 1.0F, 0.0F);
+					GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
+					GL11.glRotatef(6.0F, -1.0F, 0.0F, 0.0F);
+					GL11.glRotatef(5.0F, 0.0F, 1.0F, 0.0F);
 				}
 				else
 				{
-					var5 = 0.3F;
-					GL11.glTranslatef(0.5F, 0.5F, 0.1F);
+					var5 = 0.6F;
+					GL11.glTranslatef(0.4F, 0.8F, -0.05F);
 					GL11.glScalef(var5, var5, var5);
-					GL11.glRotatef(190.0F, 0.0F, 0.0F, 1.0F);
-					GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);
-					GL11.glRotatef(-5.0F, 1.0F, 0.0F, 0.0F);
+					GL11.glRotatef(30.0F, 0.0F, 0.0F, 1.0F);
+					GL11.glRotatef(-90.0F, 0.0F, 1.0F, 0.0F);
+					GL11.glRotatef(180.0F, 1.0F, 0.0F, 0.0F);
 				}
 			}
 

@@ -12,7 +12,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import blfngl.fallout.Fallout;
 import blfngl.fallout.entity.EntityRocket;
 import blfngl.fallout.gun.render.RenderBozar;
-import blfngl.fallout.gun.render.RenderBozarScope;
+import blfngl.fallout.gun.render.RenderBozarScoped;
 
 public class ItemThrowingExplosive extends Item
 {

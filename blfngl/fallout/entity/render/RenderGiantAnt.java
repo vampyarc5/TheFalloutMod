@@ -1,7 +1,7 @@
 package blfngl.fallout.entity.render;
 
 import blfngl.fallout.entity.EntityGiantAnt;
-import blfngl.fallout.model.ModelGiantAnt;
+import blfngl.fallout.entity.model.ModelGiantAnt;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;

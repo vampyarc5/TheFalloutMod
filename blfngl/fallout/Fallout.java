@@ -139,6 +139,7 @@ public class Fallout
 	public static ClientProxy cproxy;
 
 	public static boolean isScoped = false;
+	public static boolean isReloading = false;
 	public static int dimensionWasteland = 18;
 
 	public static CreativeTabs TabFalloutArmor = new TabFalloutArmor(CreativeTabs.getNextID(), "TabFalloutArmor");
@@ -607,6 +608,8 @@ public class Fallout
 	public static final Item cellMFD = new BaseItem(770).setUnlocalizedName("DrainedMF").setCreativeTab(TabFalloutMisc);
 	public static final Item cellECPD = new BaseItem(771).setUnlocalizedName("DrainedECP").setCreativeTab(TabFalloutMisc);
 	public static final Item cellED = new BaseItem(772).setUnlocalizedName("DrainedE").setCreativeTab(TabFalloutMisc);
+
+	public static final Item rifleAssault = new ItemGun(773, 4, 30, 2.7, 0.5, "blfngl.ChineseAssaultFire", "Blfngl.ChineseAssaultReload", a556, 2495).setUnlocalizedName("AssaultRifle").setCreativeTab(TabFalloutRifle);
 
 	//Work on achievements?
 	//static final Achievement getTungsten = new Achievement(2001, "getTungsten", 1, -2, ingotTungsten, null).registerAchievement();

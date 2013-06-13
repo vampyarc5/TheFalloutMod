@@ -8,11 +8,11 @@ import net.minecraft.client.settings.KeyBinding;
 import cpw.mods.fml.client.registry.KeyBindingRegistry.KeyHandler;
 import cpw.mods.fml.common.TickType;
 
-public class ScopeHandler extends KeyHandler
+public class ReloadHandler extends KeyHandler
 {
     private EnumSet tickTypes;
 
-    public ScopeHandler(KeyBinding[] var1, boolean[] var2)
+    public ReloadHandler(KeyBinding[] var1, boolean[] var2)
     {
         super(var1, var2);
         this.tickTypes = EnumSet.of(TickType.CLIENT);
@@ -20,17 +20,17 @@ public class ScopeHandler extends KeyHandler
 
     public String getLabel()
     {
-        return "Fallout - Scope";
+        return "Fallout - Reload";
     }
 
     public void keyDown(EnumSet var1, KeyBinding var2, boolean var3, boolean var4)
     {
-        Fallout.isScoped = true;
+        Fallout.isReloading = true;
     }
 
     public void keyUp(EnumSet var1, KeyBinding var2, boolean var3)
     {
-    	Fallout.isScoped = false;
+    	Fallout.isReloading = false;
     }
 
     public EnumSet ticks()

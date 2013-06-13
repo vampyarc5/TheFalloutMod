@@ -1,4 +1,4 @@
-package blfngl.fallout.model;
+package blfngl.fallout.entity.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

@@ -4,6 +4,7 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelSilverfish;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.client.IItemRenderer;
@@ -19,6 +20,11 @@ import blfngl.fallout.entity.EntityGlowingOne;
 import blfngl.fallout.entity.EntityMrHandy;
 import blfngl.fallout.entity.EntityNightStalker;
 import blfngl.fallout.entity.EntityRadroach;
+import blfngl.fallout.entity.model.ModelBrahmin;
+import blfngl.fallout.entity.model.ModelGecko;
+import blfngl.fallout.entity.model.ModelGiantAnt;
+import blfngl.fallout.entity.model.ModelMrHandy;
+import blfngl.fallout.entity.model.ModelNightStalker;
 import blfngl.fallout.entity.render.RenderBOSPaladin;
 import blfngl.fallout.entity.render.RenderBrahmin;
 import blfngl.fallout.entity.render.RenderFGhoul;
@@ -29,20 +35,21 @@ import blfngl.fallout.entity.render.RenderMrHandy;
 import blfngl.fallout.entity.render.RenderNightStalker;
 import blfngl.fallout.entity.render.RenderRadroach;
 import blfngl.fallout.gui.GuiLevelUp;
+import blfngl.fallout.gun.render.Render45Auto;
+import blfngl.fallout.gun.render.Render45AutoScoped;
 import blfngl.fallout.gun.render.Render9mmPistol;
 import blfngl.fallout.gun.render.RenderAntiMaterielRifle;
 import blfngl.fallout.gun.render.RenderAssaultCarbine;
 import blfngl.fallout.gun.render.RenderBozar;
+import blfngl.fallout.gun.render.RenderBozarScoped;
 import blfngl.fallout.gun.render.RenderChineseAssaultRifle;
+import blfngl.fallout.gun.render.RenderChineseAssaultRifleScoped;
 import blfngl.fallout.gun.render.RenderDoubleBarrelShotgun;
 import blfngl.fallout.gun.render.RenderRatslayer;
+import blfngl.fallout.gun.render.RenderRatslayerScoped;
+import blfngl.fallout.handler.ReloadHandler;
 import blfngl.fallout.handler.ScopeHandler;
 import blfngl.fallout.handler.SoundHandler;
-import blfngl.fallout.model.ModelBrahmin;
-import blfngl.fallout.model.ModelGecko;
-import blfngl.fallout.model.ModelGiantAnt;
-import blfngl.fallout.model.ModelMrHandy;
-import blfngl.fallout.model.ModelNightStalker;
 import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -51,6 +58,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ClientProxy extends CommonProxy
 {
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void registerRenderers()
 	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityFGhoul.class, new RenderFGhoul(new ModelBiped(), 0.5F));
@@ -70,10 +78,15 @@ public class ClientProxy extends CommonProxy
 		MinecraftForgeClient.registerItemRenderer(Fallout.rifleChineseAssault.itemID, (IItemRenderer)new RenderChineseAssaultRifle());
 		MinecraftForgeClient.registerItemRenderer(Fallout.rifleAntiMateriel.itemID, (IItemRenderer)new RenderAntiMaterielRifle());
 		MinecraftForgeClient.registerItemRenderer(Fallout.shotgunDoubleBarrel.itemID, (IItemRenderer)new RenderDoubleBarrelShotgun());
+		MinecraftForgeClient.registerItemRenderer(Fallout.pistol45Auto.itemID, (IItemRenderer)new Render45Auto());
 
 		KeyBinding[] var1 = new KeyBinding[] {new KeyBinding("Scope", 33)};
 		boolean[] var2 = new boolean[] {false};
 		KeyBindingRegistry.registerKeyBinding(new ScopeHandler(var1, var2));
+
+		KeyBinding[] var3 = new KeyBinding[] {new KeyBinding("Reload", 34)};
+		boolean[] var4 = new boolean[] {false};
+		KeyBindingRegistry.registerKeyBinding(new ReloadHandler(var3, var4));
 	}        
 
 	public int addArmor(String Armor)

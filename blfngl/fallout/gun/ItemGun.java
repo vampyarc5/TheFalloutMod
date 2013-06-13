@@ -10,11 +10,20 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraft.world.World;
+import net.minecraftforge.client.MinecraftForgeClient;
 
 import org.lwjgl.input.Keyboard;
 
 import blfngl.fallout.Fallout;
 import blfngl.fallout.entity.EntityBullet;
+import blfngl.fallout.gun.render.Render45Auto;
+import blfngl.fallout.gun.render.Render45AutoScoped;
+import blfngl.fallout.gun.render.RenderBozar;
+import blfngl.fallout.gun.render.RenderBozarScoped;
+import blfngl.fallout.gun.render.RenderChineseAssaultRifle;
+import blfngl.fallout.gun.render.RenderChineseAssaultRifleScoped;
+import blfngl.fallout.gun.render.RenderRatslayer;
+import blfngl.fallout.gun.render.RenderRatslayerScoped;
 
 public class ItemGun extends Item
 {
@@ -131,7 +140,7 @@ public class ItemGun extends Item
 						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));
 					}
 				}
-				
+
 				firetick = 0;
 			}
 
@@ -176,9 +185,8 @@ public class ItemGun extends Item
 	public void onUpdate(ItemStack par1ItemStack, World var2, Entity par3Entity, int par4, boolean par5) 
 	{
 		EntityPlayer var3 = (EntityPlayer)par3Entity;
-		//gunHealth = par1ItemStack.getItemDamage()/par1ItemStack.getMaxDamage();
 
-		if (!var2.isRemote && var3.inventory.hasItem(ammoType.itemID) && rounds<clipSize && Keyboard.isKeyDown(Keyboard.KEY_R) && !reloading)
+		if (!var2.isRemote && var3.inventory.hasItem(ammoType.itemID) && rounds<clipSize && Fallout.isReloading && !reloading)
 		{
 			reloading=true;
 
@@ -193,7 +201,6 @@ public class ItemGun extends Item
 					var3.inventory.consumeInventoryItem(ammoType.itemID);
 					rounds += 1;
 				}
-
 			}
 
 			else
@@ -206,5 +213,25 @@ public class ItemGun extends Item
 
 		if(reloadtick<reloadmax){reloadtick+=1;}
 		if(firetick<firemax){firetick+=1;}
+
+		//TODO get scopes to work on servers
+		/**if (Fallout.isScoped)
+		{
+			ModLoader.getMinecraftInstance().gameSettings.fovSetting = -1.0F;
+			MinecraftForgeClient.registerItemRenderer(Fallout.rifleBozar.itemID, new RenderBozarScoped());
+			MinecraftForgeClient.registerItemRenderer(Fallout.rifleRatslayer.itemID, new RenderRatslayerScoped());
+			MinecraftForgeClient.registerItemRenderer(Fallout.rifleChineseAssault.itemID, new RenderChineseAssaultRifleScoped());
+			MinecraftForgeClient.registerItemRenderer(Fallout.pistol45Auto.itemID, new Render45AutoScoped());
+
+		}
+
+		else
+		{
+			ModLoader.getMinecraftInstance().gameSettings.fovSetting = 0.0F;
+			MinecraftForgeClient.registerItemRenderer(Fallout.rifleBozar.itemID, new RenderBozar());
+			MinecraftForgeClient.registerItemRenderer(Fallout.rifleRatslayer.itemID, new RenderRatslayer());
+			MinecraftForgeClient.registerItemRenderer(Fallout.rifleChineseAssault.itemID, new RenderChineseAssaultRifle());
+			MinecraftForgeClient.registerItemRenderer(Fallout.pistol45Auto.itemID, new Render45Auto());
+		}**/
 	}
 }
