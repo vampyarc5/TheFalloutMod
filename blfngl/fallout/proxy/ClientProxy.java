@@ -3,6 +3,9 @@ package blfngl.fallout.proxy;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelSilverfish;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,6 +28,7 @@ import blfngl.fallout.entity.render.RenderGlowingOne;
 import blfngl.fallout.entity.render.RenderMrHandy;
 import blfngl.fallout.entity.render.RenderNightStalker;
 import blfngl.fallout.entity.render.RenderRadroach;
+import blfngl.fallout.gui.GuiLevelUp;
 import blfngl.fallout.gun.render.Render9mmPistol;
 import blfngl.fallout.gun.render.RenderAntiMaterielRifle;
 import blfngl.fallout.gun.render.RenderAssaultCarbine;
@@ -82,5 +86,20 @@ public class ClientProxy extends CommonProxy
 	public void registerSoundHandler()
 	{
 		MinecraftForge.EVENT_BUS.register(new SoundHandler());
+	}
+
+	@Override
+	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
+	{
+		TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
+		if (tileEntity != null)
+		{
+			switch(ID)
+			{
+			case 0:
+			case 1: return new GuiLevelUp(player);
+			}
+		}
+		return tileEntity;
 	}
 }

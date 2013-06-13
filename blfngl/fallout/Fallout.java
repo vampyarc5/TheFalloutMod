@@ -2,6 +2,7 @@ package blfngl.fallout;
 
 import java.util.Arrays;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.Material;
@@ -34,6 +35,7 @@ import blfngl.fallout.block.BlockCarbonDeposit;
 import blfngl.fallout.block.BlockCaveFungus;
 import blfngl.fallout.block.BlockJalapeno;
 import blfngl.fallout.block.BlockPortalActivator;
+import blfngl.fallout.block.BlockReloadBench;
 import blfngl.fallout.block.BlockSaturniteOre;
 import blfngl.fallout.block.BlockSiliconDeposit;
 import blfngl.fallout.block.BlockTechnetiumOre;
@@ -111,6 +113,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
@@ -386,6 +389,7 @@ public class Fallout
 	public static final BlockFlower Jalapeno = (BlockFlower) new BlockJalapeno(184, 14).setUnlocalizedName("Jalapeno");
 	//public static final Block benchReload = new BlockReloadBench(185).setCreativeTab(CreativeTabs.tabBlock);
 	public static final BlockOre blockAlien = (BlockOre) new BlockAlien(185, 15, Material.rock).setUnlocalizedName("AlienBlock");
+	public static final Block blockReload = new BlockReloadBench(186, Material.rock).setUnlocalizedName("Reload").setCreativeTab(CreativeTabs.tabBlock);
 
 	public static final BiomeGenBase Wasteland = (new BiomeWasteland(100)).setColor(16421912).setBiomeName("Wasteland").setDisableRain().setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.1F, 0.2F);
 
@@ -554,7 +558,7 @@ public class Fallout
 	public static final Item pistol32 = new ItemGun(725, 2, 5, 2.3, 2.5, "blfngl.32Fire", "Blfngl.32Reload", a32, 556).setUnlocalizedName("32Pistol").setCreativeTab(TabFalloutPistol);
 	public static final Item pistolSilenced10mm = new ItemGun(726, 4, 12, 1.3, 1, "blfngl.Silenced10mmFire", "Blfngl.10mmReload", a10mm, 333).setUnlocalizedName("Silenced10mmPistol").setCreativeTab(TabFalloutPistol);
 	public static final Item pistolChinese = new ItemGun(727, 3, 10, 2.5, 1, "blfngl.ChinesePistolFire", "Blfngl.10mmReload", a10mm, 1250).setUnlocalizedName("ChinesePistol").setCreativeTab(TabFalloutPistol);
-	public static final Item pistolColonelAutumn10mm = new ItemGun(729, 5, 12, 1, 1, "blfngl.10mmFire", "Blfngl.10mmReload", a10mm, 577).setUnlocalizedName("ColonelAutumn10mmPistol").setCreativeTab(TabFalloutPistol);
+	public static final Item pistolColonelAutumn10mm = new ItemGun(729, 5, 12, 1, 1, "blfngl.10mmFire", "Blfngl.10mmReload", a10mm, 577).setUnlocalizedName("CA10mmPistol").setCreativeTab(TabFalloutPistol);
 	public static final Item pistolZhuRong = new ItemGun(730, 4, 10, 2.3, 2.5, "blfngl.ChinesePistolFire", "Blfngl.10mmReload", a10mm, 1667).setUnlocalizedName("ZhuRong").setCreativeTab(TabFalloutPistol);
 	public static final Item pistolDartGun = new ItemGun(732, 3, 1, 2.3, 2.5, "blfngl.DartGunFire", "Blfngl.DartGunReload", aDart, 883).setUnlocalizedName("DartGun").setCreativeTab(TabFalloutPistol);
 	public static final Item pistolScoped44 = new ItemGun(733, 5, 6, 3, 3, "blfngl.44Fire", "Blfngl.44Reload", a44, 229).setUnlocalizedName("Scoped44").setCreativeTab(TabFalloutPistol);
@@ -628,6 +632,8 @@ public class Fallout
 		System.out.println("Blfngl's Fallout Mod Loaded. Lololololol.");
 
 		proxy.registerSoundHandler();
+		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
+		instance = this;
 	}
 
 	@Init
