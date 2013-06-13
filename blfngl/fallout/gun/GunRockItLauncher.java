@@ -43,7 +43,7 @@ public class GunRockItLauncher extends Item
 		return true;
 	}
 
-	public GunRockItLauncher(int var1, int var2, int var3, double var4, double var5, String var6, String var7, Item var8, int var9)
+	public GunRockItLauncher(int var1, int var2, int var3, double var4, double var5, String var6, String var7, int var9)
 	{
 		super(var1);
 		damage = var2;
@@ -56,13 +56,12 @@ public class GunRockItLauncher extends Item
 		setMaxStackSize(1);
 		setMaxDamage(var9);
 		clipSize = var3;
-		ammoType = var8;
 		critChance = 5;
 		critDamage = 4;
 		cnd = var9;
 	}
 
-	public GunRockItLauncher(int var1, int var2, int var3, int var4, int var5, String var6, String var7, Item var9, int var10, int var11, int var12)
+	public GunRockItLauncher(int var1, int var2, int var3, int var4, int var5, String var6, String var7, int var10, int var11, int var12)
 	{
 		super(var1);
 		damage = var2;
@@ -75,7 +74,6 @@ public class GunRockItLauncher extends Item
 		setMaxStackSize(1);
 		setMaxDamage(var12);
 		clipSize = var3;
-		ammoType = var9;
 		critChance = var10;
 		critDamage = var11;
 	}
@@ -132,8 +130,9 @@ public class GunRockItLauncher extends Item
 	{
 		gunHealth = var1.getItemDamage();
 		var3.add("\u00A74DAM: " + (double)damage/2/*((double)damage/2)*((double)0.54 + gunHealth * (1-(double)0.54D))*/); //TODO After fixed condition appearance
-		var3.add("\u00A79Clip size: " + rounds + "/" + clipSize + " Ammo Loaded");
-		var3.add("\u00A72Ammo type: " + ammoType.getItemDisplayName(new ItemStack(ammoType)));
+		var3.add("\u00A79Clip size: " + rounds + "/" + clipSize);
+		var3.add("\u00A72Ammo type: Junk");
+		var3.add("\u00A72Tin Cans, Scrap Metal, Lead, Glass Bottles");
 		var3.add("\u00A76CND: " + (cnd - gunHealth));
 
 		if(name !=null)
@@ -152,8 +151,6 @@ public class GunRockItLauncher extends Item
 	public void onUpdate(ItemStack par1ItemStack, World var2, Entity par3Entity, int par4, boolean par5) 
 	{
 		EntityPlayer var3 = (EntityPlayer)par3Entity;
-		//gunHealth = par1ItemStack.getItemDamage()/par1ItemStack.getMaxDamage();
-
 		if (!var2.isRemote && var3.inventory.hasItem(Fallout.tinCan.itemID) && rounds<clipSize && Keyboard.isKeyDown(Keyboard.KEY_R) && !reloading)
 		{
 			reloading=true;
@@ -164,9 +161,9 @@ public class GunRockItLauncher extends Item
 				count = 0;
 				var2.playSoundAtEntity(var3, reloadsound, 1.0F, 1.0F);
 
-				while (rounds<clipSize && var3.inventory.hasItem(ammoType.itemID))
+				while (rounds<clipSize && var3.inventory.hasItem(Fallout.tinCan.itemID))
 				{
-					var3.inventory.consumeInventoryItem(ammoType.itemID);
+					var3.inventory.consumeInventoryItem(Fallout.tinCan.itemID);
 					rounds += 1;
 				}
 
@@ -188,9 +185,9 @@ public class GunRockItLauncher extends Item
 				count = 0;
 				var2.playSoundAtEntity(var3, reloadsound, 1.0F, 1.0F);
 
-				while (rounds<clipSize && var3.inventory.hasItem(ammoType.itemID))
+				while (rounds<clipSize && var3.inventory.hasItem(Fallout.scrapMetal.itemID))
 				{
-					var3.inventory.consumeInventoryItem(ammoType.itemID);
+					var3.inventory.consumeInventoryItem(Fallout.scrapMetal.itemID);
 					rounds += 1;
 				}
 
@@ -212,9 +209,9 @@ public class GunRockItLauncher extends Item
 				count = 0;
 				var2.playSoundAtEntity(var3, reloadsound, 1.0F, 1.0F);
 
-				while (rounds<clipSize && var3.inventory.hasItem(ammoType.itemID))
+				while (rounds<clipSize && var3.inventory.hasItem(Fallout.lead.itemID))
 				{
-					var3.inventory.consumeInventoryItem(ammoType.itemID);
+					var3.inventory.consumeInventoryItem(Fallout.lead.itemID);
 					rounds += 1;
 				}
 
@@ -236,9 +233,9 @@ public class GunRockItLauncher extends Item
 				count = 0;
 				var2.playSoundAtEntity(var3, reloadsound, 1.0F, 1.0F);
 
-				while (rounds<clipSize && var3.inventory.hasItem(ammoType.itemID))
+				while (rounds<clipSize && var3.inventory.hasItem(Item.glassBottle.itemID))
 				{
-					var3.inventory.consumeInventoryItem(ammoType.itemID);
+					var3.inventory.consumeInventoryItem(Item.glassBottle.itemID);
 					rounds += 1;
 				}
 

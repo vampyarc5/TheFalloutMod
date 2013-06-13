@@ -20,7 +20,7 @@ public class ScopeHandler extends KeyHandler
 
     public String getLabel()
     {
-        return "Fallout - Scope";
+        return "Fallout - Zoom";
     }
 
     public void keyDown(EnumSet var1, KeyBinding var2, boolean var3, boolean var4)

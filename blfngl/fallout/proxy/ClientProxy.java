@@ -80,11 +80,11 @@ public class ClientProxy extends CommonProxy
 		MinecraftForgeClient.registerItemRenderer(Fallout.shotgunDoubleBarrel.itemID, (IItemRenderer)new RenderDoubleBarrelShotgun());
 		MinecraftForgeClient.registerItemRenderer(Fallout.pistol45Auto.itemID, (IItemRenderer)new Render45Auto());
 
-		KeyBinding[] var1 = new KeyBinding[] {new KeyBinding("Scope", 33)};
+		KeyBinding[] var1 = new KeyBinding[] {new KeyBinding("Fallout - Zoom", 33)};
 		boolean[] var2 = new boolean[] {false};
 		KeyBindingRegistry.registerKeyBinding(new ScopeHandler(var1, var2));
 
-		KeyBinding[] var3 = new KeyBinding[] {new KeyBinding("Reload", 34)};
+		KeyBinding[] var3 = new KeyBinding[] {new KeyBinding("Fallout - Reload", 34)};
 		boolean[] var4 = new boolean[] {false};
 		KeyBindingRegistry.registerKeyBinding(new ReloadHandler(var3, var4));
 	}        
