@@ -477,12 +477,12 @@ public class Fallout
 	public static final Item rifleVarmint = new BaseGun(655, 3, 5, 2.2, 2, "blfngl.VarmintRifleFire", "Blfngl.PlasmaRifleReload", a556, 595).setUnlocalizedName("VarmintRifle").setCreativeTab(TabFalloutRifle);
 	public static final Item rifleRatslayer = new BaseGun(656, 5, 5, 2.2, 2, "blfngl.RatslayerFire", "Blfngl.PlasmaRifleReload", a556, 995).setUnlocalizedName("Ratslayer").setCreativeTab(TabFalloutRifle);
 
-	public static final Item smg45Auto = new BaseGun(657, 4, 30, 2.2, 0.5, "blfngl.45Fire", "Blfngl.AssaultReload", a45Auto, 2995).setUnlocalizedName("45AutoSub").setCreativeTab(TabFalloutSMG);
+	public static final Item smg45Auto = new BaseGun(657, 6, 30, 2.2, 0.5, "blfngl.45Fire", "Blfngl.AssaultReload", a45Auto, 2995).setUnlocalizedName("45AutoSub").setCreativeTab(TabFalloutSMG);
 	public static final Item smg9mm = new BaseGun(658, 2, 30, 2.7, 0.5, "blfngl.9mmFire", "Blfngl.9mmReload", a9mm, 2745).setUnlocalizedName("9mmSub").setCreativeTab(TabFalloutSMG);
 	public static final Item smgVance = new BaseGun(659, 4, 60, 2.2, 0.5, "blfngl.9mmFire", "Blfngl.9mmReload", a9mm, 3745).setUnlocalizedName("VancesSub").setCreativeTab(TabFalloutSMG);
 	public static final Item smg10mm = new BaseGun(660, 3, 30, 2.7, 0.5, "blfngl.10mmFire", "Blfngl.10mmReload", a10mm, 2495).setUnlocalizedName("10mmSub").setCreativeTab(TabFalloutSMG);
 	public static final Item smgSleepytyme = new BaseGun(661, 5, 40, 2.7, 0.5, "blfngl.SleepytymeFire", "Blfngl.10mmReload", a10mm, 2495).setUnlocalizedName("Sleepytyme").setCreativeTab(TabFalloutSMG);
-	public static final Item smg127 = new BaseGun(662, 4, 21, 2, 0.5, "blfngl.357Fire", "Blfngl.127SmgReload", a127, 2495).setUnlocalizedName("127Sub").setCreativeTab(TabFalloutSMG);
+	public static final Item smg127 = new BaseGun(662, 8, 21, 2, 0.5, "blfngl.357Fire", "Blfngl.127SmgReload", a127, 2495).setUnlocalizedName("127Sub").setCreativeTab(TabFalloutSMG);
 	public static final Item smgNailGun = new BaseGun(663, 2, 90, 2.7, 0.3, "blfngl.NailgunFire", "Blfngl.9mmReload", aNail, 2745).setUnlocalizedName("NailGun").setCreativeTab(TabFalloutSMG);
 	public static final Item smg22 = new BaseGun(664, 1, 180, 2.3, 0.5, "blfngl.Silenced22Fire", "Blfngl.10mmReload", a22LR, 4995).setUnlocalizedName("22Sub").setCreativeTab(TabFalloutSMG);
 	public static final Item CZ57 = new BaseGun(666, 5, 120, 4, 0.3, "blfngl.MinigunFire", "Blfngl.MinigunReload", a5mm, 7995).setUnlocalizedName("CZ57").setCreativeTab(TabFalloutHeavy);
@@ -631,7 +631,7 @@ public class Fallout
 		var2.credits = "Mojang, MinecraftForge and everyone that uses this mod :)";
 		var2.logoFile = "/blfngl/fallout/textures/blflogo.png";
 		var2.url = "http://www.minecraftforum.net/topic/1667023-";
-		System.out.println("Blfngl's Fallout Mod Loaded. Lololololol.");
+		System.out.println("Fallout - Loading core files...");
 
 		proxy.registerSoundHandler();
 		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
@@ -674,6 +674,7 @@ public class Fallout
 		DimensionManager.registerDimension(dimensionWasteland , dimensionWasteland);
 
 		proxy.registerRenderers();
+		System.out.println("Blfngl's Fallout Mod loaded succesfully. Lololololol.");
 	}
 
 	@PostInit
