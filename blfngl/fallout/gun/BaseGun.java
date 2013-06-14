@@ -25,7 +25,7 @@ import blfngl.fallout.gun.render.RenderChineseAssaultRifleScoped;
 import blfngl.fallout.gun.render.RenderRatslayer;
 import blfngl.fallout.gun.render.RenderRatslayerScoped;
 
-public class ItemGun extends Item
+public class BaseGun extends Item
 {
 	private int damage;
 	private double reloadtick;
@@ -52,7 +52,7 @@ public class ItemGun extends Item
 		return true;
 	}
 
-	public ItemGun(int var1, int var2, int var3, double var4, double var5, String var6, String var7, Item var8, int var9)
+	public BaseGun(int var1, int var2, int var3, double var4, double var5, String var6, String var7, Item var8, int var9)
 	{
 		super(var1);
 		damage = var2;
@@ -71,7 +71,7 @@ public class ItemGun extends Item
 		cnd = var9;
 	}
 
-	public ItemGun(int var1, int var2, int var3, int var4, int var5, String var6, String var7, Item var9, int var10, int var11, int var12)
+	public BaseGun(int var1, int var2, int var3, int var4, int var5, String var6, String var7, Item var9, int var10, int var11, int var12)
 	{
 		super(var1);
 		damage = var2;

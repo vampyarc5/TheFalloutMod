@@ -84,7 +84,7 @@ public class ClientProxy extends CommonProxy
 		boolean[] var2 = new boolean[] {false};
 		KeyBindingRegistry.registerKeyBinding(new ScopeHandler(var1, var2));
 
-		KeyBinding[] var3 = new KeyBinding[] {new KeyBinding("Fallout - Reload", 34)};
+		KeyBinding[] var3 = new KeyBinding[] {new KeyBinding("Fallout - Reload", 19)};
 		boolean[] var4 = new boolean[] {false};
 		KeyBindingRegistry.registerKeyBinding(new ReloadHandler(var3, var4));
 	}        

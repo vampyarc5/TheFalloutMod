@@ -24,9 +24,6 @@ public class EntityRocket extends EntityThrowable
 		super(par1World, par2, par4, par6);
 	}
 
-	/**
-	 * Called when this EntityThrowable hits a block or entity.
-	 */
 	protected void onImpact(MovingObjectPosition par1MovingObjectPosition)
 	{
 		if (par1MovingObjectPosition.entityHit != null)
@@ -34,16 +31,13 @@ public class EntityRocket extends EntityThrowable
 			par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 0);
 		}
 
-		{
-			EntityTNTPrimed var4 = new EntityTNTPrimed(this.worldObj);
-			var4.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
-			this.worldObj.spawnEntityInWorld(var4);
-		}
-
 
 		for (int var5 = 0; var5 < 8; ++var5)
 		{
 			this.worldObj.spawnParticle("snowballpoof", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+			EntityTNTPrimed var4 = new EntityTNTPrimed(this.worldObj);
+			var4.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
+			this.worldObj.spawnEntityInWorld(var4);
 		}
 
 		if (!this.worldObj.isRemote)

@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
 import blfngl.fallout.Fallout;
+import blfngl.fallout.item.BaseItem;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -255,8 +256,28 @@ public class ItemHandler extends Fallout
 
 		LanguageRegistry.addName(cellMFD, "Drained Microfusion Cell");
 		LanguageRegistry.addName(cellECPD, "Drained Electron Charge Pack");
-		LanguageRegistry.addName(cellED, "Drained Energy Cell");
+		LanguageRegistry.addName(cellED, "Drained Small Energy Cell");
 
-		System.out.println("Fallout: Item system loaded.");
+		LanguageRegistry.addName(case45Auto, "Case - .45 Auto");
+		LanguageRegistry.addName(case9mm, "Case - 9mm");
+		LanguageRegistry.addName(case10mm, "Case - 10mm");
+		LanguageRegistry.addName(case357, "Case -.357");
+		LanguageRegistry.addName(case44, "Case - .44");
+		LanguageRegistry.addName(case308, "Case - .308");
+		LanguageRegistry.addName(caseGovt, "Case - .45-.70");
+		LanguageRegistry.addName(case50MG, "Case - .50MG");
+		LanguageRegistry.addName(case22LR, "Case - .22LR");
+		LanguageRegistry.addName(primerPistolL, "Primer - Pistol(Large)");
+		LanguageRegistry.addName(dogBrain, "Dog Brain");
+
+		LanguageRegistry.addName(case5mm, "Case - 5mm");
+		LanguageRegistry.addName(primerRifleS, "Primer - Rifle(Small)");
+		LanguageRegistry.addName(case556, "Case - 5.56mm");
+		LanguageRegistry.addName(case127, "Case - 12.7mm");
+		LanguageRegistry.addName(hull12, "Hull - 12 Gauge");
+		LanguageRegistry.addName(hull20, "Hull - 20 Gauge");
+		LanguageRegistry.addName(primerShotgun, "Primer - Shotgun");
+
+		System.out.println("Fallout: Item system loaded. Craft ALL the items!");
 	}
 }

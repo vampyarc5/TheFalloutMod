@@ -4,7 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import blfngl.fallout.Fallout;
-import blfngl.fallout.gun.ItemGun;
+import blfngl.fallout.gun.BaseGun;
+import blfngl.fallout.gun.GunExplosive;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -148,11 +149,14 @@ public class GunHandler extends Fallout
 		LanguageRegistry.addName(rifleInfiltrator, "Infiltrator");
 		LanguageRegistry.addName(riflePerforator, "Perforator");
 		LanguageRegistry.addName(rifleXuanlong, "Xuanlong Assault Rifle");
-		
+
 		LanguageRegistry.addName(shotgunKneecapper, "The Kneecapper");
 		LanguageRegistry.addName(shotgunDoubleBarrel, "Double-Barrel Shotgun");
 		LanguageRegistry.addName(smgUltra10mm, "Sydney's 10mm 'Ultra' SMG");
-		
-		System.out.println("Fallout: Gun system loaded. 'Say hello to my little friend.'");
+
+		LanguageRegistry.addName(rifleAssault, "Assault Rifle");
+		LanguageRegistry.addName(explosiveThumpThump, "Thump - Thump");
+
+		System.out.println("Fallout: Gun system loaded. Say hello to my little friend.");
 	}
 }
