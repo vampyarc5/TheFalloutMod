@@ -62,24 +62,6 @@ public class BaseGun extends Item
 		cnd = var9;
 	}
 
-	public BaseGun(int var1, int var2, int var3, int var4, int var5, String var6, String var7, Item var9, int var10, int var11, int var12)
-	{
-		super(var1);
-		damage = var2;
-		firemax = var5*10;
-		firetick = firemax;
-		reloadmax = 50;
-		reloadtick = var4;
-		firesound = var6;
-		reloadsound = var7;
-		setMaxStackSize(1);
-		setMaxDamage(var12);
-		clipSize = var3;
-		ammoType = var9;
-		critChance = var10;
-		critDamage = var11;
-	}
-
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3)
 	{
 		tempDam = damage;

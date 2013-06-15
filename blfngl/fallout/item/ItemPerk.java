@@ -32,14 +32,17 @@ public class ItemPerk extends Item
 		par1ItemStack.stackTagCompound.setInteger("SolarPowered", 0);
 		par1ItemStack.stackTagCompound.setInteger("LaserCommander", 0);
 		par1ItemStack.stackTagCompound.setInteger("Toughness", 0);
+		par1ItemStack.stackTagCompound.setInteger("VigilantRecycle", 0);
+		par1ItemStack.stackTagCompound.setInteger("Grunt", 0);
+		par1ItemStack.stackTagCompound.setInteger("Cowboy", 0);
+		par1ItemStack.stackTagCompound.setInteger("BloodyMess", 0);
 	}
 
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3)
 	{
-		if (itemID == Fallout.perkLaserCommander.itemID && var3.experienceLevel >= 22 && PerkHandler.laserCommander == false)
+		if (itemID == Fallout.perkLaserCommander.itemID && var3.experienceLevel >= 22 && var1.stackTagCompound.getInteger("LaserCommander") == 0)
 		{
 			var1.stackTagCompound.setInteger( "LaserCommander", 1);
-			PerkHandler.laserCommander = true;
 			var3.experienceLevel -= 22;
 			var3.addChatMessage("Laser Commander Activated!");
 		}
@@ -47,12 +50,11 @@ public class ItemPerk extends Item
 		if (itemID == Fallout.perkNightFriend.itemID && var3.experienceLevel >= 2 && var1.stackTagCompound.getInteger("NightFriend") == 0)
 		{
 			var1.stackTagCompound.setInteger("NightFriend", 1);
-			PerkHandler.friendOfNight = true;
 			var3.experienceLevel -= 2;
 			var3.addChatMessage("Friend of the Night Activated!");
 		}
 
-		if (itemID == Fallout.perkBloodyMess.itemID && var3.experienceLevel >= 6 && PerkHandler.bloodyMess == false)
+		if (itemID == Fallout.perkBloodyMess.itemID && var3.experienceLevel >= 6 && var1.stackTagCompound.getInteger("BloodyMess")== 0)
 		{
 			var1.stackTagCompound.setInteger("BloodyMess", 1);
 			PerkHandler.bloodyMess = true;
@@ -60,10 +62,9 @@ public class ItemPerk extends Item
 			var3.addChatMessage("Bloody Mess Activated!");
 		}
 
-		if (itemID == Fallout.perkToughness.itemID && var3.experienceLevel >= 3 && PerkHandler.toughness == false)
+		if (itemID == Fallout.perkToughness.itemID && var3.experienceLevel >= 3 && var1.stackTagCompound.getInteger("Toughness") == 0)
 		{
 			var1.stackTagCompound.setInteger("Toughness", 1);
-			PerkHandler.toughness = true;
 			var3.experienceLevel -= 3;
 			var3.addChatMessage("Toughness Activated!");
 		}
@@ -71,12 +72,11 @@ public class ItemPerk extends Item
 		if (itemID == Fallout.perkSolarPowered.itemID && var3.experienceLevel >= 28 && var1.stackTagCompound.getInteger("SolarPowered") == 0)
 		{
 			var1.stackTagCompound.setInteger("SolarPowered", 1);
-			PerkHandler.solarPowered = true;
 			var3.experienceLevel -= 28;
 			var3.addChatMessage("Solar Powered Activated!");
 		}
 
-		if (itemID == Fallout.perkVigilantRecycle.itemID && var3.experienceLevel >= 6 && PerkHandler.vigilantRecycle == false)
+		if (itemID == Fallout.perkVigilantRecycle.itemID && var3.experienceLevel >= 6 && var1.stackTagCompound.getInteger("VigilantRecycle") == 0)
 		{
 			var1.stackTagCompound.setInteger("VigilantRecycle", 1);
 			PerkHandler.vigilantRecycle = true;
@@ -84,7 +84,7 @@ public class ItemPerk extends Item
 			var3.addChatMessage("Vigilant Recycler Activated!");
 		}
 
-		if (itemID == Fallout.perkGrunt.itemID && var3.experienceLevel >= 8 && PerkHandler.grunt == false)
+		if (itemID == Fallout.perkGrunt.itemID && var3.experienceLevel >= 8 && var1.stackTagCompound.getInteger("Grunt") == 0)
 		{
 			var1.stackTagCompound.setInteger("Grunt", 1);
 			PerkHandler.grunt = true;
@@ -92,15 +92,14 @@ public class ItemPerk extends Item
 			var3.addChatMessage("Grunt Activated!");
 		}
 
-		if (itemID == Fallout.perkNerdRage.itemID && var3.experienceLevel >= 10 && PerkHandler.nerdRage == false)
+		if (itemID == Fallout.perkNerdRage.itemID && var3.experienceLevel >= 10 && var1.stackTagCompound.getInteger("NerdRage") == 0)
 		{
 			var1.stackTagCompound.setInteger("NerdRage", 1);
-			PerkHandler.nerdRage = true;
 			var3.experienceLevel -= 10;
 			var3.addChatMessage("Nerd Rage! Activated!");
 		}
 
-		if (itemID == Fallout.perkCowboy.itemID && var3.experienceLevel >= 8 && PerkHandler.cowboy == false)
+		if (itemID == Fallout.perkCowboy.itemID && var3.experienceLevel >= 8 && var1.stackTagCompound.getInteger("Cowboy") == 0)
 		{
 			var1.stackTagCompound.setInteger("Cowboy", 1);
 			PerkHandler.cowboy = true;
@@ -108,10 +107,9 @@ public class ItemPerk extends Item
 			var3.addChatMessage("Cowboy Activated!");
 		}
 
-		if (itemID == Fallout.perkWalkerInstinct.itemID && var3.experienceLevel >= 18 && PerkHandler.walkerInstinct == false)
+		if (itemID == Fallout.perkWalkerInstinct.itemID && var3.experienceLevel >= 18 && var1.stackTagCompound.getInteger("WalkerInstinct") == 0)
 		{
 			var1.stackTagCompound.setInteger("WalkerInstinct", 1);
-			PerkHandler.walkerInstinct = true;
 			var3.experienceLevel -= 18;
 			var3.addChatMessage("Walker Instinct Activated!");
 		}
@@ -135,17 +133,21 @@ public class ItemPerk extends Item
 		}
 
 		if (par1ItemStack.stackTagCompound.getInteger("Toughness") == 1){((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20, 0));}
-		//if (par1ItemStack.stackTagCompound.getInteger("ImplantM5") == 1){((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 0));}
 		if (par1ItemStack.stackTagCompound.getInteger("NerdRage") == 1){((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20, 4));}
 		if (par1ItemStack.stackTagCompound.getInteger("WalkerInstinct") == 1){((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 0));}
+		if (par1ItemStack.stackTagCompound.getInteger("Grunt") == 1 && PerkHandler.grunt == false){PerkHandler.grunt = true;}
+		if (par1ItemStack.stackTagCompound.getInteger("VigilantRecycle") == 1 && PerkHandler.vigilantRecycle == false){PerkHandler.vigilantRecycle = true;}
+		if (par1ItemStack.stackTagCompound.getInteger("LaserCommander") == 1 && PerkHandler.laserCommander == false){PerkHandler.laserCommander = true;}
 	}
 
 	public void addInformation(ItemStack var1, EntityPlayer var2, List var3, boolean var4)
 	{
 		if (itemID == Fallout.perkSolarPowered.itemID)
 		{
-			var3.add("\u00A7eWhen in direct sunlight you slowly regenerate");
-			var3.add("\u00A7eLost health at a rate of half a heart every second");
+			var3.add("\u00A7eWhen in direct sunlight ");
+			var3.add("\u00A7eyou slowly regenerate");
+			var3.add("\u00A7elost health at a rate of");
+			var3.add("\u00A7ehalf a heart every second");
 		}
 	}
 }

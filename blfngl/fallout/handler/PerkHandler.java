@@ -8,16 +8,10 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class PerkHandler extends Fallout
 {
 	public static boolean laserCommander;
-	public static boolean friendOfNight;
-	public static boolean bloodyMess;
-	public static boolean toughness;
 	public static boolean vigilantRecycle;
-	public static boolean solarPowered;
 	public static boolean grunt;
-	public static boolean implantM5;
-	public static boolean nerdRage;
 	public static boolean cowboy;
-	public static boolean walkerInstinct;
+	public static boolean bloodyMess;
 
 	public static void init()
 	{

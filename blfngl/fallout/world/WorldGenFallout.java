@@ -10,7 +10,6 @@ import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGenFallout implements IWorldGenerator
 {
-
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider)
 	{
@@ -23,11 +22,11 @@ public class WorldGenFallout implements IWorldGenerator
 
 	public void generateSurface(World world, Random rand, int chunkX, int chunkZ)
 	{
-//		int Xcoord1 = chunkX + rand.nextInt(16);
-//		int Ycoord1 = rand.nextInt(256);
-//		int Zcoord1 = chunkZ + rand.nextInt(16);
-//
-//		(new StructureVault()).generate(world, rand, Xcoord1, Ycoord1, Zcoord1);
+		int Xcoord1 = chunkX + rand.nextInt(16);
+		int Ycoord1 = rand.nextInt(256);
+		int Zcoord1 = chunkZ + rand.nextInt(16);
+
+		(new StructureGasStation()).generate(world, rand, Xcoord1, Ycoord1, Zcoord1);
 
 		for (int i = 0; i < 16; i++)
 		{

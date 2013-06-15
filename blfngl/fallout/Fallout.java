@@ -713,23 +713,4 @@ public class Fallout
 	{
 
 	}
-
-	public void saveNBTData(NBTTagCompound compound)
-	{
-		if (PerkHandler.friendOfNight == true)
-		{
-			perkNBT.setInteger("NightFriend", 1);
-		}
-	}
-
-	public void loadNBTData(NBTTagCompound compound)
-	{
-		perkNBT.getInteger("NightFriend");
-	}
-
-	public String registerExtendedProperties(String identifier, IExtendedEntityProperties properties)
-	{
-		return null;
-
-	}
 }
