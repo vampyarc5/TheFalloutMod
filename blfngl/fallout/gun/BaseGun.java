@@ -8,22 +8,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.src.ModLoader;
 import net.minecraft.world.World;
-import net.minecraftforge.client.MinecraftForgeClient;
-
-import org.lwjgl.input.Keyboard;
-
 import blfngl.fallout.Fallout;
 import blfngl.fallout.entity.EntityBullet;
-import blfngl.fallout.gun.render.Render45Auto;
-import blfngl.fallout.gun.render.Render45AutoScoped;
-import blfngl.fallout.gun.render.RenderBozar;
-import blfngl.fallout.gun.render.RenderBozarScoped;
-import blfngl.fallout.gun.render.RenderChineseAssaultRifle;
-import blfngl.fallout.gun.render.RenderChineseAssaultRifleScoped;
-import blfngl.fallout.gun.render.RenderRatslayer;
-import blfngl.fallout.gun.render.RenderRatslayerScoped;
+import blfngl.fallout.handler.PerkHandler;
 
 public class BaseGun extends Item
 {
@@ -44,6 +32,7 @@ public class BaseGun extends Item
 	public int gunHealth;
 	public int cnd;
 	public String name;
+	private int tempDam;
 
 	Random rand = new Random();
 
@@ -89,15 +78,31 @@ public class BaseGun extends Item
 		critDamage = var11;
 	}
 
-	/**
-	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-	 */
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3)
 	{
+		tempDam = damage;
+
 		if (!var2.isRemote && rounds > 0)
 		{
 			if (firetick == firemax && firemax != 0)
 			{
+				if (PerkHandler.laserCommander && ammoType.itemID == Fallout.cellElectron.itemID)
+				{
+					damage += damage * 0.15;
+				}
+
+				if (PerkHandler.laserCommander && ammoType.itemID == Fallout.cellMF.itemID)
+				{
+					damage += damage * 0.15;
+				}
+
+				if (PerkHandler.laserCommander && ammoType.itemID == Fallout.cellEnergy.itemID)
+				{
+					damage += damage * 0.15;
+				}
+
+				if (PerkHandler.bloodyMess){damage += .05 * damage;}
+
 				if (rand.nextInt(100)+1 <= critChance)
 				{
 					var2.spawnEntityInWorld(new EntityBullet(var2, var3, damage + rand.nextInt(critDamage)+1, 1));
@@ -125,6 +130,24 @@ public class BaseGun extends Item
 					if (ammoType.itemID == Fallout.aGauge20.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.hull20));}
 					if (ammoType.itemID == Fallout.aGauge12.itemID){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.hull12));}
 
+					if (PerkHandler.vigilantRecycle)
+					{
+						if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(100) + 1 > 65)
+						{
+							var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellMFD));
+						}
+
+						if (ammoType.itemID == Fallout.cellElectron.itemID && rand.nextInt(100) + 1 > 65)
+						{
+							var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellECPD));
+						}
+
+						if (ammoType.itemID == Fallout.cellEnergy.itemID && rand.nextInt(100) + 1 > 65)
+						{
+							var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));
+						}
+					}
+					
 					if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(100) + 1 > 65)
 					{
 						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellMFD));
@@ -139,6 +162,7 @@ public class BaseGun extends Item
 					{
 						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));
 					}
+					
 				}
 
 				firetick = 0;
@@ -155,6 +179,7 @@ public class BaseGun extends Item
 
 		}
 
+		damage = tempDam;
 		return var1;
 	}
 

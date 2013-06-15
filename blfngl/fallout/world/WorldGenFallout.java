@@ -2,7 +2,6 @@ package blfngl.fallout.world;
 
 import java.util.Random;
 
-import net.minecraft.block.BlockSand;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -24,6 +23,12 @@ public class WorldGenFallout implements IWorldGenerator
 
 	public void generateSurface(World world, Random rand, int chunkX, int chunkZ)
 	{
+//		int Xcoord1 = chunkX + rand.nextInt(16);
+//		int Ycoord1 = rand.nextInt(256);
+//		int Zcoord1 = chunkZ + rand.nextInt(16);
+//
+//		(new StructureVault()).generate(world, rand, Xcoord1, Ycoord1, Zcoord1);
+
 		for (int i = 0; i < 16; i++)
 		{
 			int randPosX = chunkX + rand.nextInt(16);

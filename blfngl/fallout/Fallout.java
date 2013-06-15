@@ -12,6 +12,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
@@ -66,6 +67,7 @@ import blfngl.fallout.handler.EntityHandler;
 import blfngl.fallout.handler.FoodHandler;
 import blfngl.fallout.handler.GunHandler;
 import blfngl.fallout.handler.ItemHandler;
+import blfngl.fallout.handler.PerkHandler;
 import blfngl.fallout.handler.RecordHandler;
 import blfngl.fallout.handler.ThrowingHandler;
 import blfngl.fallout.handler.VanillaDropHandler;
@@ -74,6 +76,7 @@ import blfngl.fallout.handler.WorldHandler;
 import blfngl.fallout.item.BaseDrink;
 import blfngl.fallout.item.BaseFood;
 import blfngl.fallout.item.BaseItem;
+import blfngl.fallout.item.ItemPerk;
 import blfngl.fallout.item.ItemPipboy;
 import blfngl.fallout.item.ItemPortalActivator;
 import blfngl.fallout.item.ItemSyringe;
@@ -92,6 +95,7 @@ import blfngl.fallout.tab.TabFalloutHeavy;
 import blfngl.fallout.tab.TabFalloutMisc;
 import blfngl.fallout.tab.TabFalloutMusic;
 import blfngl.fallout.tab.TabFalloutParts;
+import blfngl.fallout.tab.TabFalloutPerk;
 import blfngl.fallout.tab.TabFalloutPistol;
 import blfngl.fallout.tab.TabFalloutRifle;
 import blfngl.fallout.tab.TabFalloutSMG;
@@ -128,7 +132,6 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Fallout
 {
-
 	@Instance("fallout")
 	public static Fallout instance;
 
@@ -153,6 +156,7 @@ public class Fallout
 	public static CreativeTabs TabFalloutAmmo = new TabFalloutAmmo(CreativeTabs.getNextID(), "TabFalloutAmmo");
 	public static CreativeTabs TabFalloutMusic = new TabFalloutMusic(CreativeTabs.getNextID(), "TabFalloutMusic");
 	public static CreativeTabs TabFalloutParts = new TabFalloutParts(CreativeTabs.getNextID(), "TabFalloutParts");
+	public static CreativeTabs TabFalloutPerk = new TabFalloutPerk(CreativeTabs.getNextID(), "TabFalloutPerk");
 
 	public static EnumToolMaterial SATHEAT = EnumHelper.addToolMaterial("SATHEAT", 0, 595, 10.0F, 8, 27);
 	public static EnumToolMaterial PFIST = EnumHelper.addToolMaterial("PFIST", 0, 395, 10.0F, 7, 25);
@@ -610,6 +614,14 @@ public class Fallout
 	public static final Item rifleAssault = new BaseGun(773, 4, 30, 2.7, 0.5, "blfngl.ChineseAssaultFire", "Blfngl.ChineseAssaultReload", a556, 2495).setUnlocalizedName("AssaultRifle").setCreativeTab(TabFalloutRifle);
 	public static final Item explosiveThumpThump = new GunExplosive(774, 4, 30, 2.7, 2.0, "blfngl.ChineseAssaultFire", "Blfngl.ChineseAssaultReload", a556, 2495).setUnlocalizedName("ThumpThump").setCreativeTab(TabFalloutRifle);
 
+	public static final Item perkLaserCommander = new ItemPerk(775).setUnlocalizedName("diamond");
+	public static final Item perkNightFriend = new ItemPerk(776).setUnlocalizedName("coal");
+	public static final Item perkBloodyMess = new ItemPerk(777).setUnlocalizedName("gold");
+	public static final Item perkToughness = new ItemPerk(778).setUnlocalizedName("stick");
+	public static final Item perkSolarPowered = new ItemPerk(779).setUnlocalizedName("lol");
+	public static final Item perkVigilantRecycle = new ItemPerk(780).setUnlocalizedName("dddD");
+	public static final Item perkImplantM5 = new ItemPerk(781).setUnlocalizedName("asdasda");
+
 	//Work on achievements?
 	//static final Achievement getTungsten = new Achievement(2001, "getTungsten", 1, -2, ingotTungsten, null).registerAchievement();
 	//public static AchievementPage page1 = new AchievementPage("Fallout Achievements", ach1, ach2, ach3, ach4);
@@ -634,8 +646,13 @@ public class Fallout
 		System.out.println("Fallout - Loading core files...");
 
 		proxy.registerSoundHandler();
+		proxy.registerServerTickHandler();
 		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
 		instance = this;
+
+		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+		config.load();
+		config.save();
 	}
 
 	@Init
@@ -651,6 +668,7 @@ public class Fallout
 		ArmorHandler.init();
 		ThrowingHandler.init();
 		EntityHandler.init();
+		PerkHandler.init();
 		MinecraftForge.EVENT_BUS.register(new VanillaDropHandler());
 
 		LanguageRegistry.addName(RecordHandler.Track1, "Blue Moon");
