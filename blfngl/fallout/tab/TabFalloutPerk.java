@@ -20,6 +20,6 @@ public final class TabFalloutPerk extends CreativeTabs
 
 	public String getTranslatedTabLabel()
 	{
-		return "Fallout - Perks";
+		return "Fallout - Perks and Skills";
 	}
 }

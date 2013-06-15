@@ -42,7 +42,7 @@ public class ItemPerk extends Item
 	{
 		if (itemID == Fallout.perkLaserCommander.itemID && var3.experienceLevel >= 22 && var1.stackTagCompound.getInteger("LaserCommander") == 0)
 		{
-			var1.stackTagCompound.setInteger( "LaserCommander", 1);
+			var1.stackTagCompound.setInteger("LaserCommander", 1);
 			var3.experienceLevel -= 22;
 			var3.addChatMessage("Laser Commander Activated!");
 		}

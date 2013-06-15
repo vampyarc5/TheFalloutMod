@@ -256,7 +256,10 @@ public class EntityBullet extends Entity
 				this.zTile = var3.blockZ;
 				this.inTile = this.worldObj.getBlockId(this.xTile, this.yTile, this.zTile);
 
-				if (this.inTile != Block.glass.blockID && this.inTile != Block.glowStone.blockID && this.inTile != Block.leaves.blockID && this.inTile != Block.thinGlass.blockID && this.inTile != Block.torchWood.blockID && this.inTile != Block.torchRedstoneIdle.blockID && this.inTile != Block.torchRedstoneActive.blockID && this.inTile != Block.ladder.blockID && this.inTile != Block.vine.blockID && this.inTile != Block.tallGrass.blockID)
+				if (this.inTile != Block.glass.blockID && this.inTile != Block.glowStone.blockID
+						&& this.inTile != Block.leaves.blockID && this.inTile != Block.thinGlass.blockID 
+						&& this.inTile != Block.torchRedstoneIdle.blockID && this.inTile != Block.torchRedstoneActive.blockID
+						&& this.inTile != Block.ladder.blockID && this.inTile != Block.vine.blockID && this.inTile != Block.tallGrass.blockID)
 				{
 					this.motionX = (double)((float)(var3.hitVec.xCoord - this.posX));
 					this.motionY = (double)((float)(var3.hitVec.yCoord - this.posY));

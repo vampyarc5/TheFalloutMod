@@ -65,6 +65,10 @@ public class BaseGun extends Item
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3)
 	{
 		tempDam = damage;
+		int calcCND;
+		calcCND = (cnd- gunHealth)/cnd;
+		if (calcCND < (int)0.5){calcCND = (int)0.5;}
+		damage = damage * calcCND;
 
 		if (!var2.isRemote && rounds > 0)
 		{
@@ -142,53 +146,21 @@ public class BaseGun extends Item
 
 					if (PerkHandler.vigilantRecycle)
 					{
-						if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(100) + 1 > 30)
-						{
-							var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellMFD));
-						}
-
-						if (ammoType.itemID == Fallout.cellElectron.itemID && rand.nextInt(100) + 1 > 30)
-						{
-							var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellECPD));
-						}
-
-						if (ammoType.itemID == Fallout.cellEnergy.itemID && rand.nextInt(100) + 1 > 30)
-						{
-							var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));
-						}
+						if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(100) + 1 > 30){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellMFD));}
+						if (ammoType.itemID == Fallout.cellElectron.itemID && rand.nextInt(100) + 1 > 30){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellECPD));}
+						if (ammoType.itemID == Fallout.cellEnergy.itemID && rand.nextInt(100) + 1 > 30){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));}
 					}
-
-					if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(100) + 1 > 65)
-					{
-						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellMFD));
-					}
-
-					if (ammoType.itemID == Fallout.cellElectron.itemID && rand.nextInt(100) + 1 > 65)
-					{
-						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellECPD));
-					}
-
-					if (ammoType.itemID == Fallout.cellEnergy.itemID && rand.nextInt(100) + 1 > 65)
-					{
-						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));
-					}
-
+					if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(100) + 1 > 65){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellMFD));}
+					if (ammoType.itemID == Fallout.cellElectron.itemID && rand.nextInt(100) + 1 > 65){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellECPD));}
+					if (ammoType.itemID == Fallout.cellEnergy.itemID && rand.nextInt(100) + 1 > 65){var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));}
 				}
 
 				firetick = 0;
 			}
-
-			else
-			{
-				//++firetick;
-			}
+			else{/*++firetick;*/}
 		}
 
-		if (firetick == firemax && firemax != 0 && rounds > 0)
-		{
-
-		}
-
+		if (firetick == firemax && firemax != 0 && rounds > 0){}
 		damage = tempDam;
 		return var1;
 	}
@@ -198,10 +170,7 @@ public class BaseGun extends Item
 		itemIcon = iconRegister.registerIcon("blfngl" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
 	}
 
-	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-	{
-		name = par3EntityPlayer.username;
-	}
+	public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer){name = par3EntityPlayer.username;}
 
 	public void addInformation(ItemStack var1, EntityPlayer var2, List var3, boolean var4)
 	{
@@ -238,11 +207,7 @@ public class BaseGun extends Item
 				}
 			}
 
-			else
-			{
-				++reloadtick;
-			}
-
+			else{++reloadtick;}
 			reloading=false;
 		}
 

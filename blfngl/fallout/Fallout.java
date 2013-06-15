@@ -84,6 +84,7 @@ import blfngl.fallout.item.ItemImplant;
 import blfngl.fallout.item.ItemPerk;
 import blfngl.fallout.item.ItemPipboy;
 import blfngl.fallout.item.ItemPortalActivator;
+import blfngl.fallout.item.ItemSkill;
 import blfngl.fallout.item.ItemSyringe;
 import blfngl.fallout.melee.BaseMelee;
 import blfngl.fallout.melee.WeapBallisticFist;
@@ -634,6 +635,7 @@ public class Fallout
 
 	public static final Item preWarBook = new BaseItem(786).setUnlocalizedName("PreWarBook").setCreativeTab(TabFalloutMisc);
 
+	public static final Item skillGuns = new ItemSkill(787).setUnlocalizedName("Guns");
 	//Work on achievements?
 	//static final Achievement getTungsten = new Achievement(2001, "getTungsten", 1, -2, ingotTungsten, null).registerAchievement();
 	//public static AchievementPage page1 = new AchievementPage("Fallout Achievements", ach1, ach2, ach3, ach4);
