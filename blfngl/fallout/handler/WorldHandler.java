@@ -5,7 +5,7 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import blfngl.fallout.Fallout;
 import blfngl.fallout.food.WorldGenBrocFlower;
-import blfngl.fallout.world.WorldGenAsbestosDeposit;
+import blfngl.fallout.world.WorldGenFallout;
 import blfngl.fallout.world.WorldGenCarbonDeposit;
 import blfngl.fallout.world.WorldGenSatOre;
 import blfngl.fallout.world.WorldGenSiliconDeposit;
@@ -18,15 +18,15 @@ public class WorldHandler extends Fallout
 {
 	public static void init()
 	{
-		//GameRegistry.addBiome(Fallout.Wasteland);
-		GameRegistry.registerWorldGenerator(new WorldGenTungstenOre());
-		GameRegistry.registerWorldGenerator(new WorldGenTechOre());
-		GameRegistry.registerWorldGenerator(new WorldGenSatOre());
-		GameRegistry.registerWorldGenerator(new WorldGenUraniumOre());
-		GameRegistry.registerWorldGenerator(new WorldGenBrocFlower());
-		GameRegistry.registerWorldGenerator(new WorldGenSiliconDeposit());
-		GameRegistry.registerWorldGenerator(new WorldGenAsbestosDeposit());
-		GameRegistry.registerWorldGenerator(new WorldGenCarbonDeposit());
+		GameRegistry.addBiome(Fallout.Wasteland);
+		//GameRegistry.registerWorldGenerator(new WorldGenTungstenOre());
+		//GameRegistry.registerWorldGenerator(new WorldGenTechOre());
+		//GameRegistry.registerWorldGenerator(new WorldGenSatOre());
+		//GameRegistry.registerWorldGenerator(new WorldGenUraniumOre());
+		//GameRegistry.registerWorldGenerator(new WorldGenBrocFlower());
+		//GameRegistry.registerWorldGenerator(new WorldGenSiliconDeposit());
+		GameRegistry.registerWorldGenerator(new WorldGenFallout());
+		//GameRegistry.registerWorldGenerator(new WorldGenCarbonDeposit());
 
 		ChestGenHooks.getInfo(ChestGenHooks.DUNGEON_CHEST).addItem(new WeightedRandomChestContent(new ItemStack(itemPortalActivator), 1, 1, 1));
 		ChestGenHooks.getInfo(ChestGenHooks.MINESHAFT_CORRIDOR).addItem(new WeightedRandomChestContent(new ItemStack(itemPortalActivator), 1, 1, 1));
