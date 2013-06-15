@@ -2,6 +2,9 @@ package blfngl.fallout.handler;
 
 import java.util.EnumSet;
 
+import blfngl.fallout.Fallout;
+import blfngl.fallout.item.ItemPerk;
+
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
@@ -11,12 +14,10 @@ import cpw.mods.fml.common.TickType;
 
 public class ServerTickHandler implements ITickHandler
 {
+	//Don't really need anymore, may use in the future
 	private void onPlayerTick(EntityPlayer player)
 	{
-		if (PerkHandler.toughness){player.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20, 0));}
-		if (PerkHandler.implantM5 && player.isSneaking()){player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 0));}
-		if (PerkHandler.nerdRage && player.getHealth() < 4){player.addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20, 4));}
-		if (PerkHandler.walkerInstinct){player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 0));}
+
 	}
 
 	@Override
