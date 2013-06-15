@@ -65,8 +65,36 @@ public class ItemPerk extends Item
 		if (itemID == Fallout.perkVigilantRecycle.itemID && var3.experienceLevel >= 6 && PerkHandler.vigilantRecycle == false)
 		{
 			PerkHandler.vigilantRecycle = true;
-			var3.experienceLevel -= 28;
+			var3.experienceLevel -= 6;
 			var3.addChatMessage("Vigilant Recycler Activated!");
+		}
+
+		if (itemID == Fallout.perkGrunt.itemID && var3.experienceLevel >= 8 && PerkHandler.grunt == false)
+		{
+			PerkHandler.grunt = true;
+			var3.experienceLevel -= 8;
+			var3.addChatMessage("Grunt Activated!");
+		}
+
+		if (itemID == Fallout.perkNerdRage.itemID && var3.experienceLevel >= 10 && PerkHandler.nerdRage == false)
+		{
+			PerkHandler.nerdRage = true;
+			var3.experienceLevel -= 10;
+			var3.addChatMessage("Nerd Rage! Activated!");
+		}
+
+		if (itemID == Fallout.perkCowboy.itemID && var3.experienceLevel >= 8 && PerkHandler.cowboy == false)
+		{
+			PerkHandler.cowboy = true;
+			var3.experienceLevel -= 8;
+			var3.addChatMessage("Cowboy Activated!");
+		}
+
+		if (itemID == Fallout.perkWalkerInstinct.itemID && var3.experienceLevel >= 18 && PerkHandler.walkerInstinct == false)
+		{
+			PerkHandler.walkerInstinct = true;
+			var3.experienceLevel -= 18;
+			var3.addChatMessage("Walker Instinct Activated!");
 		}
 
 		return var1;
@@ -74,12 +102,12 @@ public class ItemPerk extends Item
 
 	public void onUpdate(ItemStack par1ItemStack, World var2, Entity par3, int par4, boolean par5) 
 	{
-		if (!var2.provider.isDaytime())
+		if (!var2.provider.isDaytime() && PerkHandler.friendOfNight)
 		{
 			((EntityLiving) par3).addPotionEffect((new PotionEffect(Potion.nightVision.getId(), 20 * 15, 0)));
 		}
 
-		if (var2.provider.isDaytime() && var2.canBlockSeeTheSky(MathHelper.floor_double(par3.posX), MathHelper.floor_double(par3.posY), MathHelper.floor_double(par3.posZ)))
+		if (var2.provider.isDaytime() && var2.canBlockSeeTheSky(MathHelper.floor_double(par3.posX), MathHelper.floor_double(par3.posY), MathHelper.floor_double(par3.posZ)) && PerkHandler.solarPowered)
 		{
 			((EntityLiving) par3).addPotionEffect((new PotionEffect(Potion.regeneration.getId(), 20, 0)));
 		}
@@ -90,7 +118,7 @@ public class ItemPerk extends Item
 		if (itemID == Fallout.perkSolarPowered.itemID)
 		{
 			var3.add("\u00A7eWhen in direct sunlight you slowly regenerate");
-			var3.add("\u007Ae lost health at a rate of half a heart every second");
+			var3.add("\u007Aelost health at a rate of half a heart every second");
 		}
 	}
 }

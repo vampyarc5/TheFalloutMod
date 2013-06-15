@@ -76,6 +76,7 @@ import blfngl.fallout.handler.WorldHandler;
 import blfngl.fallout.item.BaseDrink;
 import blfngl.fallout.item.BaseFood;
 import blfngl.fallout.item.BaseItem;
+import blfngl.fallout.item.ItemImplant;
 import blfngl.fallout.item.ItemPerk;
 import blfngl.fallout.item.ItemPipboy;
 import blfngl.fallout.item.ItemPortalActivator;
@@ -620,7 +621,11 @@ public class Fallout
 	public static final Item perkToughness = new ItemPerk(778).setUnlocalizedName("stick");
 	public static final Item perkSolarPowered = new ItemPerk(779).setUnlocalizedName("lol");
 	public static final Item perkVigilantRecycle = new ItemPerk(780).setUnlocalizedName("dddD");
-	public static final Item perkImplantM5 = new ItemPerk(781).setUnlocalizedName("asdasda");
+	public static final Item perkImplantM5 = new ItemImplant(781, 100).setUnlocalizedName("asdasda");
+	public static final Item perkGrunt = new ItemPerk(781).setUnlocalizedName("skfhs");
+	public static final Item perkNerdRage = new ItemPerk(782).setUnlocalizedName("khhkjh");
+	public static final Item perkCowboy = new ItemPerk(783).setUnlocalizedName("kuhfkauh");
+	public static final Item perkWalkerInstinct = new ItemPerk(784).setUnlocalizedName("lklahf");
 
 	//Work on achievements?
 	//static final Achievement getTungsten = new Achievement(2001, "getTungsten", 1, -2, ingotTungsten, null).registerAchievement();
@@ -645,6 +650,7 @@ public class Fallout
 		var2.url = "http://www.minecraftforum.net/topic/1667023-";
 		System.out.println("Fallout - Loading core files...");
 
+		perkVigilantRecycle.setContainerItem(perkVigilantRecycle);
 		proxy.registerSoundHandler();
 		proxy.registerServerTickHandler();
 		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);

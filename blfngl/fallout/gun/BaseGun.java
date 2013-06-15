@@ -8,6 +8,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import blfngl.fallout.Fallout;
 import blfngl.fallout.entity.EntityBullet;
@@ -86,20 +88,46 @@ public class BaseGun extends Item
 		{
 			if (firetick == firemax && firemax != 0)
 			{
-				if (PerkHandler.laserCommander && ammoType.itemID == Fallout.cellElectron.itemID)
+				if (PerkHandler.grunt)
 				{
-					damage += damage * 0.15;
+					if (itemID == Fallout.pistol9mm.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistol45Auto.itemID ){damage += damage * .25;}
+					if (itemID == Fallout.smg45Auto.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleService.itemID ){damage += damage * .25;}
+					if (itemID == Fallout.rifleMarksmanCarbine.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleAllAmerican.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleAssaultCarbine.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleLMG.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleBozar.itemID){damage += damage * .25;}
 				}
 
-				if (PerkHandler.laserCommander && ammoType.itemID == Fallout.cellMF.itemID)
+				if (PerkHandler.cowboy)
 				{
-					damage += damage * 0.15;
+					if (itemID == Fallout.rifleLeverAction.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistol357.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistol44.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistol32.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistolBlackhawk.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistolCallahans.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistolPaulsons.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistolScoped44.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistolRangerSequoia.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistolHuntingRevolver.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistolLucky.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistol556.itemID){damage += damage * .25;}
+					if (itemID == Fallout.pistolThatGun.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleAbileneKid.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleBBGun.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleTrailCarbine.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleMedicineStick.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleBrushGun.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleCowboyRepeater.itemID){damage += damage * .25;}
+					if (itemID == Fallout.rifleLongueCarabine.itemID){damage += damage * .25;}
 				}
 
-				if (PerkHandler.laserCommander && ammoType.itemID == Fallout.cellEnergy.itemID)
-				{
-					damage += damage * 0.15;
-				}
+				if (PerkHandler.laserCommander && ammoType.itemID == Fallout.cellElectron.itemID){damage += damage * 0.15;}
+				if (PerkHandler.laserCommander && ammoType.itemID == Fallout.cellMF.itemID){damage += damage * 0.15;}
+				if (PerkHandler.laserCommander && ammoType.itemID == Fallout.cellEnergy.itemID){damage += damage * 0.15;}
 
 				if (PerkHandler.bloodyMess){damage += .05 * damage;}
 
@@ -132,22 +160,22 @@ public class BaseGun extends Item
 
 					if (PerkHandler.vigilantRecycle)
 					{
-						if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(100) + 1 > 65)
+						if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(100) + 1 > 30)
 						{
 							var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellMFD));
 						}
 
-						if (ammoType.itemID == Fallout.cellElectron.itemID && rand.nextInt(100) + 1 > 65)
+						if (ammoType.itemID == Fallout.cellElectron.itemID && rand.nextInt(100) + 1 > 30)
 						{
 							var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellECPD));
 						}
 
-						if (ammoType.itemID == Fallout.cellEnergy.itemID && rand.nextInt(100) + 1 > 65)
+						if (ammoType.itemID == Fallout.cellEnergy.itemID && rand.nextInt(100) + 1 > 30)
 						{
 							var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));
 						}
 					}
-					
+
 					if (ammoType.itemID == Fallout.cellMF.itemID && rand.nextInt(100) + 1 > 65)
 					{
 						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellMFD));
@@ -162,7 +190,7 @@ public class BaseGun extends Item
 					{
 						var3.inventory.addItemStackToInventory(new ItemStack(Fallout.cellED));
 					}
-					
+
 				}
 
 				firetick = 0;
