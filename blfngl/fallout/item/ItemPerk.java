@@ -38,6 +38,7 @@ public class ItemPerk extends Item
 		{
 			PerkHandler.friendOfNight = true;
 			var3.experienceLevel -= 2;
+			//Fallout.perkNBT.setInteger("NightFriend", 1);
 			var3.addChatMessage("Friend of the Night Activated!");
 		}
 
@@ -118,7 +119,7 @@ public class ItemPerk extends Item
 		if (itemID == Fallout.perkSolarPowered.itemID)
 		{
 			var3.add("\u00A7eWhen in direct sunlight you slowly regenerate");
-			var3.add("\u007Aelost health at a rate of half a heart every second");
+			var3.add("\u007AeLost health at a rate of half a heart every second");
 		}
 	}
 }

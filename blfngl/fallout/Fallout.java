@@ -7,14 +7,18 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
+import net.minecraftforge.common.IExtendedEntityProperties;
 import net.minecraftforge.common.MinecraftForge;
 import blfngl.fallout.armor.ArmorBaseEnclave;
 import blfngl.fallout.armor.ArmorBaseGecko1;
@@ -143,6 +147,7 @@ public class Fallout
 	public static boolean isScoped = false;
 	public static boolean isReloading = false;
 	public static int dimensionWasteland = 18;
+	public static NBTTagCompound perkNBT;
 
 	public static CreativeTabs TabFalloutArmor = new TabFalloutArmor(CreativeTabs.getNextID(), "TabFalloutArmor");
 	public static CreativeTabs TabFalloutPistol = new TabFalloutPistol(CreativeTabs.getNextID(), "TabFalloutPistol");
@@ -622,10 +627,12 @@ public class Fallout
 	public static final Item perkSolarPowered = new ItemPerk(779).setUnlocalizedName("lol");
 	public static final Item perkVigilantRecycle = new ItemPerk(780).setUnlocalizedName("dddD");
 	public static final Item perkImplantM5 = new ItemImplant(781, 100).setUnlocalizedName("asdasda");
-	public static final Item perkGrunt = new ItemPerk(781).setUnlocalizedName("skfhs");
-	public static final Item perkNerdRage = new ItemPerk(782).setUnlocalizedName("khhkjh");
-	public static final Item perkCowboy = new ItemPerk(783).setUnlocalizedName("kuhfkauh");
-	public static final Item perkWalkerInstinct = new ItemPerk(784).setUnlocalizedName("lklahf");
+	public static final Item perkGrunt = new ItemPerk(782).setUnlocalizedName("skfhs");
+	public static final Item perkNerdRage = new ItemPerk(783).setUnlocalizedName("khhkjh");
+	public static final Item perkCowboy = new ItemPerk(784).setUnlocalizedName("kuhfkauh");
+	public static final Item perkWalkerInstinct = new ItemPerk(785).setUnlocalizedName("lklahf");
+
+	public static final Item preWarBook = new BaseItem(786).setUnlocalizedName("PreWarBook").setCreativeTab(TabFalloutMisc);
 
 	//Work on achievements?
 	//static final Achievement getTungsten = new Achievement(2001, "getTungsten", 1, -2, ingotTungsten, null).registerAchievement();
@@ -704,6 +711,25 @@ public class Fallout
 	@PostInit
 	public static void postInit(FMLPostInitializationEvent event)
 	{
+
+	}
+
+	public void saveNBTData(NBTTagCompound compound)
+	{
+		if (PerkHandler.friendOfNight == true)
+		{
+			perkNBT.setInteger("NightFriend", 1);
+		}
+	}
+
+	public void loadNBTData(NBTTagCompound compound)
+	{
+		perkNBT.getInteger("NightFriend");
+	}
+
+	public String registerExtendedProperties(String identifier, IExtendedEntityProperties properties)
+	{
+		return null;
 
 	}
 }

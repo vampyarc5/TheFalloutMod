@@ -43,7 +43,7 @@ public class ServerTickHandler implements ITickHandler
 	@Override
 	public String getLabel()
 	{
-		return null;
+		return "Fallout" + this.getClass().getSimpleName();
 	}
 
 }
