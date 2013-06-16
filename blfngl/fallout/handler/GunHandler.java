@@ -37,7 +37,7 @@ public class GunHandler extends Fallout
 		LanguageRegistry.addName(rifleLAER, "LAER");
 		GameRegistry.addRecipe(new ItemStack(rifleLAER), new Object [] {"X  ", "*&^", " %#", 'X', cellMF, '*', energyRifleBarrel, '&', carbonFiberHousing, '^', stockMetal, '%', grip, '#', technetiumPlate});
 		LanguageRegistry.addName(rifleHolo, "Holorifle");
-		GameRegistry.addRecipe(new ItemStack(rifleHolo), new Object [] {"X  ", "^&*", "$# ", 'X', electromagnet, '^', energyRifleBarrel, '&', magRail, '*', stockMetal, '$', superconductor, '#', grip});
+		GameRegistry.addRecipe(new ItemStack(rifleHolo), new Object [] {"X  ", "^&*", "$# ", 'X', electromagnet, '^', energyRifleBarrel, '&', magRail, '*', stockWood, '$', superconductor, '#', grip});
 		LanguageRegistry.addName(minigun, "Minigun");
 		GameRegistry.addRecipe(new ItemStack(minigun), new Object [] {" *", "X&", '*', grip, 'X', minigunBarrel, '&', minigunFiringMechanism});
 		LanguageRegistry.addName(cyberdog, "K9000 Cyberdog Gun");

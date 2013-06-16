@@ -27,7 +27,7 @@ public class BlockHandler extends Fallout
 		LanguageRegistry.addName(BPGlass, "Bulletproof Glass");
 		MinecraftForge.setBlockHarvestLevel(BPGlass, "pickaxe", 3);
 		GameRegistry.registerBlock(BPGlass);
-		GameRegistry.addRecipe(new ItemStack(BPGlass), new Object [] {"***", "*X*", "***", 'X', Block.glass, '*', tungstenPlate});
+		GameRegistry.addRecipe(new ItemStack(BPGlass, 8), new Object [] {"***", "*X*", "***", 'X', Block.glass, '*', tungstenPlate});
 		LanguageRegistry.addName(UraniumOre, "Uranium Ore");
 		MinecraftForge.setBlockHarvestLevel(UraniumOre, "pickaxe", 2);
 		GameRegistry.registerBlock(UraniumOre);

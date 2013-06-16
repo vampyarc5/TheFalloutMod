@@ -29,6 +29,7 @@ public class PerkHandler extends Fallout
 		LanguageRegistry.addName(perkNerdRage, "Perk - Nerd Rage!");
 		LanguageRegistry.addName(perkCowboy, "Perk - Cowboy");
 		LanguageRegistry.addName(perkWalkerInstinct, "Perk - Walker Instinct");
+		LanguageRegistry.addName(perkRemover, "THIS WILL REMOVE YOUR PERKS");
 	}
 
 	public static void displayPerks()

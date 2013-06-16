@@ -114,6 +114,18 @@ public class ItemPerk extends Item
 			var3.addChatMessage("Walker Instinct Activated!");
 		}
 
+		if (Fallout.isScoped && var1.itemID == Fallout.perkRemover.itemID)
+		{
+			var1.stackTagCompound.setInteger("NightFriend", 0);
+			var1.stackTagCompound.setInteger("SolarPowered", 0);
+			var1.stackTagCompound.setInteger("LaserCommander", 0);
+			var1.stackTagCompound.setInteger("Toughness", 0);
+			var1.stackTagCompound.setInteger("VigilantRecycle", 0);
+			var1.stackTagCompound.setInteger("Grunt", 0);
+			var1.stackTagCompound.setInteger("Cowboy", 0);
+			var1.stackTagCompound.setInteger("BloodyMess", 0);
+		}
+
 		return var1;
 	}
 
@@ -134,7 +146,13 @@ public class ItemPerk extends Item
 
 		if (par1ItemStack.stackTagCompound.getInteger("Toughness") == 1){((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20, 0));}
 		if (par1ItemStack.stackTagCompound.getInteger("NerdRage") == 1){((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20, 4));}
-		if (par1ItemStack.stackTagCompound.getInteger("WalkerInstinct") == 1){((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 0));}
+
+		if (par1ItemStack.stackTagCompound.getInteger("WalkerInstinct") == 1
+				&& var2.canBlockSeeTheSky(MathHelper.floor_double(par3.posX), MathHelper.floor_double(par3.posY), MathHelper.floor_double(par3.posZ)))
+		{
+			((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 20, 0));
+		}
+
 		if (par1ItemStack.stackTagCompound.getInteger("Grunt") == 1 && PerkHandler.grunt == false){PerkHandler.grunt = true;}
 		if (par1ItemStack.stackTagCompound.getInteger("VigilantRecycle") == 1 && PerkHandler.vigilantRecycle == false){PerkHandler.vigilantRecycle = true;}
 		if (par1ItemStack.stackTagCompound.getInteger("LaserCommander") == 1 && PerkHandler.laserCommander == false){PerkHandler.laserCommander = true;}
@@ -148,6 +166,14 @@ public class ItemPerk extends Item
 			var3.add("\u00A7eyou slowly regenerate");
 			var3.add("\u00A7elost health at a rate of");
 			var3.add("\u00A7ehalf a heart every second");
+		}
+
+		if(itemID == Fallout.perkRemover.itemID)
+		{
+			var3.add("BE CAREFUL:");
+			var3.add("IF YOU'RE HOLDING");
+			var3.add("'F' AND YOU RIGHT CLICK");
+			var3.add("ALL PERKS WILL GO AWAY");
 		}
 	}
 }

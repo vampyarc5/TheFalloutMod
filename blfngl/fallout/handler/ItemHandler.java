@@ -83,11 +83,11 @@ public class ItemHandler extends Fallout
 		GameRegistry.addRecipe(new ItemStack(syringeEmpty), new Object [] {"  &", " * ", "X  ", '*', chunkSilicon, 'X', Item.ingotIron, '&', chunkTungsten});
 		LanguageRegistry.addName(syringeBloody, "Blood Syringe");
 		LanguageRegistry.addName(powerTorso, "Base Power Torso");
-		GameRegistry.addRecipe(new ItemStack(powerTorso, 1), new Object [] {"X X", "*&*", " $ ", 'X', RAP, '&', fan, '*', RAP, '$', TXMF});
+		GameRegistry.addRecipe(new ItemStack(powerTorso, 1), new Object [] {"X^X", "*&*", " $ ", 'X', RAP, '&', fan, '*', RAP, '$', TXMF, '^', gyro});
 		LanguageRegistry.addName(powerShoulders, "Base Power Shoulders");
-		GameRegistry.addRecipe(new ItemStack(powerShoulders, 1), new Object [] {"X X", "& &", 'X', RAP, '&', tungstenPlate});
+		GameRegistry.addRecipe(new ItemStack(powerShoulders), new Object [] {"X X", "& &", "% %", 'X', RAP, '&', tungstenPlate, '%', MASM});
 		LanguageRegistry.addName(powerChest, "Base Power Chest");
-		GameRegistry.addRecipe(new ItemStack(powerChest, 1),new Object [] {"X", "*", 'X', powerShoulders, '*', powerTorso});
+		GameRegistry.addShapelessRecipe(new ItemStack(powerChest, 1),new Object [] {powerShoulders, powerTorso});
 		LanguageRegistry.addName(upgradeT45, "Type 45-d Power Armor Upgrade Plate");
 		GameRegistry.addRecipe(new ItemStack(upgradeT45, 1), new Object [] {" X ", "&*&", " X ", 'X', tungstenPlate, '&', technetiumPlate, '*', RAP});
 		LanguageRegistry.addName(upgradeEnclave, "Enclave Power Armor Upgrade Plate");

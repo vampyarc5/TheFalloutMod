@@ -173,11 +173,11 @@ public class Fallout
 	public static EnumToolMaterial PINT = EnumHelper.addToolMaterial("PINT", 0, 100, 200.0F, 200, 10);
 	public static EnumToolMaterial GUN = EnumHelper.addToolMaterial("GUN", 0, 0, 0.0F, 0, 0);
 
-	public static EnumArmorMaterial T45POWER = EnumHelper.addArmorMaterial("T45POWER", 35, new int[]{2, 6, 5, 2}, 25);
-	public static EnumArmorMaterial ENCLAVE = EnumHelper.addArmorMaterial("ENCLAVE", 37, new int[]{2, 6, 5, 2}, 28);
-	public static EnumArmorMaterial T51POWER = EnumHelper.addArmorMaterial("T51POWER", 39, new int[]{2, 6, 5, 2}, 33);
-	public static EnumArmorMaterial HELLFIRE = EnumHelper.addArmorMaterial("HELLFIRE", 41, new int []{2, 6, 5, 2}, 35);
-	public static EnumArmorMaterial WINTER = EnumHelper.addArmorMaterial("WINTER", 42, new int []{2, 6, 5, 2}, 35);
+	public static EnumArmorMaterial T45POWER = EnumHelper.addArmorMaterial("T45POWER", 35, new int[]{4, 8, 5, 3}, 25);
+	public static EnumArmorMaterial ENCLAVE = EnumHelper.addArmorMaterial("ENCLAVE", 37, new int[]{4, 8, 5, 3}, 28);
+	public static EnumArmorMaterial T51POWER = EnumHelper.addArmorMaterial("T51POWER", 39, new int[]{4, 8, 5, 3}, 33);
+	public static EnumArmorMaterial HELLFIRE = EnumHelper.addArmorMaterial("HELLFIRE", 41, new int []{4, 8, 5, 3}, 35);
+	public static EnumArmorMaterial WINTER = EnumHelper.addArmorMaterial("WINTER", 42, new int []{4, 8, 5, 3}, 35);
 
 	public static final Item cellEnergy = new BaseItem(448).setUnlocalizedName("ECell").setCreativeTab(TabFalloutAmmo);
 	public static final Item a22LR = new BaseItem(443).setUnlocalizedName("22LRRound").setCreativeTab(TabFalloutAmmo);
@@ -583,7 +583,7 @@ public class Fallout
 	public static final Item riflePerforator = new BaseGun(745, 6, 24, 2, 0.5, "blfngl.InfiltratorFire", "Blfngl.InfiltratorReload", a556, 1000).setUnlocalizedName("Perforator").setCreativeTab(TabFalloutRifle);
 
 	public static final Item minigunBarrel = new BaseItem(746).setUnlocalizedName("MinigunBarrel").setCreativeTab(TabFalloutMisc);
-	public static final Item minigunFiringMechanism = new BaseItem(747).setUnlocalizedName("MiningunFiringMechanism").setCreativeTab(TabFalloutMisc);
+	public static final Item minigunFiringMechanism = new BaseItem(747).setUnlocalizedName("MinigunFiringMechanism").setCreativeTab(TabFalloutMisc);
 	public static final Item dogBrain = new BaseItem(748).setUnlocalizedName("DogBrain").setCreativeTab(TabFalloutMisc);
 
 	public static final Item shotgunKneecapper = new BaseGun(749, 12, 2, 3.1, 0.1, "blfngl.SawedOffFire", "Blfngl.LeverShotgunReload", aGauge12, 111).setUnlocalizedName("Kneecapper").setCreativeTab(TabFalloutShotgun);
@@ -617,19 +617,21 @@ public class Fallout
 	public static final Item rifleAssault = new BaseGun(773, 4, 30, 2.7, 0.5, "blfngl.ChineseAssaultFire", "Blfngl.ChineseAssaultReload", a556, 2495).setUnlocalizedName("AssaultRifle").setCreativeTab(TabFalloutRifle);
 	public static final Item explosiveThumpThump = new GunExplosive(774, 4, 30, 2.7, 2.0, "blfngl.ChineseAssaultFire", "Blfngl.ChineseAssaultReload", a556, 2495).setUnlocalizedName("ThumpThump").setCreativeTab(TabFalloutRifle);
 
-	public static final Item perkLaserCommander = new ItemPerk(775).setUnlocalizedName("diamond");
-	public static final Item perkNightFriend = new ItemPerk(776).setUnlocalizedName("coal");
-	public static final Item perkBloodyMess = new ItemPerk(777).setUnlocalizedName("gold");
-	public static final Item perkToughness = new ItemPerk(778).setUnlocalizedName("stick");
-	public static final Item perkSolarPowered = new ItemPerk(779).setUnlocalizedName("lol");
-	public static final Item perkVigilantRecycle = new ItemPerk(780).setUnlocalizedName("dddD");
-	public static final Item perkImplantM5 = new ItemImplant(781, 100).setUnlocalizedName("asdasda");
-	public static final Item perkGrunt = new ItemPerk(782).setUnlocalizedName("skfhs");
-	public static final Item perkNerdRage = new ItemPerk(783).setUnlocalizedName("khhkjh");
-	public static final Item perkCowboy = new ItemPerk(784).setUnlocalizedName("kuhfkauh");
-	public static final Item perkWalkerInstinct = new ItemPerk(785).setUnlocalizedName("lklahf");
+	public static final Item perkLaserCommander = new ItemPerk(775).setUnlocalizedName("LaserCommander");
+	public static final Item perkNightFriend = new ItemPerk(776).setUnlocalizedName("NightFriend");
+	public static final Item perkBloodyMess = new ItemPerk(777).setUnlocalizedName("BloodyMess");
+	public static final Item perkToughness = new ItemPerk(778).setUnlocalizedName("Toughness");
+	public static final Item perkSolarPowered = new ItemPerk(779).setUnlocalizedName("SolarPowered");
+	public static final Item perkVigilantRecycle = new ItemPerk(780).setUnlocalizedName("VigilantRecycler");
+	public static final Item perkImplantM5 = new ItemImplant(781, 100).setUnlocalizedName("ImplantM5");
+	public static final Item perkGrunt = new ItemPerk(782).setUnlocalizedName("Grunt");
+	public static final Item perkNerdRage = new ItemPerk(783).setUnlocalizedName("NerdRage");
+	public static final Item perkCowboy = new ItemPerk(784).setUnlocalizedName("Cowboy");
+	public static final Item perkWalkerInstinct = new ItemPerk(785).setUnlocalizedName("WalkerInstinct");
 
 	public static final Item preWarBook = new BaseItem(786).setUnlocalizedName("PreWarBook").setCreativeTab(TabFalloutMisc);
+
+	public static final Item perkRemover = new ItemPerk(787).setUnlocalizedName("Remover");
 
 	//TODO Fix NBT
 	//public static final Item skillGuns = new ItemSkill(787).setUnlocalizedName("Guns");
@@ -642,7 +644,7 @@ public class Fallout
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		ModMetadata var2 = event.getModMetadata();
-		var2.authorList = Arrays.asList(new String[] {"Blfngl, with Max_FF, TechSkeleton and Earthdog_Gir"});
+		var2.authorList = Arrays.asList(new String[] {"Blfngl, with Max_FF"});
 		var2.autogenerated = false;
 		var2.modId = "fallout";
 		var2.name = "The Fallout Mod";
