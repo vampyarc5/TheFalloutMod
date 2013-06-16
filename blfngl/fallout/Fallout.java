@@ -7,18 +7,15 @@ import net.minecraft.block.BlockFlower;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
-import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
-import net.minecraftforge.common.IExtendedEntityProperties;
 import net.minecraftforge.common.MinecraftForge;
 import blfngl.fallout.armor.ArmorBaseEnclave;
 import blfngl.fallout.armor.ArmorBaseGecko1;
@@ -84,7 +81,6 @@ import blfngl.fallout.item.ItemImplant;
 import blfngl.fallout.item.ItemPerk;
 import blfngl.fallout.item.ItemPipboy;
 import blfngl.fallout.item.ItemPortalActivator;
-import blfngl.fallout.item.ItemSkill;
 import blfngl.fallout.item.ItemSyringe;
 import blfngl.fallout.melee.BaseMelee;
 import blfngl.fallout.melee.WeapBallisticFist;
@@ -635,7 +631,9 @@ public class Fallout
 
 	public static final Item preWarBook = new BaseItem(786).setUnlocalizedName("PreWarBook").setCreativeTab(TabFalloutMisc);
 
-	public static final Item skillGuns = new ItemSkill(787).setUnlocalizedName("Guns");
+	//TODO Fix NBT
+	//public static final Item skillGuns = new ItemSkill(787).setUnlocalizedName("Guns");
+
 	//Work on achievements?
 	//static final Achievement getTungsten = new Achievement(2001, "getTungsten", 1, -2, ingotTungsten, null).registerAchievement();
 	//public static AchievementPage page1 = new AchievementPage("Fallout Achievements", ach1, ach2, ach3, ach4);

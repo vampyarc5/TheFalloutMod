@@ -39,6 +39,7 @@ public class BaseMelee extends Item
 		CRITmul = Critmul;
 		CRITcha = Critcha;
 		setCreativeTab(Fallout.TabFalloutWeap);
+		setMaxStackSize(1);
 	}
 
 	public BaseMelee(int id, int damage, int speed, int durability, double Critmul, int Critcha, String effect1, int effect1Duration)

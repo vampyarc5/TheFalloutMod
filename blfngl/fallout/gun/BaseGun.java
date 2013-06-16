@@ -8,8 +8,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import blfngl.fallout.Fallout;
 import blfngl.fallout.entity.EntityBullet;
@@ -35,6 +33,7 @@ public class BaseGun extends Item
 	public int cnd;
 	public String name;
 	private int tempDam;
+	public int calcCND;
 
 	Random rand = new Random();
 
@@ -60,15 +59,15 @@ public class BaseGun extends Item
 		critChance = 5;
 		critDamage = 4;
 		cnd = var9;
+		tempDam = damage;
 	}
 
 	public ItemStack onItemRightClick(ItemStack var1, World var2, EntityPlayer var3)
 	{
-		tempDam = damage;
-		int calcCND;
-		calcCND = (cnd- gunHealth)/cnd;
-		if (calcCND < (int)0.5){calcCND = (int)0.5;}
-		damage = damage * calcCND;
+		//calcCND = (cnd- gunHealth)/cnd;
+		//if (calcCND < (int)0.5){calcCND = (int)0.5;}
+		//damage = damage * ((50 + ItemSkill.gunSkill * (int)0.5) / 100);
+		//damage = damage * calcCND;
 
 		if (!var2.isRemote && rounds > 0)
 		{
@@ -175,7 +174,7 @@ public class BaseGun extends Item
 	public void addInformation(ItemStack var1, EntityPlayer var2, List var3, boolean var4)
 	{
 		gunHealth = var1.getItemDamage();
-		var3.add("\u00A74DAM: " + (double)damage/2/*((double)damage/2)*((double)0.54 + gunHealth * (1-(double)0.54D))*/); //TODO After fixed condition appearance
+		var3.add("\u00A74DAM: " + (double)(tempDam / 2));// * calcCND);
 		var3.add("\u00A79Clip size: " + rounds + "/" + clipSize + " Ammo Loaded");
 		var3.add("\u00A72Ammo type: " + ammoType.getItemDisplayName(new ItemStack(ammoType)));
 		var3.add("\u00A76CND: " + (cnd - gunHealth));

@@ -242,7 +242,7 @@ public class ItemHandler extends Fallout
 		LanguageRegistry.addName(stockMetal, "Metal Stock");
 		GameRegistry.addRecipe(new ItemStack(stockMetal), new Object [] {"XXX", " XX", 'X', ingotTungsten});
 		LanguageRegistry.addName(a50MG, ".50MG");
-		GameRegistry.addShapelessRecipe(new ItemStack(aGovt), new Object [] {case50MG, primer50MG, powderRifle, powderRifle, powderRifle, lead, lead, lead, lead});
+		GameRegistry.addShapelessRecipe(new ItemStack(a50MG), new Object [] {case50MG, primer50MG, powderRifle, powderRifle, powderRifle, lead, lead, lead, lead});
 		LanguageRegistry.addName(aNail, "Nails");
 		GameRegistry.addShapelessRecipe(new ItemStack(aNail, 8), new Object [] {railwaySpikes});
 		LanguageRegistry.addName(a10mm, "10mm Rounds");
