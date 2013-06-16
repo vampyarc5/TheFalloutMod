@@ -2,6 +2,7 @@ package blfngl.fallout.item;
 
 import java.util.List;
 
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -147,7 +148,7 @@ public class ItemPerk extends Item
 		if (par1ItemStack.stackTagCompound.getInteger("Toughness") == 1){((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20, 0));}
 		if (par1ItemStack.stackTagCompound.getInteger("NerdRage") == 1){((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.resistance.getId(), 20, 4));}
 		if (par1ItemStack.stackTagCompound.getInteger("NerdRage") == 1){((EntityLiving) par3).addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 20, 4));}
-		
+
 		if (par1ItemStack.stackTagCompound.getInteger("WalkerInstinct") == 1
 				&& var2.canBlockSeeTheSky(MathHelper.floor_double(par3.posX), MathHelper.floor_double(par3.posY), MathHelper.floor_double(par3.posZ)))
 		{
@@ -176,5 +177,10 @@ public class ItemPerk extends Item
 			var3.add("'F' AND YOU RIGHT CLICK");
 			var3.add("ALL PERKS WILL GO AWAY");
 		}
+	}
+
+	public void func_94581_a(IconRegister iconRegister)
+	{
+		itemIcon = iconRegister.registerIcon("blfngl" + ":" + this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
 	}
 }
