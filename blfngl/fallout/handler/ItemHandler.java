@@ -250,7 +250,9 @@ public class ItemHandler extends Fallout
 		LanguageRegistry.addName(aGauge12, "12 Gauge Shotgun Shells");
 		GameRegistry.addShapelessRecipe(new ItemStack(aGauge12), new Object [] {hull20, primerShotgun, powderPistol, powderPistol, lead, lead, lead, lead});
 		LanguageRegistry.addName(primer50MG, "Primer - .50MG");
+		GameRegistry.addShapelessRecipe(new ItemStack(primer50MG), new Object [] {ingotTechnetium, ingotTechnetium, chunkTungsten, powderRifle, powderRifle});
 		LanguageRegistry.addName(primerRifleS, "Primer - Rifle(Small)");
+		GameRegistry.addShapelessRecipe(new ItemStack(primerRifleS), new Object [] {powderRifle, powderRifle, powderRifle, Item.ingotIron, ingotTungsten});
 		LanguageRegistry.addName(primerShotgun, "Primer - Shotgun");
 		GameRegistry.addShapelessRecipe(new ItemStack(primerShotgun), new Object [] {ingotTechnetium, Item.gunpowder, Item.gunpowder, Item.gunpowder});
 
@@ -259,24 +261,45 @@ public class ItemHandler extends Fallout
 		LanguageRegistry.addName(cellED, "Drained Small Energy Cell");
 
 		LanguageRegistry.addName(case45Auto, "Case - .45 Auto");
+		GameRegistry.addRecipe(new ItemStack(case45Auto), new Object [] {"X*X", 'X', ingotTungsten, '*', primerPistolL});
 		LanguageRegistry.addName(case9mm, "Case - 9mm");
+		GameRegistry.addRecipe(new ItemStack(case9mm), new Object [] {"X*X", 'X', Item.ingotIron, '*', primerPistolS});
 		LanguageRegistry.addName(case10mm, "Case - 10mm");
+		GameRegistry.addRecipe(new ItemStack(case10mm), new Object [] {"X*X", 'X', Item.ingotIron, '*', primerPistolL});
 		LanguageRegistry.addName(case357, "Case -.357");
+		GameRegistry.addRecipe(new ItemStack(case357), new Object [] {"X*X", 'X', ingotTungsten, '*', primerPistolS});
 		LanguageRegistry.addName(case44, "Case - .44");
+		GameRegistry.addRecipe(new ItemStack(case44), new Object [] {"X*X", 'X', Item.ingotGold, '*', primerPistolL});
 		LanguageRegistry.addName(case308, "Case - .308");
+		GameRegistry.addRecipe(new ItemStack(case308), new Object [] {"X*X", 'X', ingotTungsten, '*', primerRifleS});
 		LanguageRegistry.addName(caseGovt, "Case - .45-.70");
+		GameRegistry.addRecipe(new ItemStack(caseGovt), new Object [] {"X*X", 'X', ingotTechnetium, '*', primerRifleL});
 		LanguageRegistry.addName(case50MG, "Case - .50MG");
+		GameRegistry.addRecipe(new ItemStack(case50MG), new Object [] {"X*X", 'X', ingotTechnetium, '*', primer50MG});
 		LanguageRegistry.addName(case22LR, "Case - .22LR");
+		GameRegistry.addRecipe(new ItemStack(case22LR), new Object [] {"X*", 'X', Item.ingotIron, '*', primerPistolS});
+
 		LanguageRegistry.addName(primerPistolL, "Primer - Pistol(Large)");
+		GameRegistry.addShapelessRecipe(new ItemStack(primerPistolL), new Object [] {powderPistol, powderPistol, chunkTungsten, ingotTungsten});
 		LanguageRegistry.addName(dogBrain, "Dog Brain");
 
 		LanguageRegistry.addName(case5mm, "Case - 5mm");
+		GameRegistry.addRecipe(new ItemStack(case5mm), new Object [] {"X*", 'X', Item.ingotGold, '*', primerRifleS});
 		LanguageRegistry.addName(primerRifleS, "Primer - Rifle(Small)");
+		GameRegistry.addShapelessRecipe(new ItemStack(primerRifleS), new Object [] {powderRifle, ingotTungsten});
 		LanguageRegistry.addName(case556, "Case - 5.56mm");
+		GameRegistry.addRecipe(new ItemStack(case556), new Object [] {"X*X", 'X'});
 		LanguageRegistry.addName(case127, "Case - 12.7mm");
+		GameRegistry.addRecipe(new ItemStack(case127), new Object [] {"X X", "X*X", 'X', ingotTungsten, '*', primerPistolL});
 		LanguageRegistry.addName(hull12, "Hull - 12 Gauge");
+		GameRegistry.addRecipe(new ItemStack(hull12), new Object [] {" * ", "X*X*", 'X', barSilicon, '*', powderRifle});
 		LanguageRegistry.addName(hull20, "Hull - 20 Gauge");
+		GameRegistry.addRecipe(new ItemStack(hull20), new Object [] {" * ", "X*X*", 'X', chunkSilicon, '*', powderRifle});
 		LanguageRegistry.addName(primerShotgun, "Primer - Shotgun");
+		GameRegistry.addShapelessRecipe(new ItemStack(primerShotgun), new Object [] {primerRifleL, powderRifle});
+
+		LanguageRegistry.addName(preWarBook, "Pre-War Book");
+		GameRegistry.addShapelessRecipe(new ItemStack(preWarBook), new Object [] {Item.book, wonderglue, turpentine});
 
 		System.out.println("Fallout: Item system loaded. Craft ALL the items!");
 	}
