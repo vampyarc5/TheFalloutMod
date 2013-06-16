@@ -288,7 +288,7 @@ public class ItemHandler extends Fallout
 		LanguageRegistry.addName(primerRifleS, "Primer - Rifle(Small)");
 		GameRegistry.addShapelessRecipe(new ItemStack(primerRifleS), new Object [] {powderRifle, ingotTungsten});
 		LanguageRegistry.addName(case556, "Case - 5.56mm");
-		GameRegistry.addRecipe(new ItemStack(case556), new Object [] {"X*X", 'X'});
+		GameRegistry.addRecipe(new ItemStack(case556), new Object [] {"X*X", 'X', Item.ingotGold, '*', Item.gunpowder});
 		LanguageRegistry.addName(case127, "Case - 12.7mm");
 		GameRegistry.addRecipe(new ItemStack(case127), new Object [] {"X X", "X*X", 'X', ingotTungsten, '*', primerPistolL});
 		LanguageRegistry.addName(hull12, "Hull - 12 Gauge");
