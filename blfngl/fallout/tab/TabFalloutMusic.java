@@ -2,7 +2,6 @@ package blfngl.fallout.tab;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import blfngl.fallout.Fallout;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

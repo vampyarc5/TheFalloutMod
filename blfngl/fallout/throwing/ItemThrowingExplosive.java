@@ -1,18 +1,12 @@
 package blfngl.fallout.throwing;
 
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.src.ModLoader;
 import net.minecraft.world.World;
-import net.minecraftforge.client.MinecraftForgeClient;
-import blfngl.fallout.Fallout;
 import blfngl.fallout.entity.EntityRocket;
-import blfngl.fallout.gun.render.RenderBozar;
-import blfngl.fallout.gun.render.RenderBozarScoped;
 
 public class ItemThrowingExplosive extends Item
 {

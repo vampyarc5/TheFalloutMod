@@ -1,21 +1,27 @@
 package blfngl.fallout.proxy;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import blfngl.fallout.Fallout;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 public class CommonProxy implements IGuiHandler
 {
-	// Client stuff
 	public void registerRenderers()
 	{
 
 	}
 
 	public void registerSoundHandler()
+	{
+
+	}
+
+	public void registerTileEntities()
 	{
 
 	}

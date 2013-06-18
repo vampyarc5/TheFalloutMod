@@ -1,8 +1,8 @@
 package blfngl.fallout.handler;
 
+import net.minecraft.item.Item;
 import blfngl.fallout.Fallout;
 import blfngl.fallout.item.ItemFalloutRecord;
-import net.minecraft.item.Item;
 
 public class RecordHandler
 {

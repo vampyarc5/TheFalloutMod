@@ -4,7 +4,6 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelSilverfish;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.client.IItemRenderer;
@@ -34,19 +33,14 @@ import blfngl.fallout.entity.render.RenderGlowingOne;
 import blfngl.fallout.entity.render.RenderMrHandy;
 import blfngl.fallout.entity.render.RenderNightStalker;
 import blfngl.fallout.entity.render.RenderRadroach;
-import blfngl.fallout.gui.GuiLevelUp;
 import blfngl.fallout.gun.render.Render45Auto;
-import blfngl.fallout.gun.render.Render45AutoScoped;
 import blfngl.fallout.gun.render.Render9mmPistol;
 import blfngl.fallout.gun.render.RenderAntiMaterielRifle;
 import blfngl.fallout.gun.render.RenderAssaultCarbine;
 import blfngl.fallout.gun.render.RenderBozar;
-import blfngl.fallout.gun.render.RenderBozarScoped;
 import blfngl.fallout.gun.render.RenderChineseAssaultRifle;
-import blfngl.fallout.gun.render.RenderChineseAssaultRifleScoped;
 import blfngl.fallout.gun.render.RenderDoubleBarrelShotgun;
 import blfngl.fallout.gun.render.RenderRatslayer;
-import blfngl.fallout.gun.render.RenderRatslayerScoped;
 import blfngl.fallout.handler.ReloadHandler;
 import blfngl.fallout.handler.ScopeHandler;
 import blfngl.fallout.handler.SoundHandler;
@@ -110,7 +104,6 @@ public class ClientProxy extends CommonProxy
 			switch(ID)
 			{
 			case 0:
-			case 1: return new GuiLevelUp(player);
 			}
 		}
 		return tileEntity;

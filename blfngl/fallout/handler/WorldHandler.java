@@ -4,14 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraftforge.common.ChestGenHooks;
 import blfngl.fallout.Fallout;
-import blfngl.fallout.food.WorldGenBrocFlower;
 import blfngl.fallout.world.WorldGenFallout;
-import blfngl.fallout.world.WorldGenCarbonDeposit;
-import blfngl.fallout.world.WorldGenSatOre;
-import blfngl.fallout.world.WorldGenSiliconDeposit;
-import blfngl.fallout.world.WorldGenTechOre;
-import blfngl.fallout.world.WorldGenTungstenOre;
-import blfngl.fallout.world.WorldGenUraniumOre;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class WorldHandler extends Fallout

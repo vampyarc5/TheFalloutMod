@@ -1,10 +1,10 @@
 package blfngl.fallout.entity.render;
 
-import blfngl.fallout.entity.EntityGlowingOne;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import blfngl.fallout.entity.EntityGlowingOne;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

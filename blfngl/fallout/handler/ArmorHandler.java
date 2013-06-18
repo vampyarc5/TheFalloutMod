@@ -1,9 +1,9 @@
 package blfngl.fallout.handler;
 
-import blfngl.fallout.Fallout;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import blfngl.fallout.Fallout;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

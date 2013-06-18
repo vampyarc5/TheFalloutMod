@@ -2,8 +2,6 @@ package blfngl.fallout.gun;
 
 import javax.swing.text.html.parser.Entity;
 
-import blfngl.fallout.Fallout;
-
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySmallFireball;
@@ -12,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import blfngl.fallout.Fallout;
 
 public class GunIncinerator extends ItemSword
 {

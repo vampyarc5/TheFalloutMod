@@ -13,9 +13,6 @@ import org.lwjgl.opengl.GL11;
 
 import blfngl.fallout.gun.model.ModelChineseAssaultRifle;
 
-
-import cpw.mods.fml.client.TextureHelper;
-
 public class RenderChineseAssaultRifleScoped implements IItemRenderer
 {
 	protected ModelChineseAssaultRifle model = new ModelChineseAssaultRifle();

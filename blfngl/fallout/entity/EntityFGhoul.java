@@ -20,7 +20,7 @@ public class EntityFGhoul extends EntityMob
 	{
 		super(par1World);
 		this.texture = "/blfngl/fallout/textures/FGhoul.png";
-		this.moveSpeed = 1f;
+		this.moveSpeed = 1.0F;
 		isImmuneToFire = false;
 
 		this.tasks.addTask(0, new EntityAISwimming(this));
@@ -30,7 +30,7 @@ public class EntityFGhoul extends EntityMob
 		this.tasks.addTask(4, new EntityAILookIdle(this));
 		this.targetTasks.addTask(0, new EntityAIHurtByTarget(this, false));
 		this.targetTasks.addTask(1, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 25.0F, 0, true));
-
+		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityBOSPaladin.class, 25.0F, 200, false));
 	}
 	
 	public int getAttackStrength(Entity par1Entity)
@@ -93,6 +93,6 @@ public class EntityFGhoul extends EntityMob
 
 	protected boolean isAIEnabled()
 	{
-		return false;
+		return true;
 	}
 }

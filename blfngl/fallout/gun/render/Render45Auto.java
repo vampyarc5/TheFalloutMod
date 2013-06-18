@@ -12,7 +12,6 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import blfngl.fallout.gun.model.Model45Auto;
-import cpw.mods.fml.client.TextureHelper;
 
 public class Render45Auto implements IItemRenderer
 {

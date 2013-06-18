@@ -13,8 +13,6 @@ import org.lwjgl.opengl.GL11;
 
 import blfngl.fallout.gun.model.ModelRatslayer;
 
-import cpw.mods.fml.client.TextureHelper;
-
 public class RenderRatslayer implements IItemRenderer
 {
     protected ModelRatslayer model = new ModelRatslayer();

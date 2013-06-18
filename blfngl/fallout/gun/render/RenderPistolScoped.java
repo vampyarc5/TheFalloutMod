@@ -13,9 +13,6 @@ import org.lwjgl.opengl.GL11;
 
 import blfngl.fallout.gun.model.ModelRevolver;
 
-
-import cpw.mods.fml.client.TextureHelper;
-
 public class RenderPistolScoped implements IItemRenderer
 {
     protected ModelRevolver model = new ModelRevolver();

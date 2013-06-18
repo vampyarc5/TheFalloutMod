@@ -2,10 +2,9 @@ package blfngl.fallout;
 
 import java.util.Arrays;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockFlowing;
 import net.minecraft.block.BlockOre;
-import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
@@ -17,31 +16,8 @@ import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
-import blfngl.fallout.armor.ArmorBaseEnclave;
-import blfngl.fallout.armor.ArmorBaseGecko1;
-import blfngl.fallout.armor.ArmorBaseHellfire;
-import blfngl.fallout.armor.ArmorBaseT45;
-import blfngl.fallout.armor.ArmorBaseT51;
-import blfngl.fallout.armor.ArmorBaseWinter;
-import blfngl.fallout.block.BlockAlien;
-import blfngl.fallout.block.BlockAsbestosDeposit;
-import blfngl.fallout.block.BlockBPGlass;
-import blfngl.fallout.block.BlockBananaYucca;
-import blfngl.fallout.block.BlockBarrelCactus;
-import blfngl.fallout.block.BlockBrocFlower;
-import blfngl.fallout.block.BlockBuffaloGourd;
-import blfngl.fallout.block.BlockCarbonDeposit;
-import blfngl.fallout.block.BlockCaveFungus;
-import blfngl.fallout.block.BlockJalapeno;
 import blfngl.fallout.block.BlockPortalActivator;
-import blfngl.fallout.block.BlockReloadBench;
-import blfngl.fallout.block.BlockSaturniteOre;
-import blfngl.fallout.block.BlockSiliconDeposit;
-import blfngl.fallout.block.BlockTechnetiumOre;
-import blfngl.fallout.block.BlockTungstenOre;
-import blfngl.fallout.block.BlockUraniumOre;
 import blfngl.fallout.block.BlockWastelandPortal;
-import blfngl.fallout.block.BlockXanderRoot;
 import blfngl.fallout.food.ItemFixer;
 import blfngl.fallout.food.ItemHealingPowder;
 import blfngl.fallout.food.ItemHydra;
@@ -69,11 +45,13 @@ import blfngl.fallout.handler.FoodHandler;
 import blfngl.fallout.handler.GunHandler;
 import blfngl.fallout.handler.ItemHandler;
 import blfngl.fallout.handler.PerkHandler;
+import blfngl.fallout.handler.QuestHandler;
 import blfngl.fallout.handler.RecordHandler;
 import blfngl.fallout.handler.ThrowingHandler;
 import blfngl.fallout.handler.VanillaDropHandler;
 import blfngl.fallout.handler.WeaponHandler;
 import blfngl.fallout.handler.WorldHandler;
+import blfngl.fallout.item.BaseArmor;
 import blfngl.fallout.item.BaseDrink;
 import blfngl.fallout.item.BaseFood;
 import blfngl.fallout.item.BaseItem;
@@ -139,12 +117,46 @@ public class Fallout
 
 	@SidedProxy(clientSide="blfngl.fallout.proxy.ClientProxy", serverSide="blfngl.fallout.proxy.CommonProxy")
 	public static CommonProxy proxy;
-	public static ClientProxy cproxy;
 
 	public static boolean isScoped = false;
 	public static boolean isReloading = false;
 	public static int dimensionWasteland = 18;
 	public static NBTTagCompound perkNBT;
+	public static boolean armorSlowness;
+	public static BlockOre TungstenOre;
+	public static int oreTungstenID;
+	public static BlockOre TechnetiumOre;
+	public static int oreTechnetiumID;
+	public static BlockOre SaturniteOre;
+	public static int oreSaturniteID;
+	public static BlockFlower BrocFlower;
+	public static int plantBrocFlowerID;
+	public static BlockOre BPGlass;
+	public static int blockBulletproofGlassID;
+	public static BlockFlower XanderRoot;
+	public static int plantXanderRootID;
+	public static BlockOre UraniumOre;
+	public static int oreUraniumID;
+	public static BlockOre SiliconDeposit;
+	public static int oreSiliconID;
+	public static BlockOre CarbonDeposit;
+	public static int oreCarbonID;
+	public static BlockOre AsbestosDeposit;
+	public static int oreAsbestosID;
+	public static BlockFlower BarrelCactus;
+	public static int plantBarrelCactusID;
+	public static BlockFlower BananaYucca;
+	public static int plantBananaYuccaID;
+	public static BlockFlower CaveFungus;
+	public static int plantCaveFungusID;
+	public static BlockFlower BuffaloGourd;
+	public static int plantBuffaloGourdID;
+	public static BlockFlower Jalapeno;
+	public static int plantJalapenoID;
+	public static BlockOre blockAlien;
+	public static int blockAlienID;
+	public static BlockFlowing irradiatedWater;
+	public static int irrWaterID;
 
 	public static CreativeTabs TabFalloutArmor = new TabFalloutArmor(CreativeTabs.getNextID(), "TabFalloutArmor");
 	public static CreativeTabs TabFalloutPistol = new TabFalloutPistol(CreativeTabs.getNextID(), "TabFalloutPistol");
@@ -173,11 +185,14 @@ public class Fallout
 	public static EnumToolMaterial PINT = EnumHelper.addToolMaterial("PINT", 0, 100, 200.0F, 200, 10);
 	public static EnumToolMaterial GUN = EnumHelper.addToolMaterial("GUN", 0, 0, 0.0F, 0, 0);
 
-	public static EnumArmorMaterial T45POWER = EnumHelper.addArmorMaterial("T45POWER", 35, new int[]{4, 8, 5, 3}, 25);
-	public static EnumArmorMaterial ENCLAVE = EnumHelper.addArmorMaterial("ENCLAVE", 37, new int[]{4, 8, 5, 3}, 28);
-	public static EnumArmorMaterial T51POWER = EnumHelper.addArmorMaterial("T51POWER", 39, new int[]{4, 8, 5, 3}, 33);
-	public static EnumArmorMaterial HELLFIRE = EnumHelper.addArmorMaterial("HELLFIRE", 41, new int []{4, 8, 5, 3}, 35);
-	public static EnumArmorMaterial WINTER = EnumHelper.addArmorMaterial("WINTER", 42, new int []{4, 8, 5, 3}, 35);
+	public static EnumArmorMaterial T45POWER = EnumHelper.addArmorMaterial("T45POWER", 32, new int[] {4, 8, 5, 3}, 35);
+	public static EnumArmorMaterial ENCLAVE = EnumHelper.addArmorMaterial("ENCLAVE", 34, new int[] {4, 8, 5, 3}, 37);
+	public static EnumArmorMaterial T51POWER = EnumHelper.addArmorMaterial("T51POWER", 35, new int[] {4, 8, 5, 3}, 39);
+	public static EnumArmorMaterial HELLFIRE = EnumHelper.addArmorMaterial("HELLFIRE", 44, new int [] {4, 8, 5, 3}, 41);
+	public static EnumArmorMaterial WINTER = EnumHelper.addArmorMaterial("WINTER", 50, new int [] {4, 8, 5, 3}, 42);
+
+	public static EnumArmorMaterial SIERRASECURITY = EnumHelper.addArmorMaterial("SIERRASECURITY", 16, new int [] {3, 6, 4, 2}, 16);
+	public static EnumArmorMaterial RECON = EnumHelper.addArmorMaterial("RECON", 17, new int [] {3, 6, 4, 2}, 17);
 
 	public static final Item cellEnergy = new BaseItem(448).setUnlocalizedName("ECell").setCreativeTab(TabFalloutAmmo);
 	public static final Item a22LR = new BaseItem(443).setUnlocalizedName("22LRRound").setCreativeTab(TabFalloutAmmo);
@@ -348,54 +363,37 @@ public class Fallout
 
 	//============================================Armor==========================================================
 
-	public static final Item T45Helm = new ArmorBaseT45(542, T45POWER, 1, 0).setUnlocalizedName("T45Helm").setCreativeTab(TabFalloutArmor);
-	public static final Item T45Chest = new ArmorBaseT45(543, T45POWER, 1, 1).setUnlocalizedName("T45Chest").setCreativeTab(TabFalloutArmor);
-	public static final Item T45Legs = new ArmorBaseT45(544, T45POWER, 1, 2).setUnlocalizedName("T45Legs").setCreativeTab(TabFalloutArmor);
-	public static final Item T45Boots = new ArmorBaseT45(545, T45POWER, 1, 3).setUnlocalizedName("T45Boots").setCreativeTab(TabFalloutArmor);
+	public static final Item T45Helm = new BaseArmor(542, T45POWER, 1, 0, "Heavy").setUnlocalizedName("T45Helm").setCreativeTab(TabFalloutArmor);
+	public static final Item T45Chest = new BaseArmor(543, T45POWER, 1, 1, "Heavy").setUnlocalizedName("T45Chest").setCreativeTab(TabFalloutArmor);
+	public static final Item T45Legs = new BaseArmor(544, T45POWER, 1, 2, "Heavy").setUnlocalizedName("T45Legs").setCreativeTab(TabFalloutArmor);
+	public static final Item T45Boots = new BaseArmor(545, T45POWER, 1, 3, "Heavy").setUnlocalizedName("T45Boots").setCreativeTab(TabFalloutArmor);
 
-	public static final Item T51Helm = new ArmorBaseT51(546, T51POWER, 1, 0).setUnlocalizedName("T51Helm").setCreativeTab(TabFalloutArmor);
-	public static final Item T51Chest = new ArmorBaseT51(547, T51POWER, 1, 1).setUnlocalizedName("T51Chest").setCreativeTab(TabFalloutArmor);
-	public static final Item T51Legs = new ArmorBaseT51(548, T51POWER, 1, 2).setUnlocalizedName("T51Legs").setCreativeTab(TabFalloutArmor);
-	public static final Item T51Boots = new ArmorBaseT51(549, T51POWER, 1, 3).setUnlocalizedName("T51Boots").setCreativeTab(TabFalloutArmor);
+	public static final Item T51Helm = new BaseArmor(546, T51POWER, 1, 0, "Heavy").setUnlocalizedName("T51Helm").setCreativeTab(TabFalloutArmor);
+	public static final Item T51Chest = new BaseArmor(547, T51POWER, 1, 1, "Heavy").setUnlocalizedName("T51Chest").setCreativeTab(TabFalloutArmor);
+	public static final Item T51Legs = new BaseArmor(548, T51POWER, 1, 2, "Heavy").setUnlocalizedName("T51Legs").setCreativeTab(TabFalloutArmor);
+	public static final Item T51Boots = new BaseArmor(549, T51POWER, 1, 3, "Heavy").setUnlocalizedName("T51Boots").setCreativeTab(TabFalloutArmor);
 
-	public static final Item G1Helm = new ArmorBaseGecko1(550, EnumArmorMaterial.CHAIN, 1, 0).setUnlocalizedName("G1Helm").setCreativeTab(TabFalloutArmor);
-	public static final Item G1Chest = new ArmorBaseGecko1(551, EnumArmorMaterial.CHAIN, 1, 1).setUnlocalizedName("G1Chest").setCreativeTab(TabFalloutArmor);
-	public static final Item G1Legs = new ArmorBaseGecko1(552, EnumArmorMaterial.CHAIN, 1, 2).setUnlocalizedName("G1Legs").setCreativeTab(TabFalloutArmor);
-	public static final Item G1Boots = new ArmorBaseGecko1(553, EnumArmorMaterial.CHAIN, 1, 3).setUnlocalizedName("G1Boots").setCreativeTab(TabFalloutArmor);
+	public static final Item G1Helm = new BaseArmor(550, EnumArmorMaterial.CHAIN, 1, 0, "Light").setUnlocalizedName("G1Helm").setCreativeTab(TabFalloutArmor);
+	public static final Item G1Chest = new BaseArmor(551, EnumArmorMaterial.CHAIN, 1, 1, "Light").setUnlocalizedName("G1Chest").setCreativeTab(TabFalloutArmor);
+	public static final Item G1Legs = new BaseArmor(552, EnumArmorMaterial.CHAIN, 1, 2, "Light").setUnlocalizedName("G1Legs").setCreativeTab(TabFalloutArmor);
+	public static final Item G1Boots = new BaseArmor(553, EnumArmorMaterial.CHAIN, 1, 3, "Light").setUnlocalizedName("G1Boots").setCreativeTab(TabFalloutArmor);
 
-	public static final Item HellHelm = new ArmorBaseHellfire(554, HELLFIRE, 1, 0).setUnlocalizedName("HellHelm").setCreativeTab(TabFalloutArmor);
-	public static final Item HellChest = new ArmorBaseHellfire(555, HELLFIRE, 1, 1).setUnlocalizedName("HellChest").setCreativeTab(TabFalloutArmor);
-	public static final Item HellLegs = new ArmorBaseHellfire(556, HELLFIRE, 1, 2).setUnlocalizedName("HellLegs").setCreativeTab(TabFalloutArmor);
-	public static final Item HellBoots = new ArmorBaseHellfire(557, HELLFIRE, 1, 3).setUnlocalizedName("HellBoots").setCreativeTab(TabFalloutArmor);
+	public static final Item HellHelm = new BaseArmor(554, HELLFIRE, 1, 0, "Heavy").setUnlocalizedName("HellHelm").setCreativeTab(TabFalloutArmor);
+	public static final Item HellChest = new BaseArmor(555, HELLFIRE, 1, 1, "Heavy").setUnlocalizedName("HellChest").setCreativeTab(TabFalloutArmor);
+	public static final Item HellLegs = new BaseArmor(556, HELLFIRE, 1, 2, "Heavy").setUnlocalizedName("HellLegs").setCreativeTab(TabFalloutArmor);
+	public static final Item HellBoots = new BaseArmor(557, HELLFIRE, 1, 3, "Heavy").setUnlocalizedName("HellBoots").setCreativeTab(TabFalloutArmor);
 
-	public static final Item WinterHelm = new ArmorBaseWinter(558, WINTER, 1, 0).setUnlocalizedName("WinterHelm").setCreativeTab(TabFalloutArmor);
-	public static final Item WinterChest = new ArmorBaseWinter(559, WINTER, 1, 1).setUnlocalizedName("WinterChest").setCreativeTab(TabFalloutArmor);
-	public static final Item WinterLegs = new ArmorBaseWinter(560, WINTER, 1, 2).setUnlocalizedName("WinterLegs").setCreativeTab(TabFalloutArmor);
-	public static final Item WinterBoots = new ArmorBaseWinter(561, WINTER, 1, 3).setUnlocalizedName("WinterBoots").setCreativeTab(TabFalloutArmor);
+	public static final Item WinterHelm = new BaseArmor(558, WINTER, 1, 0, "Heavy").setUnlocalizedName("WinterHelm").setCreativeTab(TabFalloutArmor);
+	public static final Item WinterChest = new BaseArmor(559, WINTER, 1, 1, "Heavy").setUnlocalizedName("WinterChest").setCreativeTab(TabFalloutArmor);
+	public static final Item WinterLegs = new BaseArmor(560, WINTER, 1, 2, "Heavy").setUnlocalizedName("WinterLegs").setCreativeTab(TabFalloutArmor);
+	public static final Item WinterBoots = new BaseArmor(561, WINTER, 1, 3, "Heavy").setUnlocalizedName("WinterBoots").setCreativeTab(TabFalloutArmor);
 
-	public static final Item EnclaveHelm = new ArmorBaseEnclave(562, ENCLAVE, 1, 0).setUnlocalizedName("EnclaveHelm").setCreativeTab(TabFalloutArmor);
-	public static final Item EnclaveChest = new ArmorBaseEnclave(563, ENCLAVE, 1, 1).setUnlocalizedName("EnclaveChest").setCreativeTab(TabFalloutArmor);
-	public static final Item EnclaveLegs = new ArmorBaseEnclave(564, ENCLAVE, 1, 2).setUnlocalizedName("EnclaveLegs").setCreativeTab(TabFalloutArmor);
-	public static final Item EnclaveBoots = new ArmorBaseEnclave(565, ENCLAVE, 1, 3).setUnlocalizedName("EnclaveBoots").setCreativeTab(TabFalloutArmor);
+	public static final Item EnclaveHelm = new BaseArmor(562, ENCLAVE, 1, 0, "Heavy").setUnlocalizedName("EnclaveHelm").setCreativeTab(TabFalloutArmor);
+	public static final Item EnclaveChest = new BaseArmor(563, ENCLAVE, 1, 1, "Heavy").setUnlocalizedName("EnclaveChest").setCreativeTab(TabFalloutArmor);
+	public static final Item EnclaveLegs = new BaseArmor(564, ENCLAVE, 1, 2, "Heavy").setUnlocalizedName("EnclaveLegs").setCreativeTab(TabFalloutArmor);
+	public static final Item EnclaveBoots = new BaseArmor(565, ENCLAVE, 1, 3, "Heavy").setUnlocalizedName("EnclaveBoots").setCreativeTab(TabFalloutArmor);
 
-	public static final BlockOre TungstenOre = (new BlockTungstenOre(170, 0, Material.rock));
-	public static final BlockOre TechnetiumOre = (new BlockTechnetiumOre(171, 1, Material.rock));
-	public static final BlockOre SaturniteOre = (new BlockSaturniteOre(172, 2, Material.rock));
-	public static final BlockFlower BrocFlower = (BlockFlower) new BlockBrocFlower(174, 3).setUnlocalizedName("BrocFlower");
-	public static final BlockOre BPGlass = (new BlockBPGlass(173, 4, Material.rock));
-	public static final BlockFlower XanderRoot = (BlockFlower) new BlockXanderRoot(175 ,5).setUnlocalizedName("XanderRoot");
-	public static final BlockOre UraniumOre = (new BlockUraniumOre(176,7, Material.rock));
-	public static final BlockOre SiliconDeposit = (new BlockSiliconDeposit(177, 6, Material.rock));
-	public static final BlockOre CarbonDeposit = (new BlockCarbonDeposit(178, 9, Material.rock));
-	public static final BlockOre AsbestosDeposit = (new BlockAsbestosDeposit(179, 10, Material.rock));
-	public static final BlockFlower BarrelCactus = (BlockFlower) new BlockBarrelCactus(180, 11).setUnlocalizedName("BarrelCactus");
-	public static final BlockFlower BananaYucca = (BlockFlower) new BlockBananaYucca(181, 15).setUnlocalizedName("BananaYucca");
-	public static final BlockFlower CaveFungus = (BlockFlower) new BlockCaveFungus(182, 29).setUnlocalizedName("CaveFungus");
-	public static final BlockFlower BuffaloGourd = (BlockFlower) new BlockBuffaloGourd(183, 13).setUnlocalizedName("BuffaloGourd");
-	public static final BlockFlower Jalapeno = (BlockFlower) new BlockJalapeno(184, 14).setUnlocalizedName("Jalapeno");
-	//public static final Block benchReload = new BlockReloadBench(185).setCreativeTab(CreativeTabs.tabBlock);
-	public static final BlockOre blockAlien = (BlockOre) new BlockAlien(185, 15, Material.rock).setUnlocalizedName("AlienBlock");
-	public static final Block blockReload = new BlockReloadBench(186, Material.rock).setUnlocalizedName("Reload").setCreativeTab(CreativeTabs.tabBlock);
+	
 
 	public static final BiomeGenBase Wasteland = (new BiomeWasteland(100)).setColor(16421912).setBiomeName("Wasteland").setDisableRain().setTemperatureRainfall(2.0F, 0.0F).setMinMaxHeight(0.1F, 0.2F);
 
@@ -448,7 +446,7 @@ public class Fallout
 	public static final Item shotgunDinnerBell = new BaseGun(614, 13, 7, 3, 4, "blfngl.HuntingShotgunFire", "Blfngl.HuntingShotgunReload", aGauge12, 745).setUnlocalizedName("DinnerBell").setCreativeTab(TabFalloutShotgun);
 	public static final Item pistol9mm = new BaseGun(615, 2, 13, 3, 1, "blfngl.9mmFire", "Blfngl.9mmReload", a9mm, 745).setUnlocalizedName("9mmPistol").setCreativeTab(TabFalloutPistol);
 	public static final Item pistolAlienBlaster = new BaseGun(616, 13, 10, 2, 1, "blfngl.AlienBlasterFire", "Blfngl.AlienBlasterReload", aAlien, 2495).setUnlocalizedName("AlienBlaster").setCreativeTab(TabFalloutPistol);
-	public static final Item rifleHunting = new BaseGun(617, 6, 24, 3, 3, "blfngl.HuntingRifleFire", "Blfngl.HuntingRifleReload", a308, 1495).setUnlocalizedName("HuntingRifle").setCreativeTab(TabFalloutRifle);
+	public static final Item rifleHunting = new BaseGun(617, 6, 5, 3, 3, "blfngl.HuntingRifleFire", "Blfngl.HuntingRifleReload", a308, 1495).setUnlocalizedName("HuntingRifle").setCreativeTab(TabFalloutRifle);
 	public static final Item pistolLucky = new BaseGun(620, 6, 6, 1, 2, "blfngl.357Fire", "Blfngl.357Reload", a357, 1120).setUnlocalizedName("Lucky").setCreativeTab(TabFalloutPistol);
 	public static final Item pistol45Auto = new BaseGun(621, 5, 7, 2, 1, "blfngl.45Fire", "Blfngl.9mmReload", a45Auto, 745).setUnlocalizedName("45AutoPistol").setCreativeTab(TabFalloutPistol);
 	public static final Item pistolLightDarkness = new BaseGun(622, 7, 7, 2, 1, "blfngl.45Fire", "Blfngl.9mmReload", a45Auto, 1245).setUnlocalizedName("LightDarkness").setCreativeTab(TabFalloutPistol);
@@ -633,6 +631,26 @@ public class Fallout
 
 	public static final Item perkRemover = new ItemPerk(787).setUnlocalizedName("Remover");
 
+	public static final Item SierraHelm = new BaseArmor(788, SIERRASECURITY, 1, 0, "Medium").setUnlocalizedName("SierraHelm").setCreativeTab(TabFalloutArmor);
+	public static final Item SierraChest = new BaseArmor(789, SIERRASECURITY, 1, 1, "Medium").setUnlocalizedName("SierraChest").setCreativeTab(TabFalloutArmor);
+	public static final Item SierraLegs = new BaseArmor(790, SIERRASECURITY, 1, 2, "Medium").setUnlocalizedName("SierraLegs").setCreativeTab(TabFalloutArmor);
+	public static final Item SierraBoots = new BaseArmor(791, SIERRASECURITY, 1, 3, "Medium").setUnlocalizedName("SierraBoots").setCreativeTab(TabFalloutArmor);
+
+	public static final Item ReconHelm = new BaseArmor(792, RECON, 1, 0, "Light").setUnlocalizedName("ReconHelm").setCreativeTab(TabFalloutArmor);
+	public static final Item ReconChest = new BaseArmor(793, RECON, 1, 1, "Light").setUnlocalizedName("ReconChest").setCreativeTab(TabFalloutArmor);
+	public static final Item ReconLegs = new BaseArmor(794, RECON, 1, 2, "Light").setUnlocalizedName("ReconLegs").setCreativeTab(TabFalloutArmor);
+	public static final Item ReconBoots = new BaseArmor(795, RECON, 1, 3, "Light").setUnlocalizedName("ReconBoots").setCreativeTab(TabFalloutArmor);
+
+	//	public static final Item EnclaveHelm = new ArmorBaseEnclave(562, ENCLAVE, 1, 0).setUnlocalizedName("EnclaveHelm").setCreativeTab(TabFalloutArmor);
+	//	public static final Item EnclaveChest = new ArmorBaseEnclave(563, ENCLAVE, 1, 1).setUnlocalizedName("EnclaveChest").setCreativeTab(TabFalloutArmor);
+	//	public static final Item EnclaveLegs = new ArmorBaseEnclave(564, ENCLAVE, 1, 2).setUnlocalizedName("EnclaveLegs").setCreativeTab(TabFalloutArmor);
+	//	public static final Item EnclaveBoots = new ArmorBaseEnclave(565, ENCLAVE, 1, 3).setUnlocalizedName("EnclaveBoots").setCreativeTab(TabFalloutArmor);
+	//	
+	//	public static final Item EnclaveHelm = new ArmorBaseEnclave(562, ENCLAVE, 1, 0).setUnlocalizedName("EnclaveHelm").setCreativeTab(TabFalloutArmor);
+	//	public static final Item EnclaveChest = new ArmorBaseEnclave(563, ENCLAVE, 1, 1).setUnlocalizedName("EnclaveChest").setCreativeTab(TabFalloutArmor);
+	//	public static final Item EnclaveLegs = new ArmorBaseEnclave(564, ENCLAVE, 1, 2).setUnlocalizedName("EnclaveLegs").setCreativeTab(TabFalloutArmor);
+	//	public static final Item EnclaveBoots = new ArmorBaseEnclave(565, ENCLAVE, 1, 3).setUnlocalizedName("EnclaveBoots").setCreativeTab(TabFalloutArmor);
+
 	//TODO Fix NBT
 	//public static final Item skillGuns = new ItemSkill(787).setUnlocalizedName("Guns");
 
@@ -664,14 +682,34 @@ public class Fallout
 		proxy.registerServerTickHandler();
 		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
 		instance = this;
-
+		
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+
 		config.load();
+
+		armorSlowness = config.get(Configuration.CATEGORY_GENERAL, "Will heavy and medium armor give slowness effect?", true).getBoolean(true);
+		oreTungstenID = config.getBlock("Tungsten Ore", 170).getInt();
+		oreTechnetiumID = config.getBlock("Technetium Ore", 171).getInt();
+		oreSaturniteID = config.getBlock("Saturnite Ore", 172).getInt();
+		plantBrocFlowerID = config.getBlock("Broc Flower", 173).getInt();
+		blockBulletproofGlassID = config.getBlock("Bulletproof Glass", 174).getInt();
+		plantXanderRootID = config.getBlock("Xander Root", 175).getInt();
+		oreUraniumID = config.getBlock("Uranium Ore", 176).getInt();
+		oreSiliconID = config.getBlock("Silicon Deposit", 177).getInt();
+		oreCarbonID = config.getBlock("Carbon Deposit", 178).getInt();
+		oreAsbestosID = config.getBlock("Asbestos Deposit", 179).getInt();
+		plantBarrelCactusID = config.getBlock("Barrel Cactus", 180).getInt();
+		plantBananaYuccaID = config.getBlock("Banana Yucca", 181).getInt();
+		plantCaveFungusID = config.getBlock("Cave Fungus", 182).getInt();
+		plantBuffaloGourdID = config.getBlock("Buffalo Gourd", 183).getInt();
+		plantJalapenoID = config.getBlock("Jalapeno", 184).getInt();
+		blockAlienID = config.getBlock("Alien Block", 185).getInt();
+
 		config.save();
 	}
 
 	@Init
-	public void init(FMLInitializationEvent event)
+	public void load(FMLInitializationEvent event)
 	{
 		RecordHandler.init();
 		BlockHandler.init();
@@ -684,8 +722,13 @@ public class Fallout
 		ThrowingHandler.init();
 		EntityHandler.init();
 		PerkHandler.init();
-		MinecraftForge.EVENT_BUS.register(new VanillaDropHandler());
+		QuestHandler.init();
 
+		MinecraftForge.EVENT_BUS.register(new VanillaDropHandler());
+		proxy.registerTileEntities();
+		NetworkRegistry.instance().registerGuiHandler(this, this.proxy);
+		instance = this;
+		
 		LanguageRegistry.addName(RecordHandler.Track1, "Blue Moon");
 		LanguageRegistry.addName(RecordHandler.Track2, "Hallo Mr X");
 		LanguageRegistry.addName(RecordHandler.Track3, "Strahlende Trompete");

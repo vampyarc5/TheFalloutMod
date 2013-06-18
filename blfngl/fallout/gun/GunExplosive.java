@@ -10,7 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import blfngl.fallout.Fallout;
-import blfngl.fallout.entity.EntityBullet;
 import blfngl.fallout.entity.EntityRocket;
 
 public class GunExplosive extends Item
